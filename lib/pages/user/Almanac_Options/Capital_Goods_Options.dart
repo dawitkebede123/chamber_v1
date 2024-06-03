@@ -13,60 +13,46 @@ import 'package:flutter_svg/svg.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-class Telecom_Options extends StatelessWidget {
+class Capital_Goods_Options extends StatelessWidget {
  
  final List<Map<String,dynamic>> data = [
- 
   {
-  "title":"telebirr",
-"content": ""
-  },
-  {
-"title":"mpesa",
- "content":""
-  },
-
+        "title": "Addis Capital Goods Finance Business S.C.",
+        "content": "+251-111-262-445 / +251-111-262-411"
+    },
+    {
+        "title": "Debub Capital Goods Finance Business S.C.",
+        "content": "+251-462-125-191; +251-936-475-076"
+    },
+    {
+        "title": "Ethio-Lease Ethiopian Capital Goods Finance Business S.C.",
+        "content": "+251-116-393-397/ +251-116-393-395/ +251-930- 681-819"
+    },
+    {
+        "title": "Kaza Capital Goods Finance Business S.C.",
+        "content": "+251 -342-400-087/+251-344-400-085/ +251-930-469-095"
+    },
+    {
+        "title": "Oromia Capital Goods Finance Business S.C.",
+        "content": "+251-115-571-307/251-115-571-337/251-911-019-828"
+    },
+    {
+        "title": "Waliya Capital Goods Finance Business S.C.",
+        "content": "+251-582-206-780/251-582-206-728/251-930-111-703"
+    }
+  
 
  ];
   final Telecom = [
-    "assets/images/almanac_lists/telecom_logos/telebirr.png",
-    "assets/images/almanac_lists/telecom_logos/mpesa.png"
+  
  ];
 final Name = [
-    "telebirr",
-    "mpesa"
+    
  ];
   final List<Map<String, String>> detail = [
-    {
- 
-      "sector":"Telecom",
-     "name": "telebirr",
-     "logo": "assets/images/almanac_lists/telecom_logos/telebirr.png",
-     "adv_image":"assets/images/almanac_lists/telecom_logos/telebirr.png",
-     "adv_video":"",
-     "profile": "",
-          "tel": "994",
-     "email": "",
-     "website":"",
-     "fax":""
-   
-  },
-  {
- 
-      "sector":"Telecom",
-     "name": "mpesa",
-     "logo": "assets/images/almanac_lists/telecom_logos/telebirr.png",
-     "adv_image":"assets/images/almanac_lists/telecom_logos/telebirr.png",
-     "adv_video":"",
-     "profile": "",
-     "tel": "",
-     "email": "info@amigossacco.net",
-     "website":"www.amigossaccp.net",
-     "fax":""
-   
-  }
+    
   ]; 
-  // const Telecom_Options({super.key});
+  // const Capital_Goods_Options({super.key});
   
   
   @override
@@ -101,7 +87,7 @@ final Name = [
     ),
        
         title:const Text(
-          'Telecom',
+          'Capital Goods',
           style: TextStyle(
            color: Colors.black,
            fontWeight: FontWeight.bold,
@@ -183,16 +169,16 @@ final Name = [
                      },
                    ),
                  ),
-                 const Padding(
-                   padding: EdgeInsets.only(left: 20.0,right: 20,),
-                   child: Row(
-                     children: [
-                       Text("Usefull Addresses",style: TextStyle(fontSize: 16.0),textAlign: TextAlign.center,)
-                     ],
-                   ),
-                 ),
+                //  const Padding(
+                //    padding: EdgeInsets.only(left: 20.0,right: 20,),
+                //    child: Row(
+                //      children: [
+                //        Text("Usefull Addresses",style: TextStyle(fontSize: 16.0),textAlign: TextAlign.center,)
+                //      ],
+                //    ),
+                //  ),
                    // SizedBox(height: 20,),
-            Expanded(child: ExpandedPanel(data: data))
+            // Expanded(child: ExpandedPanel(data: data))
                ],
              ),
            ),  

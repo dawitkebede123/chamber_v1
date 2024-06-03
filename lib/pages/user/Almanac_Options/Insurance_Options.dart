@@ -190,7 +190,7 @@ final Name = [
              child: Column(
                children: [
                  SizedBox(
-                  height: 400,
+                  height: 600,
                    child: ListView.builder(
                      itemCount: Insurances.length,
                      itemBuilder: (context, index) {
@@ -248,16 +248,16 @@ final Name = [
                      },
                    ),
                  ),
-                 const Padding(
-                   padding: EdgeInsets.only(left: 20.0,right: 20,),
-                   child: Row(
-                     children: [
-                       Text("Usefull Addresses",style: TextStyle(fontSize: 16.0),textAlign: TextAlign.center,)
-                     ],
-                   ),
-                 ),
+                //  const Padding(
+                //    padding: EdgeInsets.only(left: 20.0,right: 20,),
+                //    child: Row(
+                //      children: [
+                //        Text("Usefull Addresses",style: TextStyle(fontSize: 16.0),textAlign: TextAlign.center,)
+                //      ],
+                //    ),
+                //  ),
                    // SizedBox(height: 20,),
-            Expanded(child: ExpandedPanel(data: data))
+            // Expanded(child: ExpandedPanel(data: data))
                ],
              ),
            ),  

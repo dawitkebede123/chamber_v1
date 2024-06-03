@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:chamber_of_commerce/pages/user/Business_Options/Export/Export_Home.dart';
+import 'package:chamber_of_commerce/pages/user/Business.dart';
+import 'package:chamber_of_commerce/pages/user/Business_Options/Export/Export_Listing.dart';
 import 'package:chamber_of_commerce/pages/user/Business_listing.dart';
 import 'package:chamber_of_commerce/pages/user/Home.dart';
 import 'package:chamber_of_commerce/widgets/BottomNavBar.dart';
@@ -18,13 +19,13 @@ import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 
 
-class Business extends StatefulWidget {
-  const Business({super.key});
+class Agriculture_Home extends StatefulWidget {
+  const Agriculture_Home({super.key});
   @override
-  State<Business> createState() => _BusinessState();
+  State<Agriculture_Home> createState() => _Agriculture_HomeState();
 }
 
-class _BusinessState extends State<Business> {
+class _Agriculture_HomeState extends State<Agriculture_Home> {
  final slideImages = [
    "assets/images/business_lists/adv_logo/1.jpg",
    "assets/images/business_lists/adv_logo/2.jpg",
@@ -101,80 +102,61 @@ class _BusinessState extends State<Business> {
   
     List <dynamic> categories = [
       "assets/images/business_lists/5.svg",
-       "assets/images/business_lists/8.svg",
-        "assets/images/business_lists/11.svg",
-        "assets/images/business_lists/6.svg",
-        "assets/images/business_lists/13.svg",
-
-        "assets/images/business_lists/1.svg",
-         "assets/images/business_lists/2.svg",
-        "assets/images/business_lists/3.svg",
-        "assets/images/business_lists/4.svg",
-        
-        "assets/images/business_lists/7.svg",
-       
-        "assets/images/business_lists/9.svg",
-        "assets/images/business_lists/10.svg",
-        "assets/images/business_lists/12.svg",
-        "assets/images/business_lists/14.svg",
+       "assets/images/business_lists/5.svg",
+       "assets/images/business_lists/5.svg",
+       "assets/images/business_lists/5.svg",
+       "assets/images/business_lists/5.svg",
+       "assets/images/business_lists/5.svg",
+       "assets/images/business_lists/5.svg",
+       "assets/images/business_lists/5.svg",
+       "assets/images/business_lists/5.svg",
+       "assets/images/business_lists/5.svg",
+       "assets/images/business_lists/5.svg",
+       "assets/images/business_lists/5.svg",
+       "assets/images/business_lists/5.svg",
+       "assets/images/business_lists/5.svg",
+       "assets/images/business_lists/5.svg",
+       "assets/images/business_lists/5.svg",
+       "assets/images/business_lists/5.svg",
+       "assets/images/business_lists/5.svg",
+       "assets/images/business_lists/5.svg",
+       "assets/images/business_lists/5.svg",
+       "assets/images/business_lists/5.svg",
+       "assets/images/business_lists/5.svg",
+       "assets/images/business_lists/5.svg",
+       "assets/images/business_lists/5.svg",
+       "assets/images/business_lists/5.svg",
+       "assets/images/business_lists/5.svg",
+       "assets/images/business_lists/5.svg",
+       "assets/images/business_lists/5.svg",
+        "assets/images/business_lists/5.svg",
+       "assets/images/business_lists/5.svg",
   ];
-  List <String> title = [
-    "Export",
-    "Import",
-    "Manufacturing",
-   "Construction",
-   "Transport, Storage And Communication",
-
-   "Agriculture, Hunting, Forestry, And Fishing",
-   "Financial Inter Mediation And Insurance",
-   "Community, Social And Personal Services",
-   "Electricity, Gas And Water Supply",
-   
-   "Hotel And Restaurants",
-  
-   "Wholesale And Retail ",
-   "Maintenance",
-   
-   "Mining And Quarrying",
-   "Real Estate And Business Service"
-  ];
+   List <String> title = [
+        "CATTLE AND PACK ANIMALS HUSBANDARY",
+"COFFEE FARMING",
+"CEREALS/PULSES FARMING",
+"COTTON FARMING",
+"DIFFERENT SEEDLINGS FARMING",
+"FISH HATCHERIES AND FISH FARMS",
+"FLOURICULTURE",
+"FRUITS FARMING",
+"GROWING OF ANIMALS FEED",
+"GROWING OF CROPS COMBINED WITH FARMING OF ANIMALS (MIXED FARMING)",
+"GROWING OF HERBS AND OTHERS",
+"GROWING OF PLANT SEEDS",
+"GROWING OF CEREALS",
+"OIL SEEDS FARMING",
+"PEST CONTROL",
+"POULTRY",
+"VEGETABLES FARMING",
+"AGRICULTURAL SUPPORT SERVICE",
+"BEE KEEPING",
+"PICTURE, SCULPTURE,GALLERY/ STUDIO SERVICE",
+"VEGETABLE,FRUIT,PLANT AND PLANT SEED PRODUCTION"
+     ];
   final List<Map<String, String>> businessCompanyProfile = [
-  //  {
-  //     "sector":"Manufacturing",
-  //    "name": "AARTI STEEL PLC",
-  //    "logo": "assets/images/phone_icon.svg",
-  //    "adv_image":"assets/images/phone_icon.svg",
-  //    "adv_video":"assets/video/business/1.mp4",
-  //    "profile": "",
-  //    "tel": "0116673563",
-  //    "email": "",
-  //    "website":"",
-  //    "fax":""
-  //  },
-  //  {
-  //    "sector":"EXPORT",
-  //    "name": "ABBAHWA TRADING P.L.C",
-  //    "logo": "assets/images/business_lists/adv_logo/1.jpg",
-  //    "adv_image":"",
-  //    "adv_video":"assets/video/business/2.mp4",
-  //    "profile": "",
-  //    "tel": "0114199629",
-  //    "email": "",
-  //    "website":"",
-  //    "fax":""
-  //  },
-  //   {
-  //    "sector":"EXPORT",
-  //    "name": "ABAT IMPORT AND EXPORT PLC",
-  //    "logo": "assets/images/business_lists/adv_logo/2.jpg",
-  //    "adv_image":"",
-  //    "adv_video":"assets/video/business/3.mp4",
-  //    "profile": "",
-  //    "tel": "0116392232",
-  //    "email": "",
-  //    "website":"",
-  //    "fax":""
-  //  }
+ 
    
    ];
      var scaffold = Scaffold(
@@ -200,7 +182,7 @@ class _BusinessState extends State<Business> {
           onPressed:()=>{
            Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) =>Home() ),
+              MaterialPageRoute(builder: (context) =>Business() ),
 
             ),
             }
@@ -212,7 +194,7 @@ class _BusinessState extends State<Business> {
     ),
        
         title:const Text(
-          'Business Directory 2024',
+          'Export',
           style: TextStyle(
            color: Colors.black,
            fontWeight: FontWeight.bold,
@@ -236,37 +218,15 @@ class _BusinessState extends State<Business> {
             // Slider(value: value, onChanged: onChanged),
            Column(
             children: [
-               Padding(
-                      padding: EdgeInsets.only(top:4, left: 20,right: 20,bottom: 16),
-                      child:Container(
-                   width: MediaQuery.of(context).size.width * 0.9,
-                  height: 126,
-                  decoration: BoxDecoration(
-                         border: Border.all(
-                       color: Color.fromARGB(255,229,234,232), // Set border color
-                       width: 1.0,
-                     ),
-                    color: Color.fromARGB(255, 255, 255, 255),
-                       
-                       borderRadius:BorderRadius.circular(20),),
-                       child:
-                       
-                       Column( 
-                         mainAxisAlignment: MainAxisAlignment.center,
-                         children: [
-                 CarouselSlider.builder(itemCount: slideImages.length, itemBuilder:(context,index,realIndex){
-                  final urlImage = slideImages[index];
-                  return buildImage(urlImage,index);
-                 }, options: CarouselOptions(height: 100,autoPlay: true))
-                       
-                       ],)
-                         // child:SvgPicture.asset('assets/images/Adv_slider.svg'),
-                ),),
               
-               const Padding(
-                      padding: EdgeInsets.only(left: 20.0,right: 20,bottom: 16),
-                      child: SearchFieldBusiness(),
-                    ),
+
+
+
+
+              //  const Padding(
+              //         padding: EdgeInsets.only(left: 20.0,right: 20,bottom: 16),
+              //         child: SearchFieldBusiness(),
+              //       ),
                Expanded(
                  child: Padding(
                    padding: const EdgeInsets.only(left: 20.0,right: 20,bottom: 16),
@@ -308,26 +268,17 @@ class _BusinessState extends State<Business> {
                             
                             onTap: () {
                                                      
-                                   if(index == 0){
-                                     Navigator.push(
-                                  context,
-                                  TransparentRoute(
-                                    page:Export_Home()
-              ),
-                                );
-                                   }  
-                                   else{
+                                  
                                         Navigator.push(
                                   context,
                                   TransparentRoute(
-                      page:  Business_listing(index: index,title:title[index],businessCompanyProfile: businessCompanyProfile),
+                      page:  Export_listing(index: index,title:title[index],businessCompanyProfile: businessCompanyProfile),
                             ),
                                 );
                                    }                 
                              
                                                       
                                
-                              },
                              );
                            },
                          ),

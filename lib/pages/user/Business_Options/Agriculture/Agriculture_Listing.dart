@@ -1,6 +1,7 @@
 
 import 'package:chamber_of_commerce/main.dart';
 import 'package:chamber_of_commerce/pages/user/Business.dart';
+import 'package:chamber_of_commerce/pages/user/Business_Options/Export/Export_Home.dart';
 import 'package:chamber_of_commerce/pages/user/Company%20_business.dart';
 import 'package:chamber_of_commerce/pages/user/Company.dart';
 import 'package:chamber_of_commerce/pages/user/Company_detail.dart';
@@ -22,16 +23,16 @@ import 'package:share_plus/share_plus.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 
-class Export_Listing extends StatefulWidget {
+class Agriculture_listing extends StatefulWidget {
   final int index;
   final String title;
   final List<Map<String, String>> businessCompanyProfile ;
-  const Export_Listing({super.key,required this.index,required this.title,required this.businessCompanyProfile});
+  const Agriculture_listing({super.key,required this.index,required this.title,required this.businessCompanyProfile});
   @override
-  State<Export_Listing> createState() => _Export_ListingState();
+  State<Agriculture_listing> createState() => _Agriculture_listingState();
 }
 
-class _Export_ListingState extends State<Export_Listing> {
+class _Agriculture_listingState extends State<Agriculture_listing> {
    Stream<DatabaseEvent>? _userStream;
   // final Map data = widget.businessCompanyProfile[""];
    
@@ -62,7 +63,29 @@ class _Export_ListingState extends State<Export_Listing> {
     //sample data containing company name, log(if there is no logo give a default one
     // ),
   //  
-    //  final data
+     final agri_date = [
+        "CATTLE AND PACK ANIMALS HUSBANDARY",
+"COFFEE FARMING",
+"CEREALS/PULSES FARMING",
+"COTTON FARMING",
+"DIFFERENT SEEDLINGS FARMING",
+"FISH HATCHERIES AND FISH FARMS",
+"FLOURICULTURE",
+"FRUITS FARMING",
+"GROWING OF ANIMALS FEED",
+"GROWING OF CROPS COMBINED WITH FARMING OF ANIMALS (MIXED FARMING)",
+"GROWING OF HERBS AND OTHERS",
+"GROWING OF PLANT SEEDS",
+"GROWING OF CEREALS",
+"OIL SEEDS FARMING",
+"PEST CONTROL",
+"POULTRY",
+"VEGETABLES FARMING",
+"AGRICULTURAL SUPPORT SERVICE",
+"BEE KEEPING",
+"PICTURE, SCULPTURE,GALLERY/ STUDIO SERVICE",
+"VEGETABLE,FRUIT,PLANT AND PLANT SEED PRODUCTION"
+     ];
     
      final  _items = [
      'assets/images/business_lists/sample/1.svg',
@@ -104,7 +127,7 @@ class _Export_ListingState extends State<Export_Listing> {
                       context,
                        TransparentRoute(
                
-                page:  Business(),
+                page:  Export_Home(),
               ),
                     ),
                     }
@@ -158,10 +181,10 @@ class _Export_ListingState extends State<Export_Listing> {
                   //          const SizedBox(
                   // height: 400,
                   // child: Business_Top_List()),
-                          const Padding(
-                            padding: EdgeInsets.only(left: 20.0,right: 20, bottom: 10),
-                            child: SearchFieldBusiness(),
-                          ),
+                          // const Padding(
+                          //   padding: EdgeInsets.only(left: 20.0,right: 20, bottom: 10),
+                          //   child: SearchFieldBusiness(),
+                          // ),
                            
                          
                            
@@ -191,6 +214,7 @@ class _Export_ListingState extends State<Export_Listing> {
   ///
   ///
   ///
+  
     Widget _buildContent(AsyncSnapshot<DatabaseEvent> snapshot) {
       
       if (snapshot.hasError) {
@@ -208,127 +232,199 @@ class _Export_ListingState extends State<Export_Listing> {
   if (data.isEmpty) {
     return const Center(child: Text('No businesses found'));
   }
-  //based on the index categorize Field Of Business
+  //based on the index categorize SIT+A1:I15802C Description
   if(widget.index == 0){
     // index = 0;
-    print('print');
      filteredBusinesses = data.expand((element) {
     // ... filtering logic using entry.value as Map<String, dynamic>
-    final companyName = element['Field Of Business']?.toString().toLowerCase() ?? '';
-    return companyName.startsWith("export") ? [element] : [];
+    final companyName = element['SIT+A1:I15802C Description']?.toString().toLowerCase() ?? '';
+    return companyName.startsWith("CATTLE AND PACK ANIMALS HUSBANDARY") ? [element] : [];
   }).toList();
-  
+    print(filteredBusinesses);
+    
   }
   if(widget.index == 5){
      filteredBusinesses = data.expand((element) {
     // ... filtering logic using entry.value as Map<String, dynamic>
-    final companyName = element['Field Of Business']?.toString().toLowerCase() ?? '';
-    return companyName.startsWith("agriculture") ? [element] : [];
+    final companyName = element['SIT+A1:I15802C Description']?.toString().toLowerCase() ?? '';
+    return companyName.startsWith("EXPORT TRADE") ? [element] : [];
   }).toList();
 
   }
   if(widget.index == 2){
      filteredBusinesses = data.expand((element) {
     // ... filtering logic using entry.value as Map<String, dynamic>
-    final companyName = element['Field Of Business']?.toString().toLowerCase() ?? '';
-    return companyName.startsWith("manufacturing") ? [element] : [];
+    final companyName = element['SIT+A1:I15802C Description']?.toString().toLowerCase() ?? '';
+    return companyName.startsWith("FOOD PRODUCTS") ? [element] : [];
   }).toList();
 
   }
   if(widget.index == 3){
      filteredBusinesses = data.expand((element) {
     // ... filtering logic using entry.value as Map<String, dynamic>
-    final companyName = element['Field Of Business']?.toString().toLowerCase() ?? '';
-    return companyName.startsWith("construction") ? [element] : [];
+    final companyName = element['SIT+A1:I15802C Description']?.toString().toLowerCase() ?? '';
+    return companyName.startsWith("EXPORT OF BEVERAGE CROPS (EXCEPT COFFEE AND TEA)") ? [element] : [];
   }).toList();
 
   }
   if(widget.index == 4){
      filteredBusinesses = data.expand((element) {
     // ... filtering logic using entry.value as Map<String, dynamic>
-    final companyName = element['Field Of Business']?.toString().toLowerCase() ?? '';
-    return companyName.startsWith("transport") ? [element] : [];
+    final companyName = element['SIT+A1:I15802C Description']?.toString().toLowerCase() ?? '';
+    return companyName.startsWith("MINERALS AND MINERAL PRODUCTS") ? [element] : [];
   }).toList();
 
   }
   if(widget.index == 1){
      filteredBusinesses = data.expand((element) {
     // ... filtering logic using entry.value as Map<String, dynamic>
-    final companyName = element['Field Of Business']?.toString().toLowerCase() ?? '';
-    return companyName.startsWith("import") ? [element] : [];
+    final companyName = element['SIT+A1:I15802C Description']?.toString().toLowerCase() ?? '';
+    return companyName.startsWith("RUBBER, PLASTICS AND PLASTIC PRODUCTSAND BATTERIES") ? [element] : [];
   }).toList();
 
   }
   if(widget.index == 6){
      filteredBusinesses = data.expand((element) {
     // ... filtering logic using entry.value as Map<String, dynamic>
-    final companyName = element['Field Of Business']?.toString().toLowerCase() ?? '';
-    return companyName.startsWith("financial inter") ? [element] : [];
+    final companyName = element['SIT+A1:I15802C Description']?.toString().toLowerCase() ?? '';
+    return companyName.startsWith("LEATHER, LEATHER PRODUCTS, FOOTWEAR AND RELATED PRODUCTS") ? [element] : [];
   }).toList();
 
   }
   if(widget.index == 7){
      filteredBusinesses = data.expand((element) {
     // ... filtering logic using entry.value as Map<String, dynamic>
-    final companyName = element['Field Of Business']?.toString().toLowerCase() ?? '';
-    return companyName.startsWith("community") ? [element] : [];
+    final companyName = element['SIT+A1:I15802C Description']?.toString().toLowerCase() ?? '';
+    return companyName.startsWith("TEXTILE FIBERS, COTTON, YARN AND APPAREL") ? [element] : [];
   }).toList();
 
   }
   if(widget.index == 8){
      filteredBusinesses = data.expand((element) {
     // ... filtering logic using entry.value as Map<String, dynamic>
-    final companyName = element['Field Of Business']?.toString().toLowerCase() ?? '';
-    return companyName.startsWith("electric") ? [element] : [];
+    final companyName = element['SIT+A1:I15802C Description']?.toString().toLowerCase() ?? '';
+    return companyName.startsWith("CEREALS") ? [element] : [];
   }).toList();
 
   }
   if(widget.index == 9){
      filteredBusinesses = data.expand((element) {
     // ... filtering logic using entry.value as Map<String, dynamic>
-    final companyName = element['Field Of Business']?.toString().toLowerCase() ?? '';
-    return companyName.startsWith("hotel") ? [element] : [];
+    final companyName = element['SIT+A1:I15802C Description']?.toString().toLowerCase() ?? '';
+    return companyName.startsWith("PLANT SEEDS") ? [element] : [];
   }).toList();
 
   }
   if(widget.index == 10){
      filteredBusinesses = data.expand((element) {
     // ... filtering logic using entry.value as Map<String, dynamic>
-    final companyName = element['Field Of Business']?.toString().toLowerCase() ?? '';
-    return companyName.startsWith("wholesale") ? [element] : [];
+    final companyName = element['SIT+A1:I15802C Description']?.toString().toLowerCase() ?? '';
+    return companyName.startsWith("SOUVENIR , ARTIFACTS AND ARTIFICIAL JEWELRY/CULTURAL CLOTHES") ? [element] : [];
   }).toList();
 
   }
   if(widget.index == 11){
      filteredBusinesses = data.expand((element) {
     // ... filtering logic using entry.value as Map<String, dynamic>
-    final companyName = element['Field Of Business']?.toString().toLowerCase() ?? '';
-    return companyName.startsWith("maintennance") ? [element] : [];
+    final companyName = element['SIT+A1:I15802C Description']?.toString().toLowerCase() ?? '';
+    return companyName.startsWith("AGRICULTURAL PRODUCTS") ? [element] : [];
   }).toList();
 
   }
   if(widget.index == 12){
      filteredBusinesses = data.expand((element) {
     // ... filtering logic using entry.value as Map<String, dynamic>
-    final companyName = element['Field Of Business']?.toString().toLowerCase() ?? '';
-    return companyName.startsWith("mining") ? [element] : [];
+    final companyName = element['SIT+A1:I15802C Description']?.toString().toLowerCase() ?? '';
+    return companyName.startsWith("LIVESTOCK PRODUCTS") ? [element] : [];
   }).toList();
 
   }
   if(widget.index == 13){
      filteredBusinesses = data.expand((element) {
     // ... filtering logic using entry.value as Map<String, dynamic>
-    final companyName = element['Field Of Business']?.toString().toLowerCase() ?? '';
-    return companyName.startsWith("real estate") ? [element] : [];
+    final companyName = element['SIT+A1:I15802C Description']?.toString().toLowerCase() ?? '';
+    return companyName.startsWith("CLEANING AND COSMOTICS") ? [element] : [];
   }).toList();
 
   }
+  if(widget.index == 14){
+     filteredBusinesses = data.expand((element) {
+    // ... filtering logic using entry.value as Map<String, dynamic>
+    final companyName = element['SIT+A1:I15802C Description']?.toString().toLowerCase() ?? '';
+    return companyName.startsWith("CLEANING AND COSMOTICS") ? [element] : [];
+  }).toList();
 
+  }
+  if(widget.index == 15){
+     filteredBusinesses = data.expand((element) {
+    // ... filtering logic using entry.value as Map<String, dynamic>
+    final companyName = element['SIT+A1:I15802C Description']?.toString().toLowerCase() ?? '';
+    return companyName.startsWith("WOOL, HIDES, SKINS AND FEATHERS") ? [element] : [];
+  }).toList();
+
+  }
+  if(widget.index == 16){
+     filteredBusinesses = data.expand((element) {
+    // ... filtering logic using entry.value as Map<String, dynamic>
+    final companyName = element['SIT+A1:I15802C Description']?.toString().toLowerCase() ?? '';
+    return companyName.startsWith("LIVESTOCK") ? [element] : [];
+  }).toList();
+
+  }
+  if(widget.index == 17){
+     filteredBusinesses = data.expand((element) {
+    // ... filtering logic using entry.value as Map<String, dynamic>
+    final companyName = element['SIT+A1:I15802C Description']?.toString().toLowerCase() ?? '';
+    return companyName.startsWith("BEVERAGE CROPS") ? [element] : [];
+  }).toList();
+
+  }
+  if(widget.index == 18){
+     filteredBusinesses = data.expand((element) {
+    // ... filtering logic using entry.value as Map<String, dynamic>
+    final companyName = element['SIT+A1:I15802C Description']?.toString().toLowerCase() ?? '';
+    return companyName.startsWith("EXPORT TRADE IN BEVERAGE PRODUCTS") ? [element] : [];
+  }).toList();
+
+  }
+  if(widget.index == 19){
+     filteredBusinesses = data.expand((element) {
+    // ... filtering logic using entry.value as Map<String, dynamic>
+    final companyName = element['SIT+A1:I15802C Description']?.toString().toLowerCase() ?? '';
+    return companyName.startsWith("TEXTILES FIBERS AND YARN") ? [element] : [];
+  }).toList();
+
+  }
+  if(widget.index == 20){
+     filteredBusinesses = data.expand((element) {
+    // ... filtering logic using entry.value as Map<String, dynamic>
+    final companyName = element['SIT+A1:I15802C Description']?.toString().toLowerCase() ?? '';
+    return companyName.startsWith("MEDICINAL CROPS") ? [element] : [];
+  }).toList();
+
+  }
+  if(widget.index == 21){
+     filteredBusinesses = data.expand((element) {
+    // ... filtering logic using entry.value as Map<String, dynamic>
+    final companyName = element['SIT+A1:I15802C Description']?.toString().toLowerCase() ?? '';
+    return companyName.startsWith("EDIBLE OILS & FATS") ? [element] : [];
+  }).toList();
+
+  }
+  if(widget.index == 22){
+     filteredBusinesses = data.expand((element) {
+    // ... filtering logic using entry.value as Map<String, dynamic>
+    final companyName = element['SIT+A1:I15802C Description']?.toString().toLowerCase() ?? '';
+    return companyName.startsWith("BOTTLED WATER") ? [element] : [];
+  }).toList();
+
+  }
+ 
   // int index= 0;
   // if(widget.index == 14){
   //    filteredBusinesses = data.expand((element) {
   //   // ... filtering logic using entry.value as Map<String, dynamic>
-  //   final companyName = element['Field Of Business']?.toString().toLowerCase() ?? '';
+  //   final companyName = element['SIT+A1:I15802C Description']?.toString().toLowerCase() ?? '';
   //   return companyName.startsWith("transport") ? [element] : [];
   // }).toList();
 

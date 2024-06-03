@@ -5,7 +5,6 @@ import 'package:chamber_of_commerce/pages/user/Business_Options/Export/Export_Ho
 import 'package:chamber_of_commerce/pages/user/Company%20_business.dart';
 import 'package:chamber_of_commerce/pages/user/Company.dart';
 import 'package:chamber_of_commerce/pages/user/Company_detail.dart';
-import 'package:chamber_of_commerce/pages/user/ExportListing.dart';
 import 'package:chamber_of_commerce/pages/user/Home.dart';
 import 'package:chamber_of_commerce/widgets/BottomNavBar.dart';
 import 'package:chamber_of_commerce/widgets/CustomBottomNavBar.dart';
@@ -205,7 +204,7 @@ class _Export_listingState extends State<Export_listing> {
   if (snapshot.connectionState == ConnectionState.waiting) {
     return const Center(child: CircularProgressIndicator());
   }
-
+  //  print(snapshot.data);
   final data = snapshot.data!.snapshot.value as List<dynamic>;
   List<dynamic> filteredBusinesses = data;
   if (data.isEmpty) {
@@ -214,16 +213,17 @@ class _Export_listingState extends State<Export_listing> {
   //based on the index categorize SIT+A1:I15802C Description
   if(widget.index == 0){
     // index = 0;
-    print("pulse");
+    print(data);
      filteredBusinesses = data.expand((element) {
     // ... filtering logic using entry.value as Map<String, dynamic>
     final companyName = element['SIT+A1:I15802C Description']?.toString().toLowerCase() ?? '';
-    return companyName.startsWith("PULSES") ? [element] : [];
+    return companyName.startsWith("OILSEEDS") ? [element] : [];
   }).toList();
-    print(filteredBusinesses);
+    // print(filteredBusinesses);
     
   }
   if(widget.index == 5){
+    print(data);
      filteredBusinesses = data.expand((element) {
     // ... filtering logic using entry.value as Map<String, dynamic>
     final companyName = element['SIT+A1:I15802C Description']?.toString().toLowerCase() ?? '';
@@ -277,7 +277,6 @@ class _Export_listingState extends State<Export_listing> {
     final companyName = element['SIT+A1:I15802C Description']?.toString().toLowerCase() ?? '';
     return companyName.startsWith("TEXTILE FIBERS, COTTON, YARN AND APPAREL") ? [element] : [];
   }).toList();
-
   }
   if(widget.index == 8){
      filteredBusinesses = data.expand((element) {

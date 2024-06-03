@@ -2,6 +2,7 @@ import 'package:chamber_of_commerce/pages/user/About_Almanac.dart';
 import 'package:chamber_of_commerce/pages/user/AlmanacListing.dart';
 import 'package:chamber_of_commerce/pages/user/Home.dart';
 import 'package:chamber_of_commerce/pages/admin/adminHome.dart';
+import 'package:chamber_of_commerce/pages/user/UseFullAddress.dart';
 import 'package:chamber_of_commerce/widgets/AboutUs.dart';
 import 'package:chamber_of_commerce/widgets/Almanac_Category.dart';
 import 'package:chamber_of_commerce/widgets/BottomNavBar.dart';
@@ -21,7 +22,7 @@ class Almanac extends StatelessWidget {
      "assets/images/almanac_lists/2.svg",
      "assets/images/almanac_lists/3.svg", 
      "assets/images/almanac_lists/4.svg",
-      "assets/images/almanac_lists/5.svg",
+      // "assets/images/almanac_lists/5.svg",
       "assets/images/almanac_lists/6.svg",
   ];
   final List<String> title= [
@@ -30,8 +31,9 @@ class Almanac extends StatelessWidget {
    "Insurance",
    "Micro Finance",
    "FinTech",
-   "Telecom",
+  //  "Telecom",
    "Saving And Credit",
+   "Capital Goods Finance"
   ];
   final slideImages = [
    "assets/images/almanac_lists/adv_logo/ethio.jpg",
@@ -65,12 +67,13 @@ class Almanac extends StatelessWidget {
      "index":4,
        "title":""
     },
-    {
-       "image":"assets/images/finance.svg",
-     "index":5,
-       "title":""
+    // {
+    //    "image":"assets/images/finance.svg",
+    //  "index":5,
+    //    "title":""
 
-    },{
+    // },
+    {
        "image":"assets/images/finance.svg",
      "index":6,
             "title":""
@@ -82,7 +85,7 @@ class Almanac extends StatelessWidget {
      "assets/images/almanac_lists/2.svg",
      "assets/images/almanac_lists/3.svg", 
      "assets/images/almanac_lists/4.svg",
-      "assets/images/almanac_lists/5.svg",
+      // "assets/images/almanac_lists/5.svg",
       "assets/images/almanac_lists/6.svg",
       
 
@@ -122,7 +125,7 @@ class Almanac extends StatelessWidget {
     ),
        
         title:const Text(
-          'Almanac',
+          'Finacial Almanac 2024',
           style: TextStyle(
            color: Colors.black,
            fontWeight: FontWeight.bold,
@@ -192,7 +195,7 @@ class Almanac extends StatelessWidget {
              child:  ListView(children:  [
               // Row(children: [
                 SizedBox(height: 20,),
-                 Text("About Almanac", style: TextStyle(fontWeight: FontWeight.bold),),
+                 Text("About Financial Almanac", style: TextStyle(fontWeight: FontWeight.bold),),
               
                Text("The financial landscape in Ethiopia is witnessing a significant transformation"),
                TextButton(
@@ -272,7 +275,21 @@ class Almanac extends StatelessWidget {
        ),
 
        
+          ElevatedButton(
 
+            onPressed:()=>{
+          Navigator.push(
+              context,
+               TransparentRoute(
+               
+                page:  UsefullAddress(),
+              ),
+            ),
+            
+          }, child: 
+          Text("use full address"),
+          )
+                   
           
 
 

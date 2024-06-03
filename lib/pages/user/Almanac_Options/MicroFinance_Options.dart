@@ -16,146 +16,7 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 class MicroFinance_Options extends StatelessWidget {
   final List<Map<String,dynamic>> data = [
  
-  {
-    "title":"Adaday Microfinance Institution S.C.",
-    "content":"+251-342405095/342405069/914749064",
-  },
-   {
-    "title":"Afar Microfinance Institution S.C",
-    "content":"+251-336660868/919982378",
-  },
-  {
-    "title":"Africa Village Financial Services S.C.",
-    "content":"+251-116463569/ 251-911370880/ 251-930362553",
-  },
-
- {
-    "title":"Aggar Microfinance S.C.",
-    "content":"+251-115577133/ 116183382; +251-911254761",
-  },
-  {
-    "title":"Amhara Credit and Saving Institution S. Co.",
-    "content":"058-2201652 0918340256/0918784701/0912901739",
-  },
-  {
-    "title":"Benishangul-Gumuz Microfinancing S.C.",
-    "content":" +251-577750666/ 251-577752042/ 251-913939415",
-  },
-  {
-    "title":"Dire Microfinance Institution S.C."
-    ,
-    "content":" +251-251129702/1127072/1119246/47 +251-915754951",
-  },
-   {
-    "title":"Dedebit  Credit and Saving Institution S.C."
-    ,
-    "content":
- "+251-344409306/251-988269371"
-    ,
-  },
-   {
-    "title":"Debo Microfinance Institution S.C.",
   
-    "content":"+251-116721518/19; +251-917823995"
-    ,
-  },
-   {
-    "title":"Buusaa Gonofaa MicroFinancing S.C.",
-    "content":"+251-114162621/ 251-114162210/ 251-911223679",
-  },
-   {
-    "title":"Dynamic Microfinance S.C.",
-    "content":"+251-115156817/115577285/911246806",
-  },
-  {
-    "title":"ESHET Microfinance Institution S.C.",
-    "content":"+251-113206451/52; +251-902481762",
-  },
-  {
-    "title":"Gambella Microfinancing S.C.",
-    "content":"+251-475511271/910460091",
-  },
-   {
-    "title":"Gasha Micro Financing S.C",
-    "content":"0118952389/90/91; +251-911240437",
-  },
-   {
-    "title":"GOGIBA Microfinance Institution S.C.",
-    "content":" +251-911951484",
-  },
-   {
-    "title":"Grand Microfinance Institution S.C",
-    "content":" +251-911133287/948852760/114705102",
-  },
-  {
-    "title":"Harbu Microfinancing Institution S.C.",
-    "content":" +251-116185510/911306545",
-  },
-  {
-    "title":"KAAFI Microfinance Institution S.C.",
-    "content":" +251-946877364/911832091",
-  },
-   {
-    "title":"Kendil Microfinance Institution S.C.",
-    "content":" +251-461105952/3831/5663; +251-913252247",
-  },
-   {
-    "title":"Kershi Microfinance Institution S.C.",
-    "content":" +251-118721106/2; +251-966566609",
-  },
-    {
-    "title":"Lefayeda Credit and Saving S.C.",
-    "content":" +251-115581546/914 317010",
-  },
- {
-    "title":"Lideta Microfinance Institution S.C.",
-    "content":" +251-919032777/914766154",
-  },
-  {
-    "title":"Liyu Microfinance Institution S.C",
-    "content":" +251-115576638/116622780/911625576",
-  },
-  {
-    "title":"Meklit Microfinance Institution S.C.",
-    "content":"+251-113484152/ 251-113482183/ 251-912611723",
-  },
-   {
-    "title":"ONE Microfinance Institution S.C.",
-    "content":"+251-116595363/116636947/911319055",
-  },
-   {
-    "title":"Peace Micro Financing S.C.",
-    "content":"+251-116521541/ 251-116616986/ 251-911219506",
-  },
-  {
-    "title":"Rays Microfinance Institution S.C.",
-    "content":"+251-114701834/913386180",
-  },
-  {
-    "title":"SAHAL Microfinance Institution S.C",
-    "content":"+251-915768505",
-  },
-  {
-    "title":"Sheger Microfinance Institution S.C.",
-    "content":"+251-113698998/113698894/113699612/911245736",
-  },
-   {
-    "title":"Tesfa Microfinance Institution S.C.",
-    "content":"+251-911261007/913157521",
-  },
-  {
-    "title":"Vision Fund Microfinance Institution S.C.",
-    "content":"+251-116463569/251-911370880/251-930362553",
-  },
-   {
-    "title":"Wasasa Microfinance Institution S.C.",
-    "content":"+251-911673822/ 251-113384133",
-  },
-   {
-    "title":"Yemsirach Microfinance Institution S.C.",
-    "content":"+251-118312404/911318625",
-  },
-
  ];
 
   final micro_finances = [
@@ -250,7 +111,7 @@ final Name = [
              child: Column(
                children: [
                  SizedBox(
-                  height: 400,
+                  height: 600,
                    child: ListView.builder(
                      itemCount: micro_finances.length,
                      itemBuilder: (context, index) {
@@ -308,16 +169,16 @@ final Name = [
                      },
                    ),
                  ),
-                 const Padding(
-                   padding: EdgeInsets.only(left: 20.0,right: 20,),
-                   child: Row(
-                     children: [
-                       Text("Usefull Addresses",style: TextStyle(fontSize: 16.0),textAlign: TextAlign.center,)
-                     ],
-                   ),
-                 ),
+                //  const Padding(
+                //    padding: EdgeInsets.only(left: 20.0,right: 20,),
+                //    child: Row(
+                //      children: [
+                //        Text("Usefull Addresses",style: TextStyle(fontSize: 16.0),textAlign: TextAlign.center,)
+                //      ],
+                //    ),
+                //  ),
                    // SizedBox(height: 20,),
-            Expanded(child: ExpandedPanel(data: data))
+            // Expanded(child: ExpandedPanel(data: data))
                ],
              ),
            ),  

@@ -6,7 +6,7 @@ import 'package:chamber_of_commerce/pages/user/Almanac_Options/SavingAndCredit.d
 import 'package:chamber_of_commerce/pages/user/Almanac_Options/Fintech_Options.dart';
 import 'package:chamber_of_commerce/pages/user/Almanac_Options/Insurance_Options.dart';
 import 'package:chamber_of_commerce/pages/user/Almanac_Options/MicroFinance_Options.dart';
-import 'package:chamber_of_commerce/pages/user/Almanac_Options/Telecom_Options.dart';
+import 'package:chamber_of_commerce/pages/user/Almanac_Options/Capital_Goods_Options.dart';
 import 'package:chamber_of_commerce/pages/user/Business.dart';
 import 'package:chamber_of_commerce/pages/user/Home.dart';
 import 'package:chamber_of_commerce/widgets/BottomNavBar.dart';

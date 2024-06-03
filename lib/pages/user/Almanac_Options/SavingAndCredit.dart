@@ -26,14 +26,14 @@ class SavingAndCredit extends StatelessWidget {
     "assets/images/almanac_lists/micro_finance_logos/2.png"
  ];
 final Name = [
-   "Amigos Saving and Credit Cooporate S.C"
+   "Amigos Saving and Credit Corporate S.C"
  ];
   // const SavingAndCredit({super.key});
   
   final List<Map<String, String>> detail = [
    {
       "sector":"Micro Finance",
-     "name": "Amigos Saving and Credit Cooporate S.C",
+     "name": "Amigos Saving and Credit Corporate S.C",
      "logo": "assets/images/almanac_lists/micro_finance_logos/2.png",
      "adv_image":"assets/images/almanac_lists/adv/16.jpg",
      "adv_video":"",
@@ -100,7 +100,7 @@ final Name = [
              child: Column(
                children: [
                  SizedBox(
-                  height: 400,
+                  height: 600,
                    child: ListView.builder(
                      itemCount: saving.length,
                      itemBuilder: (context, index) {
@@ -158,16 +158,16 @@ final Name = [
                      },
                    ),
                  ),
-                 const Padding(
-                   padding: EdgeInsets.only(left: 20.0,right: 20,),
-                   child: Row(
-                     children: [
-                       Text("Usefull Addresses",style: TextStyle(fontSize: 16.0),textAlign: TextAlign.center,)
-                     ],
-                   ),
-                 ),
+                //  const Padding(
+                //    padding: EdgeInsets.only(left: 20.0,right: 20,),
+                //    child: Row(
+                //      children: [
+                //        Text("Usefull Addresses",style: TextStyle(fontSize: 16.0),textAlign: TextAlign.center,)
+                //      ],
+                //    ),
+                //  ),
                    // SizedBox(height: 20,),
-            Expanded(child: ExpandedPanel(data: data))
+            // Expanded(child: ExpandedPanel(data: data))
                ],
              ),
            ),  

@@ -12,15 +12,17 @@ class About extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final List<Map<String,dynamic>> contact =[
+       {
+      "title":"about business inquiry",
+    "content": "+251 115 518 055"
+
+     },
+   
     {
       "title":"about almanac inquiry",
-    "content": " +251 115 518 055"
+    "content": "   +251 11 515 5221 \n +251 91 196 4500 \n  +251 93 155 9829 \n flijalem@yahoo.com \n lemlem.aaccsa@gmail.com"
     },
-     {
-      "title":"about business inquiry",
-    "content": " +251 115 518 055"
-     }
-   
+    
 
   ];
      var scaffold = Scaffold(

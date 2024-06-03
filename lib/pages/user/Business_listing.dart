@@ -5,7 +5,6 @@ import 'package:chamber_of_commerce/pages/user/Business_Options/Export/Export_Ho
 import 'package:chamber_of_commerce/pages/user/Company%20_business.dart';
 import 'package:chamber_of_commerce/pages/user/Company.dart';
 import 'package:chamber_of_commerce/pages/user/Company_detail.dart';
-import 'package:chamber_of_commerce/pages/user/ExportListing.dart';
 import 'package:chamber_of_commerce/pages/user/Home.dart';
 import 'package:chamber_of_commerce/widgets/BottomNavBar.dart';
 import 'package:chamber_of_commerce/widgets/CustomBottomNavBar.dart';
@@ -153,7 +152,6 @@ class _Business_listingState extends State<Business_listing> {
     ListView(
         children: [
           
-       
               StreamBuilder<DatabaseEvent>(builder:  (context, snapshot) {
                        return Column(
                          children: [
@@ -243,7 +241,7 @@ class _Business_listingState extends State<Business_listing> {
     final companyName = element['Field Of Business']?.toString().toLowerCase() ?? '';
     return companyName.startsWith("construction") ? [element] : [];
   }).toList();
-
+  
   }
   if(widget.index == 4){
      filteredBusinesses = data.expand((element) {

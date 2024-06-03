@@ -133,7 +133,7 @@ class _HomeState extends State<Home> {
           child: const Row(
             mainAxisAlignment: MainAxisAlignment.center, // Center buttons horizontally
             children: [
-             CenteredVerticalList(path:'assets/images/business_large.svg', text1: "Business", text2: "All Businesses"),
+             CenteredVerticalList(path:'assets/images/business_large.svg', text1: "Business", text2: "Businesses Directory"),
              
               // buildButton(
               //   text: 'Business',
@@ -143,7 +143,7 @@ class _HomeState extends State<Home> {
                  
               //    ),
               SizedBox(width: 15.0), // Add spacing between buttons
-              CenteredVerticalList(path:'assets/images/almanac_large.svg', text1: "Almanac", text2: "Financial Business"),
+              CenteredVerticalList(path:'assets/images/almanac_large.svg', text1: "Finacial Almanac", text2: "Financial Business"),
               // buildButton(text: 'Almanac',description: "Financial Business", icon: Icons.abc,targetPage:"AlmanacPage"),
               
             ],
@@ -151,13 +151,19 @@ class _HomeState extends State<Home> {
         ),
           // const SizedBox(height: 10.0),
             // )
-      Padding(
-        padding: const EdgeInsets.only(left: 20,right: 20,top: 16,bottom: 0),
-        child: Container(
-          height:170 ,
-          child: const Image(
-          image:AssetImage('assets/images/adv.png')
-        )
+      
+    GestureDetector(
+      onTap: (){
+        showModalDialog(context);
+        },
+        child: Padding(
+          padding: const EdgeInsets.only(left: 20,right: 20,top: 16,bottom: 0),
+          child: Container(
+            height:170 ,
+            child: const Image(
+            image:AssetImage('assets/images/adv.png')
+          )
+          ),
         ),
       ),
      //place holder for advertisment
@@ -188,7 +194,7 @@ class _HomeState extends State<Home> {
             child: 
            SvgPicture.asset('assets/images/social_media_icons/logo.svg'),
            ),
-            SizedBox(width: 45,),
+            SizedBox(width: 35,),
             InkWell(
             onTap:(){
               launch("https://www.facebook.com/addischamber/");
@@ -196,8 +202,9 @@ class _HomeState extends State<Home> {
             child: 
             SvgPicture.asset('assets/images/social_media_icons/facebook.svg'),
            ),
-             
-            SizedBox(width: 15,),
+
+            
+            SizedBox(width: 10,),
             InkWell(
             onTap:(){
               launch("https://x.com/aaccsa?mx=2");
@@ -206,8 +213,7 @@ class _HomeState extends State<Home> {
            SvgPicture.asset('assets/images/social_media_icons/twitter.svg'),
            ),
                  
-           
-            SizedBox(width: 15,),
+            
           //   InkWell(
           //   onTap:(){
           //     launch("https://addischamber.com/");
@@ -216,7 +222,7 @@ class _HomeState extends State<Home> {
           //                   SvgPicture.asset('assets/images/social_media_icons/telegram.svg'),
 
           //  ),
-            // SizedBox(width: 10,),
+            SizedBox(width: 10,),
             InkWell(
             onTap:(){
               launch('mailto:info@addischamber.com');
@@ -225,7 +231,18 @@ class _HomeState extends State<Home> {
                            SvgPicture.asset('assets/images/social_media_icons/email.svg'),
 
            ),
-            
+            SizedBox(width: 10,),
+            Padding(
+              padding: const EdgeInsets.only(top: 8.0),
+              child: InkWell(
+              onTap:(){
+                launch("https://www.linkedin.com/company/addischamber/?originalSubdomain=et");
+              },
+              child: 
+                         SvgPicture.asset('assets/images/social_media_icons/linkedin.svg'),
+                         ),
+            ),
+
              
              
         ],),
@@ -245,6 +262,22 @@ class _HomeState extends State<Home> {
     );
     return scaffold;
   }
+}
+
+void showModalDialog(BuildContext context) {
+  showDialog(
+    context: context,
+    builder: (context) => AlertDialog(
+      title: Text('Contact'),
+      content: Text(' +251 11 515 5221'),
+      actions: [
+        TextButton(
+          onPressed: () => Navigator.pop(context),
+          child: Text('Close'),
+        ),
+      ],
+    ),
+  );
 }
 
 

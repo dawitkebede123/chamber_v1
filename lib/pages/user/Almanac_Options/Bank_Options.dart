@@ -88,7 +88,7 @@ class BankOptions extends StatelessWidget {
      "logo": "assets/images/almanac_lists/bank_logos/1.png",
      "adv_image":"assets/images/almanac_lists/adv/1.jpg",
      "adv_video":"assets/video/Awash.mp4",
-     "profile": "Awash Bank, was established on November 10, 1994 after the downfall of the socialist regime. The Bank was established by 486 founding shareholders with a paid-up capital of Birr 24.2 million and started banking operations on Feb. 13, 1995.Vision:“To be the the best and preferred financial services provider where customers feel valued”Mission:“To provide the most Innovative and Accessible banking services  to our customers using the most relevant technology ,and motivated and talented staff to maximize stakeholders value and influence the life of the society positively”",
+     "profile":"Awash Bank, was established on November 10, 1994 after the downfall of the socialist regime. The Bank was established by 486 founding shareholders with a paid-up capital of Birr 24.2 million and started banking operations on Feb. 13, 1995.",
      "tel": "8980/ +251-115571254",
      "email": "contactcenter@awashbank.com",
      "website":"www.awashbank.com",
@@ -332,7 +332,7 @@ class BankOptions extends StatelessWidget {
              child: Column(
                children: [
                  SizedBox(
-                  height: 400,
+                  height: 600,
                    child: ListView.builder(
                      itemCount: Banks.length,
                      itemBuilder: (context, index) {
@@ -390,16 +390,16 @@ class BankOptions extends StatelessWidget {
                      },
                    ),
                  ),
-                 const Padding(
-                   padding: EdgeInsets.only(left: 20.0,right: 20,),
-                   child: Row(
-                     children: [
-                       Text("Usefull Addresses",style: TextStyle(fontSize: 16.0),textAlign: TextAlign.center,)
-                     ],
-                   ),
-                 ),
-                   // SizedBox(height: 20,),
-            Expanded(child: ExpandedPanel(data: data))
+                //  const Padding(
+                //    padding: EdgeInsets.only(left: 20.0,right: 20,),
+                //    child: Row(
+                //      children: [
+                //        Text("Usefull Addresses",style: TextStyle(fontSize: 16.0),textAlign: TextAlign.center,)
+                //      ],
+                //    ),
+                //  ),
+                //    // SizedBox(height: 20,),
+            // Expanded(child: ExpandedPanel(data: data))
                ],
              ),
            ),  

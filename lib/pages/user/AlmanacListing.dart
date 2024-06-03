@@ -5,7 +5,7 @@ import 'package:chamber_of_commerce/pages/user/Almanac_Options/SavingAndCredit.d
 import 'package:chamber_of_commerce/pages/user/Almanac_Options/Fintech_Options.dart';
 import 'package:chamber_of_commerce/pages/user/Almanac_Options/Insurance_Options.dart';
 import 'package:chamber_of_commerce/pages/user/Almanac_Options/MicroFinance_Options.dart';
-import 'package:chamber_of_commerce/pages/user/Almanac_Options/Telecom_Options.dart';
+import 'package:chamber_of_commerce/pages/user/Almanac_Options/Capital_Goods_Options.dart';
 import 'package:chamber_of_commerce/pages/user/Company.dart';
 import 'package:chamber_of_commerce/pages/user/Company_detail.dart';
 import 'package:chamber_of_commerce/pages/user/Home.dart';
@@ -35,10 +35,10 @@ class AlmanacListing extends StatelessWidget {
     if(index == 3){
     return Fintech_Options();
     };
+    // if(index == 4){
+    // return  Telecom_Options();
+    // };
     if(index == 4){
-    return  Telecom_Options();
-    };
-    if(index == 5){
     return SavingAndCredit();
     };
    

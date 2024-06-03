@@ -13,11 +13,11 @@ class FAQ extends StatelessWidget {
   Widget build(BuildContext context) {
     final List<Map<String,dynamic>> contact =[
     {
-      "title":"When was the AACCSA established?",
+      "title":"When was AACCSA established?",
     "content": "AACCSA Established in 1947"
     },
      {
-      "title":"What is the Addis Ababa Chamber of Commerce(AACCSA)?",
+      "title":"What is  Addis Ababa Chamber of Commerce(AACCSA)?",
     "content": "AACCSA  is a non-profit organization that promotes the interests of businesses in Addis Ababa, Ethiopia. It serves as a bridge between businesses and the government, advocating for policies that support economic growth and development."
      },
       {
@@ -25,11 +25,11 @@ class FAQ extends StatelessWidget {
     "content": "AAUCC membership offers several benefits to businesses, including:Networking opportunities: Connect with other businesses, potential partners, and investors.Advocacy: The AAUCC lobbies for policies that benefit businesses and helps address challenges faced by the private sector.Information and resources: Access valuable business information, training programs, and trade missions.Discounts and benefits: AAUCC members may be eligible for discounts on services and events."
          },
       {
-      "title":"Who can join the AACCSA?",
+      "title":"Who can join  AACCSA?",
     "content": "Any business operating in Addis Ababa can apply for membership, regardless of size or industry. The AAUCC offers different membership categories to cater to various business needs."
          },
       {
-      "title":"Does the AACCSA offer any training or workshops for businesses?",
+      "title":"Does AACCSA offer any training or workshops for businesses?",
     "content": "The AAUCC might hold workshops, seminars, or training programs on topics relevant to businesses, such as:Export procedures and import regulationsAccessing financeMarketing and business developmentLegal compliance"
      }
 
