@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:chamber_of_commerce/pages/user/Business.dart';
+import 'package:chamber_of_commerce/pages/user/Business_Options/Agriculture/Agriculture_Listing.dart';
 import 'package:chamber_of_commerce/pages/user/Business_Options/Export/Export_Listing.dart';
 import 'package:chamber_of_commerce/pages/user/Business_listing.dart';
 import 'package:chamber_of_commerce/pages/user/Home.dart';
@@ -133,27 +134,30 @@ class _Agriculture_HomeState extends State<Agriculture_Home> {
        "assets/images/business_lists/5.svg",
   ];
    List <String> title = [
-        "CATTLE AND PACK ANIMALS HUSBANDARY",
-"COFFEE FARMING",
-"CEREALS/PULSES FARMING",
-"COTTON FARMING",
-"DIFFERENT SEEDLINGS FARMING",
-"FISH HATCHERIES AND FISH FARMS",
-"FLOURICULTURE",
-"FRUITS FARMING",
-"GROWING OF ANIMALS FEED",
-"GROWING OF CROPS COMBINED WITH FARMING OF ANIMALS (MIXED FARMING)",
-"GROWING OF HERBS AND OTHERS",
-"GROWING OF PLANT SEEDS",
-"GROWING OF CEREALS",
-"OIL SEEDS FARMING",
-"PEST CONTROL",
-"POULTRY",
-"VEGETABLES FARMING",
-"AGRICULTURAL SUPPORT SERVICE",
-"BEE KEEPING",
-"PICTURE, SCULPTURE,GALLERY/ STUDIO SERVICE",
-"VEGETABLE,FRUIT,PLANT AND PLANT SEED PRODUCTION"
+       'TEA AND BEVERAGE ,SPICE CROPS, MEDICINAL AND AROMATIC CROPS FARMING',
+'PEST CONTROL',
+'COFFEE FARMING',
+'GROWING OF CROPS COMBINED WITH FARMING OF ANIMALS (MIXED FARMING)',
+'OIL SEEDS FARMING',
+'DIFFERENT SEEDLINGS FARMING',
+'CEREALS/PULSES FARMING',
+'VEGETABLES FARMING',
+'FRUITS FARMING',
+'FLOURICULTURE',
+'COTTON FARMING',
+'POULTRY',
+'GROWING OF HERBS AND OTHERS',
+'Farming of cattle, sheep, goats, horses, asses, mules and hinnies; dairy farming',
+'GROWING OF ANIMALS FEED',
+'PICTURE, SCULPTURE,GALLERY/ STUDIO SERVICE',
+'AGRICULTURAL SUPPORT SERVICE',
+'FISH HATCHERIES AND FISH FARMS',
+'GROWING OF PLANT SEEDS',
+'GROWING OF CEREALS',
+'CATTLE AND PACK ANIMALS HUSBANDARY',
+'FLORICULTURE',
+'BEE KEEPING',
+'VEGETABLE,FRUIT,PLANT AND PLANT SEED PRODUCTION',
      ];
   final List<Map<String, String>> businessCompanyProfile = [
  
@@ -194,7 +198,7 @@ class _Agriculture_HomeState extends State<Agriculture_Home> {
     ),
        
         title:const Text(
-          'Export',
+          'Agriculture',
           style: TextStyle(
            color: Colors.black,
            fontWeight: FontWeight.bold,
@@ -272,7 +276,7 @@ class _Agriculture_HomeState extends State<Agriculture_Home> {
                                         Navigator.push(
                                   context,
                                   TransparentRoute(
-                      page:  Export_listing(index: index,title:title[index],businessCompanyProfile: businessCompanyProfile),
+                      page:  Agriculture_listing(index: index,title:title[index],businessCompanyProfile: businessCompanyProfile),
                             ),
                                 );
                                    }                 

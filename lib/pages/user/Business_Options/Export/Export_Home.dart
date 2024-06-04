@@ -1,6 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:chamber_of_commerce/pages/user/Business.dart';
-import 'package:chamber_of_commerce/pages/user/Business_Options/Export/Export_Home.dart';
+import 'package:chamber_of_commerce/pages/user/Business_Options/Agriculture/Agriculture_Listing.dart';
 import 'package:chamber_of_commerce/pages/user/Business_Options/Export/Export_Listing.dart';
 import 'package:chamber_of_commerce/pages/user/Business_listing.dart';
 import 'package:chamber_of_commerce/pages/user/Home.dart';
@@ -133,9 +133,32 @@ class _Export_HomeState extends State<Export_Home> {
         "assets/images/business_lists/5.svg",
        "assets/images/business_lists/5.svg",
   ];
-  List <String> title = [
-   "OILSEEDS", "PULSES/CEREALS", "EXPORT TRADE", "COFFEE AND TEA", "CUT FLOWERS AND PLANTS", "FRUITS & VEGETABLES", "PEPPER AND SPICES", "COFFEE", "PULSES", "EXPORT TRADE", "FOOD PRODUCTS", "EXPORT OF BEVERAGE CROPS (EXCEPT COFFEE AND TEA)", "MINERALS AND MINERAL PRODUCTS", "RUBBER, PLASTICS AND PLASTIC PRODUCTS AND BATTERIES", "LEATHER, LEATHER PRODUCTS, FOOTWEAR AND RELATED PRODUCTS", "TEXTILE FIBERS, COTTON, YARN AND APPAREL", "CEREALS", "PLANT SEEDS", "SOUVENIR, ARTIFACTS AND ARTIFICIAL JEWELRY/CULTURAL CLOTHES", "AGRICULTURAL PRODUCTS", "LIVESTOCK PRODUCTS", "CLEANING AND COSMETICS", "WOOL, HIDES, SKINS AND FEATHERS", "LIVESTOCK", "BEVERAGE CROPS", "EXPORT TRADE IN BEVERAGE PRODUCTS", "TEXTILE FIBERS AND YARN", "MEDICINAL CROPS", "EDIBLE OILS & FATS", "BOTTLED WATER"
-  ];
+   List <String> title = [
+       'TEA AND BEVERAGE ,SPICE CROPS, MEDICINAL AND AROMATIC CROPS FARMING',
+'PEST CONTROL',
+'COFFEE FARMING',
+'GROWING OF CROPS COMBINED WITH FARMING OF ANIMALS (MIXED FARMING)',
+'OIL SEEDS FARMING',
+'DIFFERENT SEEDLINGS FARMING',
+'CEREALS/PULSES FARMING',
+'VEGETABLES FARMING',
+'FRUITS FARMING',
+'FLOURICULTURE',
+'COTTON FARMING',
+'POULTRY',
+'GROWING OF HERBS AND OTHERS',
+'Farming of cattle, sheep, goats, horses, asses, mules and hinnies; dairy farming',
+'GROWING OF ANIMALS FEED',
+'PICTURE, SCULPTURE,GALLERY/ STUDIO SERVICE',
+'AGRICULTURAL SUPPORT SERVICE',
+'FISH HATCHERIES AND FISH FARMS',
+'GROWING OF PLANT SEEDS',
+'GROWING OF CEREALS',
+'CATTLE AND PACK ANIMALS HUSBANDARY',
+'FLORICULTURE',
+'BEE KEEPING',
+'VEGETABLE,FRUIT,PLANT AND PLANT SEED PRODUCTION',
+     ];
   final List<Map<String, String>> businessCompanyProfile = [
  
    
@@ -175,7 +198,7 @@ class _Export_HomeState extends State<Export_Home> {
     ),
        
         title:const Text(
-          'Export',
+          'Agriculture',
           style: TextStyle(
            color: Colors.black,
            fontWeight: FontWeight.bold,
@@ -253,7 +276,7 @@ class _Export_HomeState extends State<Export_Home> {
                                         Navigator.push(
                                   context,
                                   TransparentRoute(
-                      page:  Export_listing(index: index,title:title[index],businessCompanyProfile: businessCompanyProfile),
+                      page:  Agriculture_listing(index: index,title:title[index],businessCompanyProfile: businessCompanyProfile),
                             ),
                                 );
                                    }                 

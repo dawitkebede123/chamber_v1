@@ -1,4 +1,5 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:chamber_of_commerce/pages/user/Business_Options/Agriculture/Agriculture_Home.dart';
 import 'package:chamber_of_commerce/pages/user/Business_Options/Export/Export_Home.dart';
 import 'package:chamber_of_commerce/pages/user/Business_listing.dart';
 import 'package:chamber_of_commerce/pages/user/Home.dart';
@@ -312,10 +313,18 @@ class _BusinessState extends State<Business> {
                                      Navigator.push(
                                   context,
                                   TransparentRoute(
-                                    page:Export_Home()
+                                    page:Agriculture_Home()
               ),
                                 );
                                    }  
+                                   if(index == 5){
+                                      Navigator.push(
+                                  context,
+                                  TransparentRoute(
+                                    page:Agriculture_Home()
+              ),
+                                );
+                                   }
                                    else{
                                         Navigator.push(
                                   context,
