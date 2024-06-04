@@ -2,6 +2,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:chamber_of_commerce/pages/user/Business.dart';
 import 'package:chamber_of_commerce/pages/user/Business_Options/Agriculture/Agriculture_Listing.dart';
 import 'package:chamber_of_commerce/pages/user/Business_Options/Export/Export_Listing.dart';
+import 'package:chamber_of_commerce/pages/user/Business_Options/Mining/Mining_Listing.dart';
 import 'package:chamber_of_commerce/pages/user/Business_listing.dart';
 import 'package:chamber_of_commerce/pages/user/Home.dart';
 import 'package:chamber_of_commerce/widgets/BottomNavBar.dart';
@@ -20,13 +21,13 @@ import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 
 
-class Agriculture_Home extends StatefulWidget {
-  const Agriculture_Home({super.key});
+class Mining_Home extends StatefulWidget {
+  const Mining_Home({super.key});
   @override
-  State<Agriculture_Home> createState() => _Agriculture_HomeState();
+  State<Mining_Home> createState() => _Agriculture_HomeState();
 }
 
-class _Agriculture_HomeState extends State<Agriculture_Home> {
+class _Agriculture_HomeState extends State<Mining_Home> {
  final slideImages = [
    "assets/images/business_lists/adv_logo/1.jpg",
    "assets/images/business_lists/adv_logo/2.jpg",
@@ -104,34 +105,20 @@ class _Agriculture_HomeState extends State<Agriculture_Home> {
   //    [
   //      "assets/images/business_lists/5.svg",
   // ];
-   List <String> title =[
-  'AGRICULTURAL SUPPORT SERVICE',
-  'BEE KEEPING',
-  'CATTLE AND PACK ANIMALS HUSBANDARY',
-  'CEREALS/PULSES FARMING',
-  'COFFEE FARMING',
-  'COTTON FARMING',
-  'DIFFERENT SEEDLINGS FARMING',
-  'FARMING of cattle, sheep, goats, horses, asses, mules and hinnies; dairy farming',
-  'FISH HATCHERIES AND FISH FARMS',
-  'FLORICULTURE',
-  'FLOURICULTURE',
-  'FRUIT FARMING',
-  'GROWING OF ANIMALS FEED',
-  'GROWING OF CEREALS',
-  'GROWING OF HERBS AND OTHERS',
-  'GROWING OF PLANT SEEDS',
-  'OIL SEEDS FARMING',
-  'PEST CONTROL',
-  'PICTURE, SCULPTURE,GALLERY/ STUDIO SERVICE',
-  'POULTRY',
-  'TEA AND BEVERAGE ,SPICE CROPS, MEDICINAL AND AROMATIC CROPS FARMING',
-  'VEGETABLE,FRUIT,PLANT AND PLANT SEED PRODUCTION',
-  'VEGETABLES FARMING'
-];
-title.sort((a,b)=>a.compareTo(b));
+   List <String> title = [
+      'DIMENSION STONE (GRANITE, MARBLE, SLATE, AND WONDER STONE)',
+'EXPLORATION',
+'REFINING OF PRECIOUS METALS',
+'FERTILIZERS AND NITROGEN COMPOUNDS',
+'MINING SUPPORTIVE ACTIVITIES',
+'RENTING SERVICE OF MACHINERIES AND EQUIPMENTS',
+'STONE CARVINGS,CLAY SAND AND SIMILAR MINING AND QUARRYING',
+'CONSULTANCY SERVICE ON CHEMICAL ENGINEERING',
+'QUARRYING OF MINERALS',
+     ];
+     title.sort((a,b)=>a.compareTo(b));
     List <String> categories = List .generate(title.length, (index) => 
-    "assets/images/business_lists/1.svg"
+    "assets/images/business_lists/12.svg"
     );
 
   final List<Map<String, String>> businessCompanyProfile = [
@@ -173,7 +160,7 @@ title.sort((a,b)=>a.compareTo(b));
     ),
        
         title:const Text(
-          'Agriculture',
+          'Mining',
           style: TextStyle(
            color: Colors.black,
            fontWeight: FontWeight.bold,
@@ -251,7 +238,7 @@ title.sort((a,b)=>a.compareTo(b));
                                         Navigator.push(
                                   context,
                                   TransparentRoute(
-                      page:  Agriculture_listing(index: index,title:title[index],businessCompanyProfile: businessCompanyProfile),
+                      page:  Mining_listing(index: index,title:title[index],businessCompanyProfile: businessCompanyProfile),
                             ),
                                 );
                                    }                 

@@ -1,6 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:chamber_of_commerce/pages/user/Business.dart';
 import 'package:chamber_of_commerce/pages/user/Business_Options/Agriculture/Agriculture_Listing.dart';
+import 'package:chamber_of_commerce/pages/user/Business_Options/Community/Community_Listing.dart';
 import 'package:chamber_of_commerce/pages/user/Business_Options/Export/Export_Listing.dart';
 import 'package:chamber_of_commerce/pages/user/Business_listing.dart';
 import 'package:chamber_of_commerce/pages/user/Home.dart';
@@ -20,13 +21,13 @@ import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 
 
-class Agriculture_Home extends StatefulWidget {
-  const Agriculture_Home({super.key});
+class Community_Home extends StatefulWidget {
+  const Community_Home({super.key});
   @override
-  State<Agriculture_Home> createState() => _Agriculture_HomeState();
+  State<Community_Home> createState() => _Community_HomeState();
 }
 
-class _Agriculture_HomeState extends State<Agriculture_Home> {
+class _Community_HomeState extends State<Community_Home> {
  final slideImages = [
    "assets/images/business_lists/adv_logo/1.jpg",
    "assets/images/business_lists/adv_logo/2.jpg",
@@ -104,34 +105,85 @@ class _Agriculture_HomeState extends State<Agriculture_Home> {
   //    [
   //      "assets/images/business_lists/5.svg",
   // ];
-   List <String> title =[
-  'AGRICULTURAL SUPPORT SERVICE',
-  'BEE KEEPING',
-  'CATTLE AND PACK ANIMALS HUSBANDARY',
-  'CEREALS/PULSES FARMING',
-  'COFFEE FARMING',
-  'COTTON FARMING',
-  'DIFFERENT SEEDLINGS FARMING',
-  'FARMING of cattle, sheep, goats, horses, asses, mules and hinnies; dairy farming',
-  'FISH HATCHERIES AND FISH FARMS',
-  'FLORICULTURE',
-  'FLOURICULTURE',
-  'FRUIT FARMING',
-  'GROWING OF ANIMALS FEED',
-  'GROWING OF CEREALS',
-  'GROWING OF HERBS AND OTHERS',
-  'GROWING OF PLANT SEEDS',
-  'OIL SEEDS FARMING',
-  'PEST CONTROL',
+   List <String> title = [
+  'ACTIVITIES OF PROFESSIONAL ORGANIZATIONS',
+  'ACTIVITIES OF SPORTS,BODY ENRICHMENT SPORTS AND OTHER ENTERTAINTMENT AND RELATED ACTIVITIES',
+  'ARTS FESTIVAL( MUSIC,FILM, THEATRE,GALLERY AND OTHER)',
+  'ARTS STUDIO',
+  'BEAUTY TREATMENT/BATH AND MASSAGE',
+  'BOOKS AND STATIONARY MATERIALS',
+  'BROAD CAST EQUIPMENTS TELEVISION AND RADIO RECEIVERS, SOUND OR VIDEO RECORDING OR REPRODUCING APPARATUS AND ASSOCIATED GOODS',
+  'BUSINESS AND MANAGEMENT CONSULTANCY ACTIVITIES',
+  'CHILD DAY CARE SERVICE',
+  'CHILDREN CLOTHING',
+  'CINEMA HALL',
+  'CLINICS AND RELATED HEALTH CARE SERVICES',
+  'COMMISSION/BROKERS BUSINESS ACTIVITIES',
+  'CONSULTANCY ACTIVITY ON ADVERTISING',
+  'CONSULTANCY SERVICE FOR ECONOMIC DEVELOPMENT',
+  'CUSTOMS CLEARANCE',
+  'DECORATING ACTIVITIES',
+  'DIFFERENT EVENTS DECORATING ACTIVITIES',
+  'DIAGNOSTIC LABORATORY',
+  'DRIVING EDUCATION',
+  'DRIVING EDUCATION BOTH IN REGULAR AND BY SPECIAL MACHINERIES',
+  'EDUCATION BY TECHNICAL COLLEGES AND TECHNICAL INSTITUTIONS',
+  'EDUCATION BY TECHNIQUES AND TRANING',
+  'EDUCATION RELATED SERVICES',
+  'FILM PRODUCTION',
+  'FILM PRODUCTION, CINEMA HAL, FILM STUDIO AND FILM CAPTURING',
+  'FUNERAL AND RELATED ACTIVITIES',
+  'GENERAL HOSPITAL',
+  'GRAIN MILL SERVICE',
+  'HISTORIC CITES AND BUILDINGS FOR RECREATION AND CARE SERVICES',
+  'INTERNET CAFÉ',
+  'LABORATORY TESTING SERVICE',
+  'LADIES HAIR DRESSING SERVICE',
+  'LAUNDRY SERVICE',
+  'LOAD AND UNLOAD SERVICE',
+  'MANAGEMENT CONSULTANCY SERVICES',
+  'MEDIA CONSULTANCY SERVICE',
+  'MEDIA ENTERTAINMENT PRODUCTION AND DISTRIBUTION',
+  'MEDIA PROGRAM PREPARATION BY AIR TIME RENT',
+  'Men hairdressing service',
+  'MENS AND LADIES HAIRDRESSING',
+  'MOTION PICTURE, THEATRE AND VIDEO PRODUCTION AND DISTRIBUTION',
+  'MUSIC AND BAND ACTIVITIES',
+  'NEWS AGENCY ACTIVITIES',
+  'NEWSPAPERS, JOURNALS AND PERIODICALS DISTRIBUTER',
+  'NURSING SERVICES',
+  'OTHER MEDICAL AND HEALTH SERVICES',
+  'PARKING SERVICE',
   'PICTURE, SCULPTURE,GALLERY/ STUDIO SERVICE',
-  'POULTRY',
-  'TEA AND BEVERAGE ,SPICE CROPS, MEDICINAL AND AROMATIC CROPS FARMING',
-  'VEGETABLE,FRUIT,PLANT AND PLANT SEED PRODUCTION',
-  'VEGETABLES FARMING'
+  'PLAY OF MUSICAL INSTRUMENTS (DJ)',
+  'PRINTING',
+  'PRINTING AND RELATED ACTIVITIES',
+  'QUALITY MANAGEMENT SYSTEM CONSULTANCY',
+  'RESTAURANTS',
+  'RETAIL TRADE OF FOOT WEAR, LEATHER AND RELATED PRODUCTS',
+  'SANITARYWARE AND COSMETICS',
+  'SECURITY AND CLEANING SERVICE',
+  'SEWAGE AND REFUSE DISPOSAL SANITATION AND SIMILAR ACTIVITIES',
+  'SERVICE OF PRIMARY AND SECONDARY EDUCATION',
+  'SERVICE OF PRE-PRIMARY EDUCATION AND AFTER SCHOOL',
+  'SERVICE OF REGULAR HIGHER EDUCATION',
+  'SHORT TERM TCHNICAL EDUCATION AND TRAINING',
+  'SPINNING, WEAVING AND FINISHING OF TEXTILES',
+  'SPORTING AND RECREATIONAL ACTIVITIES',
+  'SPRAYING OF PESTICIDES FOR HOUSHOLD PURPOSES',
+  'STUDIO RECORDING SERVICE',
+  'SUPPLEMENTARY HEALTH SERVICES OR PARAMEDICAL STAFF',
+  'TAILORING',
+  'TOPOGRAPHIC BEAUTY',
+  'TRANSLATION & SECRETARIAL SERVICES',
+  'TRAINING SERVICE INFORMATION AND COMMUNICATION TECHNOLOGY',
+  'TRADITIONAL MEDICAL SERVICE',
+  'ዶክመንቱ አልተሟላም (ንግድ ፈቃዱ ከጀርባ ያለው መረጃ የለም )', // Untranslated string remains unchanged
+  // '' // Empty string remains unchanged
 ];
-title.sort((a,b)=>a.compareTo(b));
+        title.sort((a,b)=>a.compareTo(b));
     List <String> categories = List .generate(title.length, (index) => 
-    "assets/images/business_lists/1.svg"
+    "assets/images/business_lists/3.svg"
     );
 
   final List<Map<String, String>> businessCompanyProfile = [
@@ -173,7 +225,7 @@ title.sort((a,b)=>a.compareTo(b));
     ),
        
         title:const Text(
-          'Agriculture',
+          'Community',
           style: TextStyle(
            color: Colors.black,
            fontWeight: FontWeight.bold,
@@ -251,7 +303,7 @@ title.sort((a,b)=>a.compareTo(b));
                                         Navigator.push(
                                   context,
                                   TransparentRoute(
-                      page:  Agriculture_listing(index: index,title:title[index],businessCompanyProfile: businessCompanyProfile),
+                      page:  Community_listing(index: index,title:title[index],businessCompanyProfile: businessCompanyProfile),
                             ),
                                 );
                                    }                 

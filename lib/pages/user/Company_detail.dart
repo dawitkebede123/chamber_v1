@@ -25,8 +25,8 @@ class CompanyState extends State<CompanyDetail> {
     // final accountNumber = widget.data['Account Number'];
     final name = widget.data['Account Name'];
     final tel = widget.data['Tel'];
-    final fax = widget.data['Fax'];
-    final email = widget.data['Email'];
+    final fax = widget.data['Mobile Phone'];
+    final email = widget.data['E-mail'];
     final website = widget.data['Web'];
     // final sector = data['Sector'];
     // final subSector = data['Sub Sector'];
@@ -113,14 +113,14 @@ class CompanyState extends State<CompanyDetail> {
             ],
           ),
            SizedBox(height: 5,),
-          Row(
-            children: [
-               SvgPicture.asset('assets/images/phone_icon.svg'),
-              SizedBox(width: 10,),
-              Text(fax),
-            ],
-          ),
-           SizedBox(height: 5,),
+          // Row(
+          //   children: [
+          //      SvgPicture.asset('assets/images/phone_icon.svg'),
+          //     SizedBox(width: 10,),
+          //     Text(fax),
+          //   ],
+          // ),
+          //  SizedBox(height: 5,),
           Row(
             children: [
                SvgPicture.asset('assets/images/mail_icon.svg'),

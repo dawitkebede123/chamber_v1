@@ -3,6 +3,7 @@ import 'package:chamber_of_commerce/main.dart';
 import 'package:chamber_of_commerce/pages/user/Business.dart';
 import 'package:chamber_of_commerce/pages/user/Business_Options/Agriculture/Agriculture_Home.dart';
 import 'package:chamber_of_commerce/pages/user/Business_Options/Export/Export_Home.dart';
+import 'package:chamber_of_commerce/pages/user/Business_Options/Transport/Transport_Home.dart';
 import 'package:chamber_of_commerce/pages/user/Company%20_business.dart';
 import 'package:chamber_of_commerce/pages/user/Company.dart';
 import 'package:chamber_of_commerce/pages/user/Company_detail.dart';
@@ -24,16 +25,16 @@ import 'package:share_plus/share_plus.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 
-class Export_listing extends StatefulWidget {
+class Transport_listing extends StatefulWidget {
   final int index;
   final String title;
   final List<Map<String, String>> businessCompanyProfile ;
-  const Export_listing({super.key,required this.index,required this.title,required this.businessCompanyProfile});
+  const Transport_listing({super.key,required this.index,required this.title,required this.businessCompanyProfile});
   @override
-  State<Export_listing> createState() => _Agriculture_listingState();
+  State<Transport_listing> createState() => _Transport_listingState();
 }
 
-class _Agriculture_listingState extends State<Export_listing> {
+class _Transport_listingState extends State<Transport_listing> {
    Stream<DatabaseEvent>? _userStream;
   // final Map data = widget.businessCompanyProfile[""];
    
@@ -106,7 +107,7 @@ class _Agriculture_listingState extends State<Export_listing> {
                       context,
                        TransparentRoute(
                
-                page:  Export_Home(),
+                page:  Transport_Home(),
               ),
                     ),
                     }
@@ -210,7 +211,7 @@ class _Agriculture_listingState extends State<Export_listing> {
   final data = all_data.expand((element) {
     // ... filtering logic using entry.value as Map<String, dynamic>
     final companyName = element['Field Of Business']?.toString() ?? '';
-    return companyName.startsWith("EXPORT") ? [element] : [];
+    return companyName.startsWith("TRANSPORT, STORAGE AND COMMUNICATION") ? [element] : [];
   }).toList();
   // print(data);
   List<dynamic> filteredBusinesses = data;
@@ -220,146 +221,54 @@ class _Agriculture_listingState extends State<Export_listing> {
   //based on the index categorize SIT+A1:I15802C Description
   const items = [
  
-'COFFEE',
-'PULSES/CEREALS',
-'OILSEEDS',
-'WOOL, HIDES, SKINS AND FEATHERS',
-'CUT FLOWERS AND PLANTS',
-'PEPPER AND SPICES',
-'SHEEP / GOATS & RELATED PRODUCTS',
-'SUGAR',
-'MEDICINES',
-'FRUITS & VEGETABLES',
-'AGRICULTURAL PRODUCTS',
-'PULSES',
-'COFFEE AND TEA',
-'BOOKS AND MAGAZINES',
-'HONEY AND HONEY PRODUCTS',
-'SOUVENIR , ARTIFACTS AND ARTIFICIAL JEWELRY/CULTURAL CLOTHES',
-'LIVESTOCK PRODUCTS',
-'EXPORT TRADE',
-'HOUSEHOLD AND OFFICE FURNITURE, REQUZITE, BOARDS, APPLIANCES',
-'MEDICINAL CROPS',
-'METAL ,NON METALS, METAL ORES AND SCRAPS',
-'NON METALLIC SCRAPS AND WASTES',
-'INCENSE & GUMS',
-'TEXTILES FIBERS AND YARN',
-'PICKLE WET BLUE CRUST AND FINISHED LEATHER',
-'TEXTILES AND LEATHER GOODS',
-'FOOTWEAR AND LEATHER GOODS',
-'TEA',
-'FEEDING STUFF FOR ANIMALS',
-'DAIRY PRODUCTS',
-'COTTON',
-'PHOTOGRAPHIC APPARATUS, EQUIPMENT AND SUPPLIES AND OPTICAL GOODS',
-'BEEWAX',
-'FOOD STUFF',
-'PHARMACEUTICAL AND MEDICALS EQUIPMENTS',
-'BOTTLED WATER',
-'PASTAS MACARONI NOODULE AND ALIKE PRODUCTS',
-'BEER',
-'MEAT & POULTRY',
-'LIVESTOCK',
-'TANTALEM PRECIOUS STONES, JEWELLERY AND SILVERWARE',
-'ALUMINIUM PRODUCTS',
-'NONE METALLIC MINERALS',
-'PRECIOUS STONES, JEWELLERY AND SILVERWARE',
-'INDUSTRIAL MACHINERY , EQUIPMENT AND ITS SPARE PARTS',
-'AGRICULTURAL RAW MATERIALS',
-'PROCESSED AGRICULTURAL PRODUCTS',
-'SOAPS, DETERGENTS, TOILETRIES, CHEMICALS FOR CLEANSING, POLISHING AND CLEANSING',
-'MUSICAL, RECREATIONAL, CRAFT AND SOUVENIR GOODS',
-'PRECIOUS STONES, JEWELERY AND SILVERWARE',
-'CULTURAL CLOTHES',
-'SOUVENIRS , ARTIFACTS AND ARTIFICIAL JEWELRY',
-'PROCESSED PULSES',
-'BAKERY PRODUCTS',
-'PROCESSED COFFEE',
-'TRADITIONAL DRINK SERVING HOUSES',
-'HOUSEHOLD ELECTRICAL APPLIANCES AND EQUIPMENT',
-'CROCKERY, CUTLERY AND KITCHEN UTENSILS',
-'WILD ANIMAL PRODUCTS (TAXIDERMY)',
-'INEDIBLE ANIMAL PRODUCT',
-'ANIMAL FEED',
-'CONSTRUCTION EQUIPMENT AND ITS SPARE PARTS',
-'Ethanol and Molasses',
-'MADE-UP TEXTILE ARTICLES CORDAGE, ROPE, TWINE AND NETTING, BAGS, SACKS, RAPPING & PACKING MATERIALS',
-'ACCESSORIES AND COMPONENTS FOR FINISHING TEXTILE AND LEATHER PRODUCTS',
-'TEXTILE AND LEATHER PRODUCTS',
-'BAGS, LUGGAGE’S AND RELATED PRODUCTS',
-'APPAREL AND CLOTHING',
-'LIVE ANIMAL PRODUCTS FOR CONSUMPTION',
-'EXPORT TRADE IN LIVE ANIMALS AND ANIMAL BY PRODUCTS',
-'TEXTILE PRODUCTS EXCEPT GARMENT',
-'GRAIN MILL SPARE PARTS',
-'FOOD PRODUCTS',
-'MINERALS AND MINERAL PRODUCTS',
-'CLEANING AND COSMOTICS',
-'EDIBLE OILS & FATS',
-'TANTALUM MINERALS',
-'NON FERROUS METALS',
-'TEXTILE FIBERS, COTTON, YARN AND APPAREL',
-'STRUCTURAL CLAY AND CONCRETE PRODUCTS',
-'BEVERAGE CROPS',
-'LEATHER, LEATHER PRODUCTS, FOOTWEAR AND RELATED PRODUCTS',
-'LIVESTOCK AND LIVESTOCK PRODUCTS',
-'FLOUR',
+'TAXIS',
+'TOUR OPERATORS',
 'CUSTOMS CLEARANCE',
-'USED MOTOR VEHICLES',
-'PLASTICS IN PRIMARY FORMS AND NON-PRIMARY FORMS',
-'BROKERS DUTIES',
-'EXPORT OF BEVERAGE CROPS (EXCEPT COFFEE AND TEA)',
-'IRON AND STEEL',
-'NON METALLIC MINERALS (CLAY,CERAMICS,GYPSUM,LIME AND THEIR PRODUCT)',
-'PACKAGING MATERIALS',
-'BOOKS AND STATIONARY MATERIALS',
-'PAPER AND PAPER PRODUCTS',
-'MATERIALS AND PAINTING INKS USED FOR PROMOTION AND ADVERTISING',
-'CEREALS',
-'BEVERAGES',
-'textile and textile articles,textile ascceris',
-'STATIONERY',
-'FOOD ADDITIVES',
-'TRADE IN TEXTILES',
-'ACCESORIES & COMPONENTS',
-'RUBBER, PLASTICS AND PLASTIC PRODUCTSAND BATTERIES',
-'EXPORT TRADE IN PROCESSED COFFEE AND COFFEE LEAVES',
-'ANIMAL BY PRODUCTS',
-'PLUMBING',
-'ANIMAL & WASTE PRODUCTS',
-'PLANT SEEDS',
+'OTHER FREIGHT TRANSPORT BY ROAD',
+'FREIGHT FORWARDERS',
+'STORAGE AND WAREHOUSING',
+'TRAVEL AGENCY REPRESENTATION AND ONLINE TRAVEL AGENCY ACTIVITY',
+'FREIGHT FORWARDERS AND HARBOUR WORKS',
+'URBAN, SUB URBAN AND INTER-URBAN BUS AND COACH PASSENGER LINES',
+'OTHER POSTAL AND RELATED COURIER ACTIVITIES',
+'TELECOMMUNICATION',
+'SHIP AGENTS',
+'COURIER ACTIVITIES OTHER THAN NATIONAL POSTAL ACTIVITIES',
+'TRANSPORT OF FUEL',
+'CROSS-COUNTRY PUBLIC TRANSPORT',
+'GROUND HANDLING',
+'RETAIL TRADE OF VEHICLES',
+'ACTIVITIES OF AIR TRANSPORT',
+'EVENT ORGANIZERS',
+'TOURISM PROMOTION',
+'LAND TRANSPORT AND RELATED SERVICES',
+'TRANSPORT SERVICE BY ROAD AND DRY FREIGHT',
+'Other passenger transport, including the renting of passenger motor vehicles with drivers .',
+'TRANSPORT AGENCIES',
+'LOCAL LABOR RECRUTMENT AND LINKAGE ACTIVITIES',
+'SECURITY AND CLEANING SERVICE',
+'Trade Promotion Service',
+'TRAVEL AGENT',
+'TRANSPORT OF CONSTRUCTION MATERIALS',
+'FREIGHT TRANSPORT BY CONTAINER',
+'Parking garages and parking lots',
+'BROKER IN VEHICLES RENTING AND SAILING',
 'CONSTRUCTION MATERIALS, HARDWARE, PLUMBING',
-'RECORDED CD’S, VCD’S AND RELATED PRODUCTS',
-'LOG AND TIMBER',
-'VEGETABLES AND ANIMAL OIL FAT',
-'PLANT SEED',
-'EDUCATION EQUIPMENT AND TOOLS',
-'STATIONARY MATERIALS, PAPER AND PAPER PRODUCTS',
-'LOGS AND TIMBER',
-'EXPORT TRADE IN INTERMEDIATE PRODUCTS,WASTE AND SCRAPS',
-'HUMAN HEALTH MEDICAL SUPPLIES AND EQUIPMENTS',
-'EXPORT TRADE IN BEVERAGE PRODUCTS',
+'HOUSHOLDS INCLUDING MATTRESSES,CUSHIONS,BLANKETS ETC',
 'ዶክመንቱ አልተሟላም (ንግድ ፈቃዱ ከጀርባ ያለው መረጃ የለም )',
-'RAW RUBBER AND FIBER PRODUCTS',
-'HUMAN MEDICAL SUPPLIES AND EQUIPMENTS',
-'INDUSTRIAL,AGRICULTURAL AND CONSTRUCTION MACHINERY AND EQUIPMENTS',
-'COTTON, TEXTILE FIBERS,YARN, TEXTILES AND TEXTILES CLOTHING',
-'ELECTRICAL EQUIPMENTS AND APPLIANCES',
-'METAL AND NON METAL SCRAPS',
-'CONSTRUCTION MATERIALS HARDWARE, PLUMBING AND HEATING EQUIPMENT AND SUPPLIES',
-'COAL, COKE AND BRIQUETTES',
-'INDUSTRIAL, AGRICULTURAL AND CONSTRUCTION MACHINERIES AND OTHER RELATED WORKS',
-'PAPER AND PAPER PRODUCTS AND STATIONERY MATERIALS',
-'CANDLES AND TEWAF',
-'CLEANING AND COSMOTICS EQUIPMENTS',
-'IMPORTING OF VEHICLES',
-'SOFTWARE',
-'FABRICATED METALS',
-'CONSTRUCTION MATERIALS',
-'COMMUNICATION, COMPUTER AND RELATED EQUIPMENT',
-'COSMETICS ,ESSENTIAL OILS AND RESINOUS ,PERFUME AND CHEMICALS FOR PERFUMES',
-'NON METALLIC MINERALS',
-
+'RENTING OF LAND TRANSPORT ( CAR) EQUIPMENT',
+'SALVAGING OF DISTRESSED VESSELS AND CARGOS',
+'Operation of roads and toll roads',
+'TELECOMMUNICATION VALUE ADDED SERVICE',
+'INTER-URBAN RAILWAY TRANSPORT',
+'TRANSPORT OF CARGO TRUCKS',
+'COMMISSION/BROKERS BUSINESS ACTIVITIES',
+'SPECIAL EVENT ORAGANIZTION ACTIVITIES',
+'TELECOMMUNICATION VALUE ADDED SERVICES',
+'ABROAD RECRUITMENT AND LINKAGE ACTIVITIES',
+'LIQUID FREIGHT TRANSPORT SERVICE',
+'TELECOMMUNICATION TERMINAL EQUIPMENTS MAINTENANCE',
+'TRANSPORT OF DIFFERENT CAR BY CRANES OR PULLING OR LOADING',
 
 
 
@@ -454,7 +363,7 @@ for (var i = 0; i < items.length; i++) {
                          // Column(children: [
                          //   SvgPicture.asset('assets/images/phone_icon.svg'),
                          //   SizedBox(height: 10,),
-                         // //  SvgPicture.asset('assets/images/fax_icon.svg')
+                         // //  SvgPicture.asset('assets/images/mobile_icon.svg')
                             
                          // ],),
                          // SizedBox(width: 20,),
@@ -586,7 +495,7 @@ for (var i = 0; i < items.length; i++) {
                              icon: const Icon(Icons.share),
                              onPressed: () async {
                                // Replace with your actual sharing logic
-                               final text = 'Company Name: $name\n Phone: $tel\n Email: $email\n Website: $website\n Fax: $mobile\n';
+                               final text = 'Company Name: $name\n Phone: $tel\n Email: $email\n Website: $website\n mobile: $mobile\n';
                                await Share.share(text);
                              },
                                       ),

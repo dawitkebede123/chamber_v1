@@ -1,6 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:chamber_of_commerce/pages/user/Business.dart';
 import 'package:chamber_of_commerce/pages/user/Business_Options/Agriculture/Agriculture_Listing.dart';
+import 'package:chamber_of_commerce/pages/user/Business_Options/Construction/Construction_Options.dart';
 import 'package:chamber_of_commerce/pages/user/Business_Options/Export/Export_Listing.dart';
 import 'package:chamber_of_commerce/pages/user/Business_listing.dart';
 import 'package:chamber_of_commerce/pages/user/Home.dart';
@@ -20,13 +21,13 @@ import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 
 
-class Agriculture_Home extends StatefulWidget {
-  const Agriculture_Home({super.key});
+class Construction_Home extends StatefulWidget {
+  const Construction_Home({super.key});
   @override
-  State<Agriculture_Home> createState() => _Agriculture_HomeState();
+  State<Construction_Home> createState() => _Construction_HomeState();
 }
 
-class _Agriculture_HomeState extends State<Agriculture_Home> {
+class _Construction_HomeState extends State<Construction_Home> {
  final slideImages = [
    "assets/images/business_lists/adv_logo/1.jpg",
    "assets/images/business_lists/adv_logo/2.jpg",
@@ -104,34 +105,45 @@ class _Agriculture_HomeState extends State<Agriculture_Home> {
   //    [
   //      "assets/images/business_lists/5.svg",
   // ];
-   List <String> title =[
-  'AGRICULTURAL SUPPORT SERVICE',
-  'BEE KEEPING',
-  'CATTLE AND PACK ANIMALS HUSBANDARY',
-  'CEREALS/PULSES FARMING',
-  'COFFEE FARMING',
-  'COTTON FARMING',
-  'DIFFERENT SEEDLINGS FARMING',
-  'FARMING of cattle, sheep, goats, horses, asses, mules and hinnies; dairy farming',
-  'FISH HATCHERIES AND FISH FARMS',
-  'FLORICULTURE',
-  'FLOURICULTURE',
-  'FRUIT FARMING',
-  'GROWING OF ANIMALS FEED',
-  'GROWING OF CEREALS',
-  'GROWING OF HERBS AND OTHERS',
-  'GROWING OF PLANT SEEDS',
-  'OIL SEEDS FARMING',
-  'PEST CONTROL',
-  'PICTURE, SCULPTURE,GALLERY/ STUDIO SERVICE',
-  'POULTRY',
-  'TEA AND BEVERAGE ,SPICE CROPS, MEDICINAL AND AROMATIC CROPS FARMING',
-  'VEGETABLE,FRUIT,PLANT AND PLANT SEED PRODUCTION',
-  'VEGETABLES FARMING'
+   List <String> title = [
+  'BUILDING COMPLETION',
+  'BUILDING COMPLETING/FINISHING CONTRACTOR',
+  'BUILDING FINISHING SERVICE',
+  'BUILDING OF COMPLETE CONSTRUCTIONS AND CIVIL ENGINEERING',
+  'BUILDING WORKS CONTRACTOR',
+  'BUILDING AND ROAD CONSTRUCTION CONTRACTOR',
+  'BUILDINGS CONTRACTOR',
+  'CONSTRUCTION COMPLETING/FINISHING CONTRACTOR', // Duplicate of BUILDING COMPLETING/FINISHING CONTRACTOR
+  'CONSTRUCTION MATERIALS',
+  'CONSTRUCTION MATERIALS HARDWARE, PLUMBING AND HEATING EQUIPMENT AND SUPPLIES',
+  'CONSTRUCTION OF BUILDINGS',
+  'CONSTRUCTION OF WATER WORKS',
+  'CONSTRUCTION SITE PREPARATION CONTRACTOR',
+  'CONSTRUCTION AND RELATED SPECIALIZED CONSULTANCY SERVICES',
+  'CONSULTANCY SERVICE ON CONSTRUCTION SERVICE',
+  'DECORATING ACTIVITIES',
+  'DEVELOPING REAL ESTATE, SUBDIVIDING REAL ESTATE INTO LOTS AND RESIDENTIAL DEVELOPMENT',
+  'ELECTRICAL CONTRACTING',
+  'ELECTRICAL CONTRACTING & ELECTROMECHANICAL WORK CONTRACTOR', // Duplicate of ELECTROMECHANICAL WORK
+  'ELECTROMECHANICAL WORK',
+  'GENERAL CONTRACTOR',
+  'GENERAL CONTRACTOR EXCEPT WATER ELECTRIC AND ELECTRO MECHANICAL WORK',
+  'HOUSEHOLD APPLIANCE',
+  'IMPORT TRADE IN MATERIAL METAL AND NON METAL SCRAPS',
+  'INDUSTRIAL MACHINERY , EQUIPMENT AND ITS SPARE PARTS',
+  'LAND EXCAVATING & BEAUTIFICATION',
+  'PILE FOUNDATION WORK CONTRACTOR',
+  'PLUMBING',
+  'PROPERTY OWNING AND LETTING',
+  'RENTING OF CONSTRUCTION AND CIVIL ENGINEERING MACHINERY AND EQUIPMENT',
+  'ROAD WORKS CONTRACTOR',
+  'SOLI TESTING WORK',
+  'ዶክመንቱ አልተሟላም (ንግድ ፈቃዱ ከጀርባ ያለው መረጃ የለም )', // Untranslated string remains unchanged
+  'Construction of civil engineering structures',
+  // '' // Empty string remains unchanged
 ];
-title.sort((a,b)=>a.compareTo(b));
     List <String> categories = List .generate(title.length, (index) => 
-    "assets/images/business_lists/1.svg"
+    "assets/images/business_lists/6.svg"
     );
 
   final List<Map<String, String>> businessCompanyProfile = [
@@ -173,7 +185,7 @@ title.sort((a,b)=>a.compareTo(b));
     ),
        
         title:const Text(
-          'Agriculture',
+          'Construction',
           style: TextStyle(
            color: Colors.black,
            fontWeight: FontWeight.bold,
@@ -251,7 +263,7 @@ title.sort((a,b)=>a.compareTo(b));
                                         Navigator.push(
                                   context,
                                   TransparentRoute(
-                      page:  Agriculture_listing(index: index,title:title[index],businessCompanyProfile: businessCompanyProfile),
+                      page:  Construction_listing(index: index,title:title[index],businessCompanyProfile: businessCompanyProfile),
                             ),
                                 );
                                    }                 

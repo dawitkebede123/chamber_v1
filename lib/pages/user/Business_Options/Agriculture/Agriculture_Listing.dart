@@ -218,72 +218,52 @@ class _Agriculture_listingState extends State<Agriculture_listing> {
     return const Center(child: Text('No businesses found'));
   }
   //based on the index categorize SIT+A1:I15802C Description
-  const items = [
- 
-'TEA AND BEVERAGE ,SPICE CROPS, MEDICINAL AND AROMATIC CROPS FARMING',
-'PEST CONTROL',
-'COFFEE FARMING',
-'GROWING OF CROPS COMBINED WITH FARMING OF ANIMALS (MIXED FARMING)',
-'OIL SEEDS FARMING',
-'DIFFERENT SEEDLINGS FARMING',
-'CEREALS/PULSES FARMING',
-'VEGETABLES FARMING',
-'FRUITS FARMING',
-'FLOURICULTURE',
-'COTTON FARMING',
-'POULTRY',
-'GROWING OF HERBS AND OTHERS',
-'Farming of cattle, sheep, goats, horses, asses, mules and hinnies; dairy farming',
-'GROWING OF ANIMALS FEED',
-'PICTURE, SCULPTURE,GALLERY/ STUDIO SERVICE',
-'AGRICULTURAL SUPPORT SERVICE',
-'FISH HATCHERIES AND FISH FARMS',
-'GROWING OF PLANT SEEDS',
-'GROWING OF CEREALS',
-'CATTLE AND PACK ANIMALS HUSBANDARY',
-'FLORICULTURE',
-'BEE KEEPING',
-'VEGETABLE,FRUIT,PLANT AND PLANT SEED PRODUCTION',
-
-
-
-
-
-
+  const items =[
+  'AGRICULTURAL SUPPORT SERVICE',
+  'BEE KEEPING',
+  'CATTLE AND PACK ANIMALS HUSBANDARY',
+  'CEREALS/PULSES FARMING',
+  'COFFEE FARMING',
+  'COTTON FARMING',
+  'DIFFERENT SEEDLINGS FARMING',
+  'FARMING of cattle, sheep, goats, horses, asses, mules and hinnies; dairy farming',
+  'FISH HATCHERIES AND FISH FARMS',
+  'FLORICULTURE',
+  'FLOURICULTURE',
+  'FRUIT FARMING',
+  'GROWING OF ANIMALS FEED',
+  'GROWING OF CEREALS',
+  'GROWING OF HERBS AND OTHERS',
+  'GROWING OF PLANT SEEDS',
+  'OIL SEEDS FARMING',
+  'PEST CONTROL',
+  'PICTURE, SCULPTURE,GALLERY/ STUDIO SERVICE',
+  'POULTRY',
+  'TEA AND BEVERAGE ,SPICE CROPS, MEDICINAL AND AROMATIC CROPS FARMING',
+  'VEGETABLE,FRUIT,PLANT AND PLANT SEED PRODUCTION',
+  'VEGETABLES FARMING'
 ];
-
+// print(items);
 for (var i = 0; i < items.length; i++) {
   var currentItem =  items[i];
   // console.log(`
-  if(widget.index == '$i'){
+  if(widget.index == i){
     // index = ${i};
     // print(data);
-    filteredBusinesses = data.expand((element) {
+    filteredBusinesses = filteredBusinesses.expand((element) {
       // ... filtering logic using entry.value as Map<String, dynamic>
-      final company = element['SIT+A1:I15802C Description']?.toString().toLowerCase() ?? '';
+      final company = element['SIT+A1:I15802C Description']?.toString() ?? '';
       return company.startsWith("${currentItem}") ? [element] : [];
     }).toList();
-  
+  // print(i);
   }
 
 }
 
 
  
-  // int index= 0;
-  // if(widget.index == 14){
-  //    filteredBusinesses = data.expand((element) {
-  //   // ... filtering logic using entry.value as Map<String, dynamic>
-  //   final companyName = element['SIT+A1:I15802C Description']?.toString().toLowerCase() ?? '';
-  //   return companyName.startsWith("transport") ? [element] : [];
-  // }).toList();
-
-  // }
-  // final filteredBusinesses = data.expand((element) {
-  //   // ... filtering logic using entry.value as Map<String, dynamic>
-  //   final companyName = element['Campany Name']?.toString().toLowerCase() ?? '';
-  //   return companyName.startsWith(_searchTerm) ? [element] : [];
-  // }).toList();
+  
+ 
 
   return filteredBusinesses.isEmpty
     ? const Padding(
@@ -303,9 +283,9 @@ for (var i = 0; i < items.length; i++) {
        itemBuilder: (context, index) {
          final businessData = filteredBusinesses[index];
          final name = businessData['Account Name'];
-         final email = businessData['Email'];
+         final email = businessData['E-mail'];
          final tel = businessData['Tel'];
-         final fax = businessData["Fax"];
+         final mobile = businessData["Mobile Phone"];
          final website = businessData["Web"];
          
        
@@ -351,7 +331,7 @@ for (var i = 0; i < items.length; i++) {
                          // Column(children: [
                          //   SvgPicture.asset('assets/images/phone_icon.svg'),
                          //   SizedBox(height: 10,),
-                         // //  SvgPicture.asset('assets/images/fax_icon.svg')
+                         // //  SvgPicture.asset('assets/images/mobile_icon.svg')
                             
                          // ],),
                          // SizedBox(width: 20,),
@@ -421,7 +401,7 @@ for (var i = 0; i < items.length; i++) {
                        ],
                      )),],),
                       SizedBox(height: 5,),
-                      if(fax !="")
+                      if(mobile !="")
                      Row(
                        children: [
                           Container(
@@ -436,7 +416,7 @@ for (var i = 0; i < items.length; i++) {
                    ),
                            child: SvgPicture.asset('assets/images/vector3.svg',width: 10,height: 10,)),
                          SizedBox(width: 10,),
-                         Text(fax,softWrap: true,overflow: TextOverflow.ellipsis,),
+                         Text(mobile,softWrap: true,overflow: TextOverflow.ellipsis,),
                        ],
                      ),
                       SizedBox(height: 5,),
@@ -483,7 +463,7 @@ for (var i = 0; i < items.length; i++) {
                              icon: const Icon(Icons.share),
                              onPressed: () async {
                                // Replace with your actual sharing logic
-                               final text = 'Company Name: $name\n Phone: $tel\n Email: $email\n Website: $website\n Fax: $fax\n';
+                               final text = 'Company Name: $name\n Phone: $tel\n Email: $email\n Website: $website\n mobile: $mobile\n';
                                await Share.share(text);
                              },
                                       ),
@@ -506,7 +486,7 @@ for (var i = 0; i < items.length; i++) {
            // children: [
              // Text(name);
            //   Text(tel),
-           //   Text(fax),
+           //   Text(mobile),
            //   Text(website),
            //  Text(email),
            // ]

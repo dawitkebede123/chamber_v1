@@ -1,6 +1,17 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:chamber_of_commerce/pages/user/Business_Options/Agriculture/Agriculture_Home.dart';
+import 'package:chamber_of_commerce/pages/user/Business_Options/Community/Community_Home.dart';
+import 'package:chamber_of_commerce/pages/user/Business_Options/Construction/Construction_Home.dart';
+import 'package:chamber_of_commerce/pages/user/Business_Options/Electricity/Electricity_Home.dart';
 import 'package:chamber_of_commerce/pages/user/Business_Options/Export/Export_Home.dart';
+import 'package:chamber_of_commerce/pages/user/Business_Options/Hotel/Hotel_Home.dart';
+import 'package:chamber_of_commerce/pages/user/Business_Options/Import/Import_Home.dart';
+import 'package:chamber_of_commerce/pages/user/Business_Options/Maintenance/Maintenance_Home.dart';
+import 'package:chamber_of_commerce/pages/user/Business_Options/Manufacturing/Manufacturing_Home.dart';
+import 'package:chamber_of_commerce/pages/user/Business_Options/Mining/Mining_Home.dart';
+import 'package:chamber_of_commerce/pages/user/Business_Options/Real_Estate/Real_Estate_Home.dart';
+import 'package:chamber_of_commerce/pages/user/Business_Options/Transport/Transport_Home.dart';
+import 'package:chamber_of_commerce/pages/user/Business_Options/Wholesale/Wholesale_Home.dart';
 import 'package:chamber_of_commerce/pages/user/Business_listing.dart';
 import 'package:chamber_of_commerce/pages/user/Home.dart';
 import 'package:chamber_of_commerce/widgets/BottomNavBar.dart';
@@ -108,7 +119,7 @@ class _BusinessState extends State<Business> {
         "assets/images/business_lists/13.svg",
 
         "assets/images/business_lists/1.svg",
-         "assets/images/business_lists/2.svg",
+        //  "assets/images/business_lists/2.svg",
         "assets/images/business_lists/3.svg",
         "assets/images/business_lists/4.svg",
         
@@ -127,7 +138,7 @@ class _BusinessState extends State<Business> {
    "Transport, Storage And Communication",
 
    "Agriculture, Hunting, Forestry, And Fishing",
-   "Financial Inter Mediation And Insurance",
+  //  "Financial Inter Mediation And Insurance",
    "Community, Social And Personal Services",
    "Electricity, Gas And Water Supply",
    
@@ -313,26 +324,115 @@ class _BusinessState extends State<Business> {
                                      Navigator.push(
                                   context,
                                   TransparentRoute(
-                                    page:Agriculture_Home()
+                                    page:Export_Home()
+              ),
+                                );
+                                   }  
+                                   if(index == 1){
+                                     Navigator.push(
+                                  context,
+                                  TransparentRoute(
+                                    page:Import_Home()
+              ),
+                                );
+                                   }  
+                                   if(index == 2){
+                                     Navigator.push(
+                                  context,
+                                  TransparentRoute(
+                                    page:Manufacturing_Home()
+              ),
+                                );
+                                   }
+                                   if(index == 3){
+                                     Navigator.push(
+                                  context,
+                                  TransparentRoute(
+                                    page:Construction_Home()
+              ),
+                                );
+                                   }
+                                   if(index == 4){
+                                     Navigator.push(
+                                  context,
+                                  TransparentRoute(
+                                    page:Transport_Home()
               ),
                                 );
                                    }  
                                    if(index == 5){
-                                      Navigator.push(
+                                     Navigator.push(
                                   context,
                                   TransparentRoute(
                                     page:Agriculture_Home()
               ),
                                 );
-                                   }
-                                   else{
-                                        Navigator.push(
+                                   }   
+                                   if(index == 6){
+                                     Navigator.push(
                                   context,
                                   TransparentRoute(
-                      page:  Business_listing(index: index,title:title[index],businessCompanyProfile: businessCompanyProfile),
-                            ),
+                                    page:Community_Home()
+              ),
                                 );
-                                   }                 
+                                   }   
+                                   if(index == 7){
+                                     Navigator.push(
+                                  context,
+                                  TransparentRoute(
+                                    page:Electricity_Home()
+              ),
+                                );
+                                   }  
+                                   if(index == 8){
+                                     Navigator.push(
+                                  context,
+                                  TransparentRoute(
+                                    page:Hotel_Home()
+              ),
+                                );
+                                   }  
+                                   if(index == 9){
+                                     Navigator.push(
+                                  context,
+                                  TransparentRoute(
+                                    page:Wholesale_Home()
+              ),
+                                );
+                                   } 
+                                   if(index == 10){
+                                     Navigator.push(
+                                  context,
+                                  TransparentRoute(
+                                    page:Maintenance_Home()
+              ),
+                                );
+                                   }  
+                                   if(index == 11){
+                                     Navigator.push(
+                                  context,
+                                  TransparentRoute(
+                                    page:Mining_Home()
+              ),
+                                );
+                                   }  
+                                   if(index == 12){
+                                     Navigator.push(
+                                  context,
+                                  TransparentRoute(
+                                    page:Real_Estate_Home()
+              ),
+                                );
+                                   }     
+                                 
+                      //              else{
+                      //                   Navigator.push(
+                      //             context,
+                      //             TransparentRoute(
+                      // page:  Business_listing(index: index,title:title[index],businessCompanyProfile: businessCompanyProfile),
+                      //       ),
+                      //           );
+                      //              }                 
                              
                                                       
                                

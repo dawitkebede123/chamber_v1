@@ -2,6 +2,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:chamber_of_commerce/pages/user/Business.dart';
 import 'package:chamber_of_commerce/pages/user/Business_Options/Agriculture/Agriculture_Listing.dart';
 import 'package:chamber_of_commerce/pages/user/Business_Options/Export/Export_Listing.dart';
+import 'package:chamber_of_commerce/pages/user/Business_Options/Import/Import_Options.dart';
 import 'package:chamber_of_commerce/pages/user/Business_listing.dart';
 import 'package:chamber_of_commerce/pages/user/Home.dart';
 import 'package:chamber_of_commerce/widgets/BottomNavBar.dart';
@@ -20,13 +21,13 @@ import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 
 
-class Agriculture_Home extends StatefulWidget {
-  const Agriculture_Home({super.key});
+class Maintenance_Home extends StatefulWidget {
+  const Maintenance_Home({super.key});
   @override
-  State<Agriculture_Home> createState() => _Agriculture_HomeState();
+  State<Maintenance_Home> createState() => _Agriculture_HomeState();
 }
 
-class _Agriculture_HomeState extends State<Agriculture_Home> {
+class _Agriculture_HomeState extends State<Maintenance_Home> {
  final slideImages = [
    "assets/images/business_lists/adv_logo/1.jpg",
    "assets/images/business_lists/adv_logo/2.jpg",
@@ -104,34 +105,38 @@ class _Agriculture_HomeState extends State<Agriculture_Home> {
   //    [
   //      "assets/images/business_lists/5.svg",
   // ];
-   List <String> title =[
-  'AGRICULTURAL SUPPORT SERVICE',
-  'BEE KEEPING',
-  'CATTLE AND PACK ANIMALS HUSBANDARY',
-  'CEREALS/PULSES FARMING',
-  'COFFEE FARMING',
-  'COTTON FARMING',
-  'DIFFERENT SEEDLINGS FARMING',
-  'FARMING of cattle, sheep, goats, horses, asses, mules and hinnies; dairy farming',
-  'FISH HATCHERIES AND FISH FARMS',
-  'FLORICULTURE',
-  'FLOURICULTURE',
-  'FRUIT FARMING',
-  'GROWING OF ANIMALS FEED',
-  'GROWING OF CEREALS',
-  'GROWING OF HERBS AND OTHERS',
-  'GROWING OF PLANT SEEDS',
-  'OIL SEEDS FARMING',
-  'PEST CONTROL',
-  'PICTURE, SCULPTURE,GALLERY/ STUDIO SERVICE',
-  'POULTRY',
-  'TEA AND BEVERAGE ,SPICE CROPS, MEDICINAL AND AROMATIC CROPS FARMING',
-  'VEGETABLE,FRUIT,PLANT AND PLANT SEED PRODUCTION',
-  'VEGETABLES FARMING'
-];
-title.sort((a,b)=>a.compareTo(b));
+   List <String> title = [
+      'SIMPLE, MEDIUM AND HEAVY TRACKS REPAIR AND MAINTENANCE',
+'OTHER GOODS THAT USED FOR PUBLIC AND PERSONAL PURPOSE',
+'INSTALLATION AND MAINTENANCE OF MACHINERIES',
+'INSTALLATION, AND MAINTENANCE SERVICES',
+'INSTALLATION, AND FIXING OF ALUMINUM WINDOWS AND DOORS/ ALUMINUM WORKS',
+'MAINTENANCE AND REPAIR OF OFFICE, ACCOUNTING AND COMPUTING MACHINERY',
+'MULTI PURPOSE VEHICLES AND PARTS MAINTENANCE',
+'TELECOMMUNICATION EQUIPMENTS/ACCESSORIES/SALES/MAINTENANCE',
+'RADIATION EMITTING EQUIPMENTS INSTALLATION,COMMISSIONING MAINTENANCE',
+'SPECIAL CARS AND VEHICLES BODY REPAIR',
+'INSTALLATION AND MAINTENANCE OF COMMUNICATION AND ELECTRONIC EQUIPMENTS',
+'INSTALLATION AND MAINENANCE SERVICES',
+'COMPUTER AND COMPUTER ACCESSORIES MAINTENANCE',
+'Tyre Repairs',
+'GOODS USED FOR PUBLIC AND PERSONAL PURPOSE',
+'FUEL STATION EQUPEMENTS',
+'ELECTRICAL REPAIRS',
+'AUTOMOTIVE FUEL & LUBRICANTS IN GAS STATION /CAR WASH SERVICE',
+'MOTOR CYCLE, BICYCLE AND TRI CYCLE (BAJAJ) PARTS AND ACCESSORIES',
+'Car Wash Service and grease',
+'MAINTENANCE AND REPAIR OF FOOT WARE AND LEATHER PRODUCTS',
+'CHEMICALS AND CHEMICAL PRODUCTS',
+'USED MOTOR VEHICLES',
+'HOUSEHOLD AND OFFICE FURNITURE, REQUZITE, BOARDS, APPLIANCES',
+'IMPORTING OF VEHICLES SPARE PARTS,REGULATORY EQUIPMENTS AND JEWELRY/DECOR SUPPLIES',
+'RUBBER MAINTENANCE,CLEAN GREASE AND RELATED SERVICE',
+'IMPORTING OF VEHICLES',
+     ];
+     title.sort((a,b)=>a.compareTo(b));
     List <String> categories = List .generate(title.length, (index) => 
-    "assets/images/business_lists/1.svg"
+    "assets/images/business_lists/10.svg"
     );
 
   final List<Map<String, String>> businessCompanyProfile = [
@@ -173,7 +178,7 @@ title.sort((a,b)=>a.compareTo(b));
     ),
        
         title:const Text(
-          'Agriculture',
+          'Maintenance',
           style: TextStyle(
            color: Colors.black,
            fontWeight: FontWeight.bold,
@@ -251,7 +256,7 @@ title.sort((a,b)=>a.compareTo(b));
                                         Navigator.push(
                                   context,
                                   TransparentRoute(
-                      page:  Agriculture_listing(index: index,title:title[index],businessCompanyProfile: businessCompanyProfile),
+                      page:  Import_listing(index: index,title:title[index],businessCompanyProfile: businessCompanyProfile),
                             ),
                                 );
                                    }                 
