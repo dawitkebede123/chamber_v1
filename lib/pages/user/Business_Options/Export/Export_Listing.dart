@@ -401,231 +401,244 @@ for (var i = 0; i < items.length; i++) {
       // physics: NeverScrollableScrollPhysics(),
      
      
-       ListView.builder(
-       itemCount: filteredBusinesses.length,
-       itemBuilder: (context, index) {
-         final businessData = filteredBusinesses[index];
-         final name = businessData['Account Name'];
-         final email = businessData['E-mail'];
-         final tel = businessData['Tel'];
-         final mobile = businessData["Mobile Phone"];
-         final website = businessData["Web"];
-         
-       
-         // Extract business information based on your data structure
-         return Padding(
-           padding: const EdgeInsets.only(left: 20.0,right: 20,bottom: 16),
-           child:
-               GestureDetector(
-                onTap: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => CompanyDetail(data: businessData),
+       NestedScrollView(
+        headerSliverBuilder:(context, innerChildOverscrollIndicator)=> [
+           const SliverAppBar(
+            automaticallyImplyLeading: false,
+            collapsedHeight: 500,
+            expandedHeight: 500,
+            flexibleSpace: Padding(
+              padding: EdgeInsets.only(left: 20.0,right: 20,bottom: 16),
+              child: Business_Top_List(index: 1),
             ),
-          );
-        },
-                 child: Container(
-                  
-                    decoration: BoxDecoration(
-                     
-                         color: const Color.fromARGB(255,229,234,232),
-                 
-                 borderRadius:BorderRadius.circular(20), // Set border width
-                 
-                   ),
-                   // color: const Color.fromARGB(255,229,234,232),
-                   //  width: MediaQuery.of(context).size.width * 0.8,
-                   //  height: 230,
-                   child:  Padding(padding: EdgeInsets.all(16),
-                   child: Column(children: [
-                     Row(
-                       children: [
-                         Expanded(child: Text(name,style: const TextStyle(fontWeight: FontWeight.bold,fontSize: 16), softWrap: true,overflow: TextOverflow.ellipsis,textAlign: TextAlign.left)),
-                       ],
-                     ),
-                     // Text(name, style: const TextStyle(fontWeight: FontWeight.bold,fontSize: 16),softWrap: true,overflow: TextOverflow.ellipsis,textAlign: TextAlign.center,),
-                     //  Row(
-                       
-                       // children: [
-                         // SvgPicture.asset('assets/images/phone_icon.svg'),
-                         // SizedBox(width: 10,),
-                        
-                         // Column(children: [
-                         //   SvgPicture.asset('assets/images/phone_icon.svg'),
-                         //   SizedBox(height: 10,),
-                         // //  SvgPicture.asset('assets/images/fax_icon.svg')
-                            
-                         // ],),
-                         // SizedBox(width: 20,),
-                         // Column(
-                         //   children: [
-                          
-                         // SvgPicture.asset('assets/images/web_icon.svg'),
-                         // SizedBox(height: 10,),
-                         //  SvgPicture.asset('assets/images/mail_icon.svg'),
-                         //   ]
-                  
-                         // )
-                        
-                         
-                     //   ],
-                     // ),
-                     if(tel !="")
-                     Row(
-                       children: [
-                         InkWell( // Wrap the content in an InkWell
-                 onTap: () {
-                   launch('tel:$tel'); // Launch the phone dialer with the number
-                 },
-                        child: Row(
-                           children: [
-                              Container(
-                               // width: 20,
-                               // height: 20,
-                               decoration: BoxDecoration(
-                     
-                         color: Color.fromARGB(255, 255, 255, 255),
-                 
-                 borderRadius:BorderRadius.circular(999), // Set border width
-                 
-                   ),
-                               child: SvgPicture.asset('assets/images/vector1.svg',width: 10,height: 10,)),
-                             SizedBox(width: 10,),
-                             Text(tel,softWrap: true,overflow: TextOverflow.ellipsis,),
-                           ],
-                         ),),
-                       ],
-                     ),
-                     SizedBox(height: 5,),
-                    
-                      if(website !="")
-                     Row(
-                     children: [
-                      InkWell( // Wrap the content in an InkWell
-                         onTap: () {
-                           launch(website); // Launch the URL in a web browser
-                 },
-                       child:Row(
-                       children: [
-                          Container(
-                           // width: 20,
-                           // height: 20,
-                           decoration: BoxDecoration(
-                     
-                         color: Color.fromARGB(255, 255, 255, 255),
-                 
-                 borderRadius:BorderRadius.circular(999), // Set border width
-                 
-                   ),
-                           child: SvgPicture.asset('assets/images/vector.svg',width: 10,height: 10,)),
-                         SizedBox(width: 10,),
-                         Text(website,softWrap: true,overflow: TextOverflow.ellipsis,),
-                       ],
-                     )),],),
-                      SizedBox(height: 5,),
-                      if(mobile !="")
-                     Row(
-                       children: [
-                          Container(
-                           // width: 10,
-                           // height: 10,
-                           decoration: BoxDecoration(
-                     
-                         color: Color.fromARGB(255, 255, 255, 255),
-                 
-                 borderRadius:BorderRadius.circular(999), // Set border width
-                 
-                   ),
-                           child: SvgPicture.asset('assets/images/vector3.svg',width: 10,height: 10,)),
-                         SizedBox(width: 10,),
-                         Text(mobile,softWrap: true,overflow: TextOverflow.ellipsis,),
-                       ],
-                     ),
-                      SizedBox(height: 5,),
-                       if(email !="")
-                     Row(
-                   children: [
-                     InkWell( // Wrap the content in an InkWell
-                 onTap: () {
-                   launch('mailto:$email'); // Launch email app with recipient
-                 },
-                 child: Row(
-                       children: [
-                          Container(
-                           // width: 20,
-                           // height: 20,
-                           decoration: BoxDecoration(
-                     
-                         color: Color.fromARGB(255, 255, 255, 255),
-                 
-                 borderRadius:BorderRadius.circular(999), // Set border width
-                 
-                   ),
-                           child: SvgPicture.asset('assets/images/vector2.svg',width: 10,height: 10,)),
-                          SizedBox(width: 10,),
-                         Text(email,softWrap: true,overflow: TextOverflow.ellipsis,),
-                       ],
-                     ),)]),
-                     SizedBox(height: 20,),
-                 
-                 
-                     
-                      Row(
-                        children: [
-                         SizedBox(width: MediaQuery.of(context).size.width*0.68,),
-                          Container(
-                            decoration: BoxDecoration(
-                         
-                         color: Color.fromARGB(255, 255, 255, 255),
-                 
-                 borderRadius:BorderRadius.circular(999), // Set border width
-                 
-                   ),
-                            child: IconButton(
-                             icon: const Icon(Icons.share),
-                             onPressed: () async {
-                               // Replace with your actual sharing logic
-                               final text = 'Company Name: $name\n Phone: $tel\n Email: $email\n Website: $website\n Fax: $mobile\n';
-                               await Share.share(text);
-                             },
-                                      ),
-                          ),
-                        ],
-                      ),
-                     // const Column(
-                     //   children: [
-                         
-                     //   ],
-                     // )
-                   ],))
-                    
-                 ),
-               ),
-            
+          )
+      ],
+         body: ListView.builder(
+         itemCount: filteredBusinesses.length,
+         itemBuilder: (context, index) {
+           final businessData = filteredBusinesses[index];
+           final name = businessData['Account Name'];
+           final email = businessData['E-mail'];
+           final tel = businessData['Tel'];
+           final mobile = businessData["Mobile Phone"];
+           final website = businessData["Web"];
+           
          
-         );
-         //  ListView(
-           // children: [
-             // Text(name);
-           //   Text(tel),
-           //   Text(mobile),
-           //   Text(website),
-           //  Text(email),
-           // ]
-             
-           // onTap: () {
-             // Navigate to CompanyDetailsScreen
-             // Navigator.push(
-             //   context,
-             //   MaterialPageRoute(
-             //     builder: (context) => Detail(businessData: businessData),
-             //   ),
-             // );
-           // },
-         // );
-       },
-         );
+           // Extract business information based on your data structure
+           return Padding(
+             padding: const EdgeInsets.only(left: 20.0,right: 20,bottom: 16),
+             child:
+                 GestureDetector(
+                  onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => CompanyDetail(data: businessData),
+              ),
+            );
+          },
+                   child: Container(
+                    
+                      decoration: BoxDecoration(
+                       
+                           color: const Color.fromARGB(255,229,234,232),
+                   
+                   borderRadius:BorderRadius.circular(20), // Set border width
+                   
+                     ),
+                     // color: const Color.fromARGB(255,229,234,232),
+                     //  width: MediaQuery.of(context).size.width * 0.8,
+                     //  height: 230,
+                     child:  Padding(padding: EdgeInsets.all(16),
+                     child: Column(children: [
+                       Row(
+                         children: [
+                           Expanded(child: Text(name,style: const TextStyle(fontWeight: FontWeight.bold,fontSize: 16), softWrap: true,overflow: TextOverflow.ellipsis,textAlign: TextAlign.left)),
+                         ],
+                       ),
+                       // Text(name, style: const TextStyle(fontWeight: FontWeight.bold,fontSize: 16),softWrap: true,overflow: TextOverflow.ellipsis,textAlign: TextAlign.center,),
+                       //  Row(
+                         
+                         // children: [
+                           // SvgPicture.asset('assets/images/phone_icon.svg'),
+                           // SizedBox(width: 10,),
+                          
+                           // Column(children: [
+                           //   SvgPicture.asset('assets/images/phone_icon.svg'),
+                           //   SizedBox(height: 10,),
+                           // //  SvgPicture.asset('assets/images/fax_icon.svg')
+                              
+                           // ],),
+                           // SizedBox(width: 20,),
+                           // Column(
+                           //   children: [
+                            
+                           // SvgPicture.asset('assets/images/web_icon.svg'),
+                           // SizedBox(height: 10,),
+                           //  SvgPicture.asset('assets/images/mail_icon.svg'),
+                           //   ]
+                    
+                           // )
+                          
+                           
+                       //   ],
+                       // ),
+                       if(tel !="")
+                       Row(
+                         children: [
+                           InkWell( // Wrap the content in an InkWell
+                   onTap: () {
+                     launch('tel:$tel'); // Launch the phone dialer with the number
+                   },
+                          child: Row(
+                             children: [
+                                Container(
+                                 // width: 20,
+                                 // height: 20,
+                                 decoration: BoxDecoration(
+                       
+                           color: Color.fromARGB(255, 255, 255, 255),
+                   
+                   borderRadius:BorderRadius.circular(999), // Set border width
+                   
+                     ),
+                                 child: SvgPicture.asset('assets/images/vector1.svg',width: 10,height: 10,)),
+                               SizedBox(width: 10,),
+                               Text(tel,softWrap: true,overflow: TextOverflow.ellipsis,),
+                             ],
+                           ),),
+                         ],
+                       ),
+                       SizedBox(height: 5,),
+                      
+                        if(website !="")
+                       Row(
+                       children: [
+                        InkWell( // Wrap the content in an InkWell
+                           onTap: () {
+                             launch(website); // Launch the URL in a web browser
+                   },
+                         child:Row(
+                         children: [
+                            Container(
+                             // width: 20,
+                             // height: 20,
+                             decoration: BoxDecoration(
+                       
+                           color: Color.fromARGB(255, 255, 255, 255),
+                   
+                   borderRadius:BorderRadius.circular(999), // Set border width
+                   
+                     ),
+                             child: SvgPicture.asset('assets/images/vector.svg',width: 10,height: 10,)),
+                           SizedBox(width: 10,),
+                           Text(website,softWrap: true,overflow: TextOverflow.ellipsis,),
+                         ],
+                       )),],),
+                        SizedBox(height: 5,),
+                        if(mobile !="")
+                       Row(
+                         children: [
+                            Container(
+                             // width: 10,
+                             // height: 10,
+                             decoration: BoxDecoration(
+                       
+                           color: Color.fromARGB(255, 255, 255, 255),
+                   
+                   borderRadius:BorderRadius.circular(999), // Set border width
+                   
+                     ),
+                             child: SvgPicture.asset('assets/images/vector3.svg',width: 10,height: 10,)),
+                           SizedBox(width: 10,),
+                           Text(mobile,softWrap: true,overflow: TextOverflow.ellipsis,),
+                         ],
+                       ),
+                        SizedBox(height: 5,),
+                         if(email !="")
+                       Row(
+                     children: [
+                       InkWell( // Wrap the content in an InkWell
+                   onTap: () {
+                     launch('mailto:$email'); // Launch email app with recipient
+                   },
+                   child: Row(
+                         children: [
+                            Container(
+                             // width: 20,
+                             // height: 20,
+                             decoration: BoxDecoration(
+                       
+                           color: Color.fromARGB(255, 255, 255, 255),
+                   
+                   borderRadius:BorderRadius.circular(999), // Set border width
+                   
+                     ),
+                             child: SvgPicture.asset('assets/images/vector2.svg',width: 10,height: 10,)),
+                            SizedBox(width: 10,),
+                           Text(email,softWrap: true,overflow: TextOverflow.ellipsis,),
+                         ],
+                       ),)]),
+                       SizedBox(height: 20,),
+                   
+                   
+                       
+                        Row(
+                          children: [
+                           SizedBox(width: MediaQuery.of(context).size.width*0.68,),
+                            Container(
+                              decoration: BoxDecoration(
+                           
+                           color: Color.fromARGB(255, 255, 255, 255),
+                   
+                   borderRadius:BorderRadius.circular(999), // Set border width
+                   
+                     ),
+                              child: IconButton(
+                               icon: const Icon(Icons.share),
+                               onPressed: () async {
+                                 // Replace with your actual sharing logic
+                                 final text = 'Company Name: $name\n Phone: $tel\n Email: $email\n Website: $website\n Fax: $mobile\n';
+                                 await Share.share(text);
+                               },
+                                        ),
+                            ),
+                          ],
+                        ),
+                       // const Column(
+                       //   children: [
+                           
+                       //   ],
+                       // )
+                     ],))
+                      
+                   ),
+                 ),
+              
+           
+           );
+           //  ListView(
+             // children: [
+               // Text(name);
+             //   Text(tel),
+             //   Text(mobile),
+             //   Text(website),
+             //  Text(email),
+             // ]
+               
+             // onTap: () {
+               // Navigate to CompanyDetailsScreen
+               // Navigator.push(
+               //   context,
+               //   MaterialPageRoute(
+               //     builder: (context) => Detail(businessData: businessData),
+               //   ),
+               // );
+             // },
+           // );
+         },
+           ),
+       );
   
 }
 }

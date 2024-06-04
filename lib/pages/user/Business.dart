@@ -14,6 +14,7 @@ import 'package:chamber_of_commerce/pages/user/Business_Options/Transport/Transp
 import 'package:chamber_of_commerce/pages/user/Business_Options/Wholesale/Wholesale_Home.dart';
 import 'package:chamber_of_commerce/pages/user/Business_listing.dart';
 import 'package:chamber_of_commerce/pages/user/Home.dart';
+import 'package:chamber_of_commerce/pages/user/UseFullAddress.dart';
 import 'package:chamber_of_commerce/widgets/BottomNavBar.dart';
 import 'package:chamber_of_commerce/widgets/CustomBottomNavBar.dart';
 import 'package:chamber_of_commerce/widgets/GridScreen.dart';
@@ -190,6 +191,28 @@ class _BusinessState extends State<Business> {
    
    ];
      var scaffold = Scaffold(
+
+        floatingActionButton:  Container(
+                   height: 70.0,  // Adjust height as needed
+           width: 90.0,  // Adjust width as needed
+         child: FloatingActionButton(onPressed: ()=>{
+            Navigator.push(
+                  context,
+                   TransparentRoute(
+                 
+                  page:  UsefullAddress(),
+                ),
+                
+                ),
+               },
+         backgroundColor: Color.fromARGB(255, 255, 241, 209),
+           child: Padding(
+             padding: const EdgeInsets.all(10.0),
+             child: const Text("usefull Address"),
+           ),
+               ),
+       ),
+
       //  drawer:const BackButton(
       //   //  backgroundColor: Colors.white,
       //  ),

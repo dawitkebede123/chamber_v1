@@ -12,6 +12,7 @@ import 'package:chamber_of_commerce/widgets/GridScreenForBusiness.dart';
 import 'package:chamber_of_commerce/widgets/GridSingle.dart';
 import 'package:chamber_of_commerce/widgets/SearchField.dart';
 import 'package:chamber_of_commerce/widgets/SearchFieldBusiness.dart';
+import 'package:chamber_of_commerce/widgets/business_top_list.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -193,83 +194,96 @@ class _Hotel_HomeState extends State<Hotel_Home> {
     
             // SvgPicture.asset('assets/images/Adv_slider.svg'),
             // Slider(value: value, onChanged: onChanged),
-           Column(
-            children: [
-              
-
-
-
-
-              //  const Padding(
-              //         padding: EdgeInsets.only(left: 20.0,right: 20,bottom: 16),
-              //         child: SearchFieldBusiness(),
-              //       ),
-               Expanded(
-                 child: Padding(
-                   padding: const EdgeInsets.only(left: 20.0,right: 20,bottom: 16),
-                   child: GridView.builder(
-                           itemCount: categories.length,
-                           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                             crossAxisCount: 3, // Number of columns
-                             crossAxisSpacing: 20.0, // Spacing between columns
-                             mainAxisSpacing: 10.0, 
-                             childAspectRatio: 120/160 // Spacing between rows
-                           ),
-                           itemBuilder: (context, index) {
-                             final item = categories[index];
-                             return GestureDetector(
-                               child: Column(
-                                 children: [
-                                   Container(
-                                    decoration: BoxDecoration(
-                                                 color:Color.fromARGB(255, 229, 234, 232) ,
-                                                 border: Border.all(
-                                                   color: Colors.white,
-                                                   width: 1.0,
+           NestedScrollView(
+            headerSliverBuilder:(context, innerChildOverscrollIndicator)=> [
+           const SliverAppBar(
+            automaticallyImplyLeading: false,
+            collapsedHeight: 300,
+            expandedHeight: 300,
+            flexibleSpace: Padding(
+              padding: EdgeInsets.only(left: 20.0,right: 20,bottom: 16),
+              child: Business_Top_List(index: 9),
+            ),
+          )
+      ],
+             body: Column(
+              children: [
+                
+             
+             
+             
+             
+                //  const Padding(
+                //         padding: EdgeInsets.only(left: 20.0,right: 20,bottom: 16),
+                //         child: SearchFieldBusiness(),
+                //       ),
+                 Expanded(
+                   child: Padding(
+                     padding: const EdgeInsets.only(left: 20.0,right: 20,bottom: 16),
+                     child: GridView.builder(
+                             itemCount: categories.length,
+                             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                               crossAxisCount: 3, // Number of columns
+                               crossAxisSpacing: 20.0, // Spacing between columns
+                               mainAxisSpacing: 10.0, 
+                               childAspectRatio: 120/160 // Spacing between rows
+                             ),
+                             itemBuilder: (context, index) {
+                               final item = categories[index];
+                               return GestureDetector(
+                                 child: Column(
+                                   children: [
+                                     Container(
+                                      decoration: BoxDecoration(
+                                                   color:Color.fromARGB(255, 229, 234, 232) ,
+                                                   border: Border.all(
+                                                     color: Colors.white,
+                                                     width: 1.0,
+                                                   ),
+                                                   borderRadius: BorderRadius.circular(20.0),
                                                  ),
-                                                 borderRadius: BorderRadius.circular(20.0),
-                                               ),
-                                    height: 94,
-                                    width: 94,
-                                     child: Center(
-                                       child:SvgPicture.asset(item)
+                                      height: 94,
+                                      width: 94,
+                                       child: Center(
+                                         child:SvgPicture.asset(item)
+                                       ),
                                      ),
-                                   ),
-                                   Text(title[index],
-                                    style: TextStyle(fontSize: 12,),
-                                    textAlign: TextAlign.center,
-                                   maxLines: 2,
-                  overflow: TextOverflow.ellipsis,)
-                                 ],
-                               ),
-                            
-                            onTap: () {
-                                                     
-                                  
-                                        Navigator.push(
-                                  context,
-                                  TransparentRoute(
-                      page:  Hotel_listing(index: index,title:title[index],businessCompanyProfile: businessCompanyProfile),
-                            ),
-                                );
-                                   }                 
-                             
-                                                      
+                                     Text(title[index],
+                                      style: TextStyle(fontSize: 12,),
+                                      textAlign: TextAlign.center,
+                                     maxLines: 2,
+                    overflow: TextOverflow.ellipsis,)
+                                   ],
+                                 ),
+                              
+                              onTap: () {
+                                                       
+                                    
+                                          Navigator.push(
+                                    context,
+                                    TransparentRoute(
+                        page:  Hotel_listing(index: index,title:title[index],businessCompanyProfile: businessCompanyProfile),
+                              ),
+                                  );
+                                     }                 
                                
-                             );
-                           },
-                         ),
+                                                        
+                                 
+                               );
+                             },
+                           ),
+                   ),
+             
+             
+             
+             
                  ),
-
-
-
-
-               ),
-            
-
-
-
-             ]
+              
+             
+             
+             
+               ]
+             ),
            ), 
            // Define scrollable grid
           

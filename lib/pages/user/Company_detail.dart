@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:chamber_of_commerce/widgets/VideoPlayer.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class CompanyDetail extends StatefulWidget {
   final Map<dynamic, dynamic> data;
@@ -25,7 +26,7 @@ class CompanyState extends State<CompanyDetail> {
     // final accountNumber = widget.data['Account Number'];
     final name = widget.data['Account Name'];
     final tel = widget.data['Tel'];
-    final fax = widget.data['Mobile Phone'];
+    final mobile = widget.data['Mobile Phone'];
     final email = widget.data['E-mail'];
     final website = widget.data['Web'];
     // final sector = data['Sector'];
@@ -43,18 +44,12 @@ class CompanyState extends State<CompanyDetail> {
 
       appBar: AppBar(
 
-        backgroundColor:Color.fromARGB(255, 255, 241, 209),
+        // backgroundColor:Color.fromARGB(255, 255, 241, 209),
          leading: IconButton(
           
           icon: Icon(Icons.arrow_back),
           onPressed:()=>{
-           Navigator.push(
-              context,
-              TransparentRoute(
-               
-                page:  Home(),
-              ),
-            ),
+           Navigator.of(context).pop(),
             }
           ),
         // padding: const EdgeInsets.all(16.0), // Add padding on all sides
@@ -63,8 +58,8 @@ class CompanyState extends State<CompanyDetail> {
       borderRadius: BorderRadius.circular(30.0), // Set border radius
     ),
        
-        title:const Text(
-          '',
+        title: Text(
+          name,
           style: TextStyle(
            color: Colors.black,
            fontWeight: FontWeight.bold,
@@ -105,29 +100,102 @@ class CompanyState extends State<CompanyDetail> {
           //   ],
           // ),
           SizedBox(height: 5,),
-          Row(
-            children: [
-               SvgPicture.asset('assets/images/web_icon.svg'),
-              SizedBox(width: 10,),
-              Text(website),
-            ],
-          ),
-           SizedBox(height: 5,),
-          // Row(
-          //   children: [
-          //      SvgPicture.asset('assets/images/phone_icon.svg'),
-          //     SizedBox(width: 10,),
-          //     Text(fax),
-          //   ],
-          // ),
-          //  SizedBox(height: 5,),
-          Row(
-            children: [
-               SvgPicture.asset('assets/images/mail_icon.svg'),
-               SizedBox(width: 10,),
-              Text(email),
-            ],
-          )
+                if(tel !="")
+                     Row(
+                       children: [
+                         InkWell( // Wrap the content in an InkWell
+                 onTap: () {
+                   launch('tel:$tel'); // Launch the phone dialer with the number
+                 },
+                        child: Row(
+                           children: [
+                              Container(
+                               // width: 20,
+                               // height: 20,
+                               decoration: BoxDecoration(
+                     
+                         color: Color.fromARGB(255, 255, 255, 255),
+                 
+                 borderRadius:BorderRadius.circular(999), // Set border width
+                 
+                   ),
+                               child: SvgPicture.asset('assets/images/vector1.svg',width: 10,height: 10,)),
+                             SizedBox(width: 10,),
+                             Text(tel,softWrap: true,overflow: TextOverflow.ellipsis,),
+                           ],
+                         ),),
+                       ],
+                     ),
+                     SizedBox(height: 5,),
+                    
+                      if(website !="")
+                     Row(
+                     children: [
+                      InkWell( // Wrap the content in an InkWell
+                         onTap: () {
+                           launch(website); // Launch the URL in a web browser
+                 },
+                       child:Row(
+                       children: [
+                          Container(
+                           // width: 20,
+                           // height: 20,
+                           decoration: BoxDecoration(
+                     
+                         color: Color.fromARGB(255, 255, 255, 255),
+                 
+                 borderRadius:BorderRadius.circular(999), // Set border width
+                 
+                   ),
+                           child: SvgPicture.asset('assets/images/vector.svg',width: 10,height: 10,)),
+                         SizedBox(width: 10,),
+                         Text(website,softWrap: true,overflow: TextOverflow.ellipsis,),
+                       ],
+                     )),],),
+                      SizedBox(height: 5,),
+                      if(mobile !="")
+                     Row(
+                       children: [
+                          Container(
+                           // width: 10,
+                           // height: 10,
+                           decoration: BoxDecoration(
+                     
+                         color: Color.fromARGB(255, 255, 255, 255),
+                 
+                 borderRadius:BorderRadius.circular(999), // Set border width
+                 
+                   ),
+                           child: SvgPicture.asset('assets/images/vector3.svg',width: 10,height: 10,)),
+                         SizedBox(width: 10,),
+                         Text(mobile,softWrap: true,overflow: TextOverflow.ellipsis,),
+                       ],
+                     ),
+                      SizedBox(height: 5,),
+                       if(email !="")
+                     Row(
+                   children: [
+                     InkWell( // Wrap the content in an InkWell
+                 onTap: () {
+                   launch('mailto:$email'); // Launch email app with recipient
+                 },
+                 child: Row(
+                       children: [
+                          Container(
+                           // width: 20,
+                           // height: 20,
+                           decoration: BoxDecoration(
+                     
+                         color: Color.fromARGB(255, 255, 255, 255),
+                 
+                 borderRadius:BorderRadius.circular(999), // Set border width
+                 
+                   ),
+                           child: SvgPicture.asset('assets/images/vector2.svg',width: 10,height: 10,)),
+                          SizedBox(width: 10,),
+                         Text(email,softWrap: true,overflow: TextOverflow.ellipsis,),
+                       ],
+                     ),)]),
           // const Column(
           //   children: [
               

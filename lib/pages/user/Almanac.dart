@@ -101,7 +101,26 @@ class Almanac extends StatelessWidget {
       //   //  backgroundColor: Colors.white,
       //  ),
       
-       
+       floatingActionButton:  Container(
+                   height: 70.0,  // Adjust height as needed
+           width: 90.0,  // Adjust width as needed
+         child: FloatingActionButton(onPressed: ()=>{
+            Navigator.push(
+                  context,
+                   TransparentRoute(
+                 
+                  page:  UsefullAddress(),
+                ),
+                
+                ),
+               },
+         backgroundColor: Color.fromARGB(255, 255, 241, 209),
+           child: Padding(
+             padding: const EdgeInsets.all(10.0),
+             child: const Text("usefull Address"),
+           ),
+               ),
+       ),
 
       appBar: AppBar(
         backgroundColor:Colors.white,
@@ -275,20 +294,7 @@ class Almanac extends StatelessWidget {
        ),
 
        
-          ElevatedButton(
-
-            onPressed:()=>{
-          Navigator.push(
-              context,
-               TransparentRoute(
-               
-                page:  UsefullAddress(),
-              ),
-            ),
-            
-          }, child: 
-          Text("use full address"),
-          )
+         
                    
           
 

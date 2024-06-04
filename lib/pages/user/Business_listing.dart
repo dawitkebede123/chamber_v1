@@ -363,6 +363,7 @@ class _Business_listingState extends State<Business_listing> {
           )
       ],
       body: Container(
+        
          child: ListView.builder(
          itemCount: filteredBusinesses.length,
          itemBuilder: (context, index) {
@@ -376,6 +377,7 @@ class _Business_listingState extends State<Business_listing> {
          
            // Extract business information based on your data structure
            return Padding(
+            
              padding: const EdgeInsets.only(left: 20.0,right: 20,bottom: 16),
              child:
                  GestureDetector(
@@ -403,6 +405,7 @@ class _Business_listingState extends State<Business_listing> {
                      child: Column(children: [
                        Row(
                          children: [
+                          
                            Expanded(child: Text(name,style: const TextStyle(fontWeight: FontWeight.bold,fontSize: 16), softWrap: true,overflow: TextOverflow.ellipsis,textAlign: TextAlign.left)),
                          ],
                        ),

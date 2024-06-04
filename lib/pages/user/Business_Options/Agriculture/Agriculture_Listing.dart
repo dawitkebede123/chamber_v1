@@ -209,8 +209,8 @@ class _Agriculture_listingState extends State<Agriculture_listing> {
   final all_data = snapshot.data!.snapshot.value as List<dynamic>;
   final data = all_data.expand((element) {
     // ... filtering logic using entry.value as Map<String, dynamic>
-    final companyName = element['Field Of Business']?.toString().toLowerCase() ?? '';
-    return companyName.startsWith("agriculture") ? [element] : [];
+    final companyName = element['Field Of Business']?.toString() ?? '';
+    return companyName.startsWith("AGRICULTURE, HUNTING, FORESTRY, AND FISHING") ? [element] : [];
   }).toList();
   // print(data);
   List<dynamic> filteredBusinesses = data;
@@ -226,7 +226,7 @@ class _Agriculture_listingState extends State<Agriculture_listing> {
   'COFFEE FARMING',
   'COTTON FARMING',
   'DIFFERENT SEEDLINGS FARMING',
-  'FARMING of cattle, sheep, goats, horses, asses, mules and hinnies; dairy farming',
+  'DAIRY FARMING',
   'FISH HATCHERIES AND FISH FARMS',
   'FLORICULTURE',
   'FLOURICULTURE',
@@ -252,7 +252,9 @@ for (var i = 0; i < items.length; i++) {
     // print(data);
     filteredBusinesses = filteredBusinesses.expand((element) {
       // ... filtering logic using entry.value as Map<String, dynamic>
-      final company = element['SIT+A1:I15802C Description']?.toString() ?? '';
+
+      final company = element['SIT+A1:I15802C Description']?.toString().toUpperCase() ?? '';
+        
       return company.startsWith("${currentItem}") ? [element] : [];
     }).toList();
   // print(i);

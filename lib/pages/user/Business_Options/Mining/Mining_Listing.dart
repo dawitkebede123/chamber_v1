@@ -210,7 +210,7 @@ class _Mining_listingState extends State<Mining_listing> {
   final all_data = snapshot.data!.snapshot.value as List<dynamic>;
   final data = all_data.expand((element) {
     // ... filtering logic using entry.value as Map<String, dynamic>
-    final companyName = element['Field Of Business']?.toString().toLowerCase() ?? '';
+    final companyName = element['Field Of Business']?.toString() ?? '';
     return companyName.startsWith("MINING AND QUARRYING") ? [element] : [];
   }).toList();
   // print(data);
