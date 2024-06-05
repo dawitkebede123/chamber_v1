@@ -309,7 +309,7 @@ class _Real_Estate_listingState extends State<Real_Estate_listing> {
 'Other passenger transport, including the renting of passenger motor vehicles with drivers .',
 'DOMESTIC TRADE AGENT',
 'INTERNATIONAL BID',
-'ዶክመንቱ አልተሟላም (ንግድ ፈቃዱ ከጀርባ ያለው መረጃ የለም )',
+'Unknown',
 'RESEARCH AND EXPERIMENTAL DEVELOPMENT ON ECONOMY AND DEVELOPMENT',
 'CONSULTANCY SERVICE FOR BUSINESS AND INVESTMENT',
 'CONSULTANCY SERVICE FOR STATISTICAL WORK',

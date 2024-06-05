@@ -353,7 +353,7 @@ class _Agriculture_listingState extends State<Manufacturing_listing> {
 'ELECTRICAL EQUIPMENT',
 'RECYCLING OF NON-METAL WASTE AND SCRAP',
 'ELECTROMECHANICAL WORK',
-'ዶክመንቱ አልተሟላም (ንግድ ፈቃዱ ከጀርባ ያለው መረጃ የለም )',
+'Unknown',
 'CUTTING, SHAPING AND FINISHING OF STONE',
 'CASTING OF IRON AND STEEL',
 'CONFECTIONERY INCLUDING COCOA AND CHOCOLATE',

@@ -253,7 +253,7 @@ class _Agriculture_listingState extends State<Construction_listing> {
   'RENTING OF CONSTRUCTION AND CIVIL ENGINEERING MACHINERY AND EQUIPMENT',
   'ROAD WORKS CONTRACTOR',
   'SOLI TESTING WORK',
-  '  ዶክመንቱ አልተሟላም (ንግድ ፈቃዱ ከጀርባ ያለው መረጃ የለም )', // Untranslated string remains unchanged
+  'Unknown', // Untranslated string remains unchanged
   // '' // Empty string remains unchanged
 ];
 // print(items);

@@ -36,8 +36,51 @@ class Business extends StatefulWidget {
   @override
   State<Business> createState() => _BusinessState();
 }
-
+   
 class _BusinessState extends State<Business> {
+
+
+
+   String _query = '';
+  List <String> _items = [
+      "assets/images/business_lists/5.svg",
+       "assets/images/business_lists/8.svg",
+        "assets/images/business_lists/11.svg",
+        "assets/images/business_lists/6.svg",
+        "assets/images/business_lists/13.svg",
+
+        "assets/images/business_lists/1.svg",
+        //  "assets/images/business_lists/2.svg",
+        "assets/images/business_lists/3.svg",
+        "assets/images/business_lists/4.svg",
+        
+        "assets/images/business_lists/7.svg",
+       
+        "assets/images/business_lists/9.svg",
+        "assets/images/business_lists/10.svg",
+        "assets/images/business_lists/12.svg",
+        "assets/images/business_lists/14.svg",
+  ];
+  List <String> title = [
+    "Export",
+    "Import",
+    "Manufacturing",
+   "Construction",
+   "Transport, Storage And Communication",
+
+   "Agriculture, Hunting, Forestry, And Fishing",
+  //  "Financial Inter Mediation And Insurance",
+   "Community, Social And Personal Services",
+   "Electricity, Gas And Water Supply",
+   
+   "Hotel And Restaurants",
+  
+   "Wholesale And Retail ",
+   "Maintenance",
+   
+   "Mining And Quarrying",
+   "Real Estate And Business Service"
+  ];
  final slideImages = [
    "assets/images/business_lists/adv_logo/1.jpg",
    "assets/images/business_lists/adv_logo/2.jpg",
@@ -112,45 +155,7 @@ class _BusinessState extends State<Business> {
   
   Widget build(BuildContext context) {
   
-    List <dynamic> categories = [
-      "assets/images/business_lists/5.svg",
-       "assets/images/business_lists/8.svg",
-        "assets/images/business_lists/11.svg",
-        "assets/images/business_lists/6.svg",
-        "assets/images/business_lists/13.svg",
-
-        "assets/images/business_lists/1.svg",
-        //  "assets/images/business_lists/2.svg",
-        "assets/images/business_lists/3.svg",
-        "assets/images/business_lists/4.svg",
-        
-        "assets/images/business_lists/7.svg",
-       
-        "assets/images/business_lists/9.svg",
-        "assets/images/business_lists/10.svg",
-        "assets/images/business_lists/12.svg",
-        "assets/images/business_lists/14.svg",
-  ];
-  List <String> title = [
-    "Export",
-    "Import",
-    "Manufacturing",
-   "Construction",
-   "Transport, Storage And Communication",
-
-   "Agriculture, Hunting, Forestry, And Fishing",
-  //  "Financial Inter Mediation And Insurance",
-   "Community, Social And Personal Services",
-   "Electricity, Gas And Water Supply",
-   
-   "Hotel And Restaurants",
   
-   "Wholesale And Retail ",
-   "Maintenance",
-   
-   "Mining And Quarrying",
-   "Real Estate And Business Service"
-  ];
   final List<Map<String, String>> businessCompanyProfile = [
   //  {
   //     "sector":"Manufacturing",
@@ -194,7 +199,7 @@ class _BusinessState extends State<Business> {
 
         floatingActionButton:  Container(
                    height: 70.0,  // Adjust height as needed
-           width: 90.0,  // Adjust width as needed
+           width: 80.0,  // Adjust width as needed
          child: FloatingActionButton(onPressed: ()=>{
             // Navigator.push(
             //       context,
@@ -208,7 +213,7 @@ class _BusinessState extends State<Business> {
          backgroundColor: Color.fromARGB(255, 255, 241, 209),
            child: Padding(
              padding: const EdgeInsets.all(10.0),
-             child: const Text("usefull Address"),
+             child: const Text("Usefull Address"),
            ),
                ),
        ),
@@ -298,15 +303,27 @@ class _BusinessState extends State<Business> {
                          // child:SvgPicture.asset('assets/images/Adv_slider.svg'),
                 ),),
               
-               const Padding(
+               Padding(
                       padding: EdgeInsets.only(left: 20.0,right: 20,bottom: 16),
-                      child: SearchFieldBusiness(),
+                      child: TextField(
+                onChanged: (value) {
+                  setState(() {
+                    _query = value.toLowerCase();
+                  });
+                },
+                decoration: const InputDecoration(
+                  // labelText: 'Search',
+                  hintText: 'Search Business',
+                  prefixIcon: Icon(Icons.search),
+                ),
+              ),
+              
                     ),
                Expanded(
                  child: Padding(
                    padding: const EdgeInsets.only(left: 20.0,right: 20,bottom: 16),
                    child: GridView.builder(
-                           itemCount: categories.length,
+                           itemCount: _filteredItems.length,
                            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                              crossAxisCount: 3, // Number of columns
                              crossAxisSpacing: 20.0, // Spacing between columns
@@ -314,7 +331,7 @@ class _BusinessState extends State<Business> {
                              childAspectRatio: 120/160 // Spacing between rows
                            ),
                            itemBuilder: (context, index) {
-                             final item = categories[index];
+                            //  final item = _filteredItems[index];
                              return GestureDetector(
                                child: Column(
                                  children: [
@@ -330,10 +347,10 @@ class _BusinessState extends State<Business> {
                                     height: 94,
                                     width: 94,
                                      child: Center(
-                                       child:SvgPicture.asset(item)
+                                       child:SvgPicture.asset(_items[index])
                                      ),
                                    ),
-                                   Text(title[index],
+                                   Text(_filteredItems[index],
                                     style: TextStyle(fontSize: 12,),
                                     textAlign: TextAlign.center,
                                    maxLines: 2,
@@ -487,11 +504,20 @@ class _BusinessState extends State<Business> {
      
     );
     return scaffold;
+
+    
   }
+List<String> get _filteredItems => title
+      .where((item) => item.toLowerCase().contains(_query))
+      .toList();
 
  Widget buildImage(String urlImage,int index)=>
           Container(
                  margin: EdgeInsets.symmetric(horizontal:5),
                  child:Image.asset(urlImage,fit: BoxFit.cover,),
           ); 
+
+          
 }
+
+ 

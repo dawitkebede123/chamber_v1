@@ -29,6 +29,36 @@ class Maintenance_Home extends StatefulWidget {
 }
 
 class _Agriculture_HomeState extends State<Maintenance_Home> {
+  String _query = '';
+   List <String> title = [
+      'SIMPLE, MEDIUM AND HEAVY TRACKS REPAIR AND MAINTENANCE',
+'OTHER GOODS THAT USED FOR PUBLIC AND PERSONAL PURPOSE',
+'INSTALLATION AND MAINTENANCE OF MACHINERIES',
+'INSTALLATION, AND MAINTENANCE SERVICES',
+'INSTALLATION, AND FIXING OF ALUMINUM WINDOWS AND DOORS/ ALUMINUM WORKS',
+'MAINTENANCE AND REPAIR OF OFFICE, ACCOUNTING AND COMPUTING MACHINERY',
+'MULTI PURPOSE VEHICLES AND PARTS MAINTENANCE',
+'TELECOMMUNICATION EQUIPMENTS/ACCESSORIES/SALES/MAINTENANCE',
+'RADIATION EMITTING EQUIPMENTS INSTALLATION,COMMISSIONING MAINTENANCE',
+'SPECIAL CARS AND VEHICLES BODY REPAIR',
+'INSTALLATION AND MAINTENANCE OF COMMUNICATION AND ELECTRONIC EQUIPMENTS',
+'INSTALLATION AND MAINENANCE SERVICES',
+'COMPUTER AND COMPUTER ACCESSORIES MAINTENANCE',
+'Tyre Repairs',
+'GOODS USED FOR PUBLIC AND PERSONAL PURPOSE',
+'FUEL STATION EQUPEMENTS',
+'ELECTRICAL REPAIRS',
+'AUTOMOTIVE FUEL & LUBRICANTS IN GAS STATION /CAR WASH SERVICE',
+'MOTOR CYCLE, BICYCLE AND TRI CYCLE (BAJAJ) PARTS AND ACCESSORIES',
+'Car Wash Service and grease',
+'MAINTENANCE AND REPAIR OF FOOT WARE AND LEATHER PRODUCTS',
+'CHEMICALS AND CHEMICAL PRODUCTS',
+'USED MOTOR VEHICLES',
+'HOUSEHOLD AND OFFICE FURNITURE, REQUZITE, BOARDS, APPLIANCES',
+'IMPORTING OF VEHICLES SPARE PARTS,REGULATORY EQUIPMENTS AND JEWELRY/DECOR SUPPLIES',
+'RUBBER MAINTENANCE,CLEAN GREASE AND RELATED SERVICE',
+'IMPORTING OF VEHICLES',
+     ];
  final slideImages = [
    "assets/images/business_lists/adv_logo/1.jpg",
    "assets/images/business_lists/adv_logo/2.jpg",
@@ -106,35 +136,7 @@ class _Agriculture_HomeState extends State<Maintenance_Home> {
   //    [
   //      "assets/images/business_lists/5.svg",
   // ];
-   List <String> title = [
-      'SIMPLE, MEDIUM AND HEAVY TRACKS REPAIR AND MAINTENANCE',
-'OTHER GOODS THAT USED FOR PUBLIC AND PERSONAL PURPOSE',
-'INSTALLATION AND MAINTENANCE OF MACHINERIES',
-'INSTALLATION, AND MAINTENANCE SERVICES',
-'INSTALLATION, AND FIXING OF ALUMINUM WINDOWS AND DOORS/ ALUMINUM WORKS',
-'MAINTENANCE AND REPAIR OF OFFICE, ACCOUNTING AND COMPUTING MACHINERY',
-'MULTI PURPOSE VEHICLES AND PARTS MAINTENANCE',
-'TELECOMMUNICATION EQUIPMENTS/ACCESSORIES/SALES/MAINTENANCE',
-'RADIATION EMITTING EQUIPMENTS INSTALLATION,COMMISSIONING MAINTENANCE',
-'SPECIAL CARS AND VEHICLES BODY REPAIR',
-'INSTALLATION AND MAINTENANCE OF COMMUNICATION AND ELECTRONIC EQUIPMENTS',
-'INSTALLATION AND MAINENANCE SERVICES',
-'COMPUTER AND COMPUTER ACCESSORIES MAINTENANCE',
-'Tyre Repairs',
-'GOODS USED FOR PUBLIC AND PERSONAL PURPOSE',
-'FUEL STATION EQUPEMENTS',
-'ELECTRICAL REPAIRS',
-'AUTOMOTIVE FUEL & LUBRICANTS IN GAS STATION /CAR WASH SERVICE',
-'MOTOR CYCLE, BICYCLE AND TRI CYCLE (BAJAJ) PARTS AND ACCESSORIES',
-'Car Wash Service and grease',
-'MAINTENANCE AND REPAIR OF FOOT WARE AND LEATHER PRODUCTS',
-'CHEMICALS AND CHEMICAL PRODUCTS',
-'USED MOTOR VEHICLES',
-'HOUSEHOLD AND OFFICE FURNITURE, REQUZITE, BOARDS, APPLIANCES',
-'IMPORTING OF VEHICLES SPARE PARTS,REGULATORY EQUIPMENTS AND JEWELRY/DECOR SUPPLIES',
-'RUBBER MAINTENANCE,CLEAN GREASE AND RELATED SERVICE',
-'IMPORTING OF VEHICLES',
-     ];
+  
      title.sort((a,b)=>a.compareTo(b));
     List <String> categories = List .generate(title.length, (index) => 
     "assets/images/business_lists/10.svg"
@@ -217,7 +219,21 @@ class _Agriculture_HomeState extends State<Maintenance_Home> {
               children: [
                 
              
-             
+             Padding(
+              padding: const EdgeInsets.only(left: 20.0,right: 20,bottom: 16),
+              child: TextField(
+                onChanged: (value) {
+                  setState(() {
+                    _query = value.toLowerCase();
+                  });
+                },
+                decoration: const InputDecoration(
+                  // labelText: 'Search',
+                  hintText: 'Search Maintenance',
+                  prefixIcon: Icon(Icons.search),
+                ),
+              ),
+            ),
              
              
                 //  const Padding(
@@ -228,7 +244,7 @@ class _Agriculture_HomeState extends State<Maintenance_Home> {
                    child: Padding(
                      padding: const EdgeInsets.only(left: 20.0,right: 20,bottom: 16),
                      child: GridView.builder(
-                             itemCount: categories.length,
+                             itemCount: _filteredItems.length,
                              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                                crossAxisCount: 3, // Number of columns
                                crossAxisSpacing: 20.0, // Spacing between columns
@@ -255,7 +271,7 @@ class _Agriculture_HomeState extends State<Maintenance_Home> {
                                          child:SvgPicture.asset(item)
                                        ),
                                      ),
-                                     Text(title[index],
+                                     Text(_filteredItems[index],
                                       style: TextStyle(fontSize: 12,),
                                       textAlign: TextAlign.center,
                                      maxLines: 2,
@@ -305,7 +321,9 @@ class _Agriculture_HomeState extends State<Maintenance_Home> {
     );
     return scaffold;
   }
-
+List<String> get _filteredItems => title
+      .where((item) => item.toLowerCase().contains(_query))
+      .toList();
  Widget buildImage(String urlImage,int index)=>
           Container(
                  margin: EdgeInsets.symmetric(horizontal:5),

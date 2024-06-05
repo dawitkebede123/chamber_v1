@@ -39,16 +39,18 @@ class _ExpandedPanelState extends State<ExpandedPanel> {
       itemBuilder: (_, index){
         final item = widget.data[index];
         return Card(
-          color: Color.fromARGB(255, 0, 114, 63),
-          elevation: 4,
+          
+          color: const Color.fromARGB(255,229,234,232),
+          // elevation: 4,
           child: ExpansionTile(
-            title: Text(item['title'],style: const TextStyle(color: Colors.white,),),
+            
+            title: Text(item['title'],style: const TextStyle(color: Color.fromARGB(255, 0, 0, 0),),),
             children: [
               Container(
                 width:double.infinity,
-                color: Colors.white,
+                color: Color.fromARGB(255, 255, 255, 255),
                 child: Padding(
-                  padding: const EdgeInsets.all(10.0),
+                  padding: const EdgeInsets.all(16.0),
                   child: Text(item['content'],textAlign: TextAlign.justify,),
                 )
                 

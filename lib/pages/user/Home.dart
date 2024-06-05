@@ -143,7 +143,7 @@ class _HomeState extends State<Home> {
                  
               //    ),
               SizedBox(width: 15.0), // Add spacing between buttons
-              CenteredVerticalList(path:'assets/images/almanac_large.svg', text1: "Finacial Almanac", text2: "Financial Business"),
+              CenteredVerticalList(path:'assets/images/almanac_large.svg', text1: "Finacial Almanac", text2: "Financial Almanac"),
               // buildButton(text: 'Almanac',description: "Financial Business", icon: Icons.abc,targetPage:"AlmanacPage"),
               
             ],
@@ -160,9 +160,25 @@ class _HomeState extends State<Home> {
           padding: const EdgeInsets.only(left: 20,right: 20,top: 16,bottom: 0),
           child: Container(
             height:170 ,
-            child: const Image(
-            image:AssetImage('assets/images/adv.png')
-          )
+            decoration: BoxDecoration(
+    image: DecorationImage(
+      image: AssetImage('assets/images/adv.png'),
+      fit: BoxFit.cover,
+    ),
+  ),
+              child: Container(
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 140.0,top: 16),
+                  child: Text("Click Here \n", style: TextStyle(fontSize: 16,color:Color.fromARGB(255,0,0,0),fontWeight: FontWeight.w600),),
+                ),),
+            // child: Center(child: Container(
+
+            //   color: Colors.white,
+              // child: Text('Click', style: TextStyle(fontSize:30,fontWeight: FontWeight.w900,color: Colors.red ),)))
+         
+          //   const Image(
+          //   image:AssetImage('assets/images/adv.png')
+          // )
           ),
         ),
       ),

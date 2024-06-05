@@ -29,84 +29,8 @@ class Wholesale_Home extends StatefulWidget {
 }
 
 class _Wholesale_HomeState extends State<Wholesale_Home> {
- final slideImages = [
-   "assets/images/business_lists/adv_logo/1.jpg",
-   "assets/images/business_lists/adv_logo/2.jpg",
-   "assets/images/business_lists/adv_logo/3.jpg",
-   "assets/images/business_lists/adv_logo/4.jpg",
-   "assets/images/business_lists/adv_logo/5.jpg",
-   "assets/images/business_lists/adv_logo/7.jpg",
-   "assets/images/business_lists/adv_logo/8.jpg",
-   "assets/images/business_lists/adv_logo/9.jpg",
-   "assets/images/business_lists/adv_logo/10.jpg",
-   "assets/images/business_lists/adv_logo/11.jpg",
-     "assets/images/business_lists/adv_logo/12.jpg",
-     "assets/images/business_lists/adv_logo/13.jpg",
-     "assets/images/business_lists/adv_logo/14.jpg",
-     "assets/images/business_lists/adv_logo/15.jpg",
-     "assets/images/business_lists/adv_logo/16.jpg",
-     "assets/images/business_lists/adv_logo/17.jpg",
-     "assets/images/business_lists/adv_logo/18.jpg",
-     "assets/images/business_lists/adv_logo/19.jpg",
-     "assets/images/business_lists/adv_logo/20.jpg",
-     "assets/images/business_lists/adv_logo/21.jpg",
-     "assets/images/business_lists/adv_logo/22.jpg",
-     "assets/images/business_lists/adv_logo/23.jpg",
-     "assets/images/business_lists/adv_logo/24.jpg",
-     "assets/images/business_lists/adv_logo/25.jpg",
-     "assets/images/business_lists/adv_logo/26.jpg",
-     "assets/images/business_lists/adv_logo/27.jpg",
-     "assets/images/business_lists/adv_logo/28.jpg",
-     "assets/images/business_lists/adv_logo/29.jpg",
-     "assets/images/business_lists/adv_logo/30.jpg",
-     "assets/images/business_lists/adv_logo/31.jpg",
-     "assets/images/business_lists/adv_logo/32.jpg",
-     "assets/images/business_lists/adv_logo/33.jpg",
-     "assets/images/business_lists/adv_logo/34.jpg",
-     "assets/images/business_lists/adv_logo/35.jpg",
-     "assets/images/business_lists/adv_logo/36.jpg",
-     "assets/images/business_lists/adv_logo/37.jpg",
-     "assets/images/business_lists/adv_logo/38.jpg",
-     "assets/images/business_lists/adv_logo/39.jpg",
-     "assets/images/business_lists/adv_logo/40.jpg",
-     "assets/images/business_lists/adv_logo/41.jpg",
-     "assets/images/business_lists/adv_logo/42.jpg",
-     "assets/images/business_lists/adv_logo/43.jpg",
-  ];
-   final _searchController = TextEditingController();
-  String _searchTerm = '';
-  Stream<DatabaseEvent>? _userStream;
-
-  @override
-  void initState() {
-    super.initState();
-    try {
-    _userStream = FirebaseDatabase.instance.ref('Query7').onValue;
-  } on FirebaseException catch (e) {
-    print('Firebase error: ${e.code} - ${e.message}');
-    // Handle the error appropriately, potentially display a user-friendly message
-  }
-  }
-
-  @override
-  void dispose() {
-    _searchController.dispose();
-    super.dispose();
-  }
-
-  void _searchCompany(String searchTerm) {
-    setState(() {
-      _searchTerm = searchTerm.toLowerCase();
-    });
-  }
-  @override
-  
-  Widget build(BuildContext context) {
-  
-  //    [
-  //      "assets/images/business_lists/5.svg",
-  // ];
-   List <String> title = [
+  String _query = '';
+    List <String> title = [
       'AUTOMOTIVE FUEL & LUBRICANTS IN GAS STATION /CAR WASH SERVICE',
 'FLORA FOAM',
 'SUPER MARKET',
@@ -242,10 +166,88 @@ class _Wholesale_HomeState extends State<Wholesale_Home> {
 'FURNITURE, HOME AND OFFICE FURNISHINGS AND HOUSEHOLD AND OFFICE EQUIPMENT',
 'SPORTING GOODS AND EQUIPMENT',
 'BROKER IN HOUSE RENTING AND SALING',
-'ዶክመንቱ አልተሟላም (ንግድ ፈቃዱ ከጀርባ ያለው መረጃ የለም )',
+'Unknown',
 'CHEMICALS AND CHEMICAL PRODUCTS',
 'SHOES AND LEATHER GOODS',
      ];
+ final slideImages = [
+   "assets/images/business_lists/adv_logo/1.jpg",
+   "assets/images/business_lists/adv_logo/2.jpg",
+   "assets/images/business_lists/adv_logo/3.jpg",
+   "assets/images/business_lists/adv_logo/4.jpg",
+   "assets/images/business_lists/adv_logo/5.jpg",
+   "assets/images/business_lists/adv_logo/7.jpg",
+   "assets/images/business_lists/adv_logo/8.jpg",
+   "assets/images/business_lists/adv_logo/9.jpg",
+   "assets/images/business_lists/adv_logo/10.jpg",
+   "assets/images/business_lists/adv_logo/11.jpg",
+     "assets/images/business_lists/adv_logo/12.jpg",
+     "assets/images/business_lists/adv_logo/13.jpg",
+     "assets/images/business_lists/adv_logo/14.jpg",
+     "assets/images/business_lists/adv_logo/15.jpg",
+     "assets/images/business_lists/adv_logo/16.jpg",
+     "assets/images/business_lists/adv_logo/17.jpg",
+     "assets/images/business_lists/adv_logo/18.jpg",
+     "assets/images/business_lists/adv_logo/19.jpg",
+     "assets/images/business_lists/adv_logo/20.jpg",
+     "assets/images/business_lists/adv_logo/21.jpg",
+     "assets/images/business_lists/adv_logo/22.jpg",
+     "assets/images/business_lists/adv_logo/23.jpg",
+     "assets/images/business_lists/adv_logo/24.jpg",
+     "assets/images/business_lists/adv_logo/25.jpg",
+     "assets/images/business_lists/adv_logo/26.jpg",
+     "assets/images/business_lists/adv_logo/27.jpg",
+     "assets/images/business_lists/adv_logo/28.jpg",
+     "assets/images/business_lists/adv_logo/29.jpg",
+     "assets/images/business_lists/adv_logo/30.jpg",
+     "assets/images/business_lists/adv_logo/31.jpg",
+     "assets/images/business_lists/adv_logo/32.jpg",
+     "assets/images/business_lists/adv_logo/33.jpg",
+     "assets/images/business_lists/adv_logo/34.jpg",
+     "assets/images/business_lists/adv_logo/35.jpg",
+     "assets/images/business_lists/adv_logo/36.jpg",
+     "assets/images/business_lists/adv_logo/37.jpg",
+     "assets/images/business_lists/adv_logo/38.jpg",
+     "assets/images/business_lists/adv_logo/39.jpg",
+     "assets/images/business_lists/adv_logo/40.jpg",
+     "assets/images/business_lists/adv_logo/41.jpg",
+     "assets/images/business_lists/adv_logo/42.jpg",
+     "assets/images/business_lists/adv_logo/43.jpg",
+  ];
+   final _searchController = TextEditingController();
+  String _searchTerm = '';
+  Stream<DatabaseEvent>? _userStream;
+
+  @override
+  void initState() {
+    super.initState();
+    try {
+    _userStream = FirebaseDatabase.instance.ref('Query7').onValue;
+  } on FirebaseException catch (e) {
+    print('Firebase error: ${e.code} - ${e.message}');
+    // Handle the error appropriately, potentially display a user-friendly message
+  }
+  }
+
+  @override
+  void dispose() {
+    _searchController.dispose();
+    super.dispose();
+  }
+
+  void _searchCompany(String searchTerm) {
+    setState(() {
+      _searchTerm = searchTerm.toLowerCase();
+    });
+  }
+  @override
+  
+  Widget build(BuildContext context) {
+  
+  //    [
+  //      "assets/images/business_lists/5.svg",
+  // ];
+ 
      title.sort((a,b)=>a.compareTo(b));
     List <String> categories = List .generate(title.length, (index) => 
     "assets/images/business_lists/9.svg"
@@ -327,7 +329,21 @@ class _Wholesale_HomeState extends State<Wholesale_Home> {
              body: Column(
               children: [
                 
-             
+             Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: TextField(
+                onChanged: (value) {
+                  setState(() {
+                    _query = value.toLowerCase();
+                  });
+                },
+                decoration: const InputDecoration(
+                  // labelText: 'Search',
+                  hintText: 'Search Wholesale',
+                  prefixIcon: Icon(Icons.search),
+                ),
+              ),
+            ),
              
              
              
@@ -339,7 +355,7 @@ class _Wholesale_HomeState extends State<Wholesale_Home> {
                    child: Padding(
                      padding: const EdgeInsets.only(left: 20.0,right: 20,bottom: 16),
                      child: GridView.builder(
-                             itemCount: categories.length,
+                             itemCount: _filteredItems.length,
                              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                                crossAxisCount: 3, // Number of columns
                                crossAxisSpacing: 20.0, // Spacing between columns
@@ -366,7 +382,7 @@ class _Wholesale_HomeState extends State<Wholesale_Home> {
                                          child:SvgPicture.asset(item)
                                        ),
                                      ),
-                                     Text(title[index],
+                                     Text(_filteredItems[index],
                                       style: TextStyle(fontSize: 12,),
                                       textAlign: TextAlign.center,
                                      maxLines: 2,
@@ -416,7 +432,9 @@ class _Wholesale_HomeState extends State<Wholesale_Home> {
     );
     return scaffold;
   }
-
+List<String> get _filteredItems => title
+      .where((item) => item.toLowerCase().contains(_query))
+      .toList();
  Widget buildImage(String urlImage,int index)=>
           Container(
                  margin: EdgeInsets.symmetric(horizontal:5),

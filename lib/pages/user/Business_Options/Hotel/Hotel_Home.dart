@@ -29,6 +29,29 @@ class Hotel_Home extends StatefulWidget {
 }
 
 class _Hotel_HomeState extends State<Hotel_Home> {
+  String _query = '';
+  List <String> title = [
+      'HOTELS',
+'LODGES',
+'GUEST HOUSESAND PENSIONS',
+'RESTAURANTS',
+'BARS & NIGHT CLUBS',
+'STAR DESIGNATED HOTELS',
+'HOUSEHOLD AND OFFICE FURNITURE, REQUZITE, BOARDS, APPLIANCES',
+'CATERERS',
+'CAFETERIA',
+'RESTAURANTS WITHOUT LIQUOR LICENCE',
+'INTERNATIONAL RESTAURANTS',
+'CARVAN PARKS AND CAMPING SITES',
+'SOUVENIRS , ARTIFACTS AND ARTIFICIAL JEWELRY',
+'CAFETERIA AND BREAKFAST HOUSES',
+'FABRICATED METALS',
+'CAFE AND BREAKFAST SERVICE',
+'SNACK AND KETTLE COFFEE HOUSES',
+'INDUSTRIAL, AGRICULTURAL AND CONSTRUCTION MACHINERIES AND OTHER RELATED WORKS',
+'MOTEL SERVICE',
+'TRADITIONAL DRINK SERVING HOUSES',
+     ];
  final slideImages = [
    "assets/images/business_lists/adv_logo/1.jpg",
    "assets/images/business_lists/adv_logo/2.jpg",
@@ -106,28 +129,7 @@ class _Hotel_HomeState extends State<Hotel_Home> {
   //    [
   //      "assets/images/business_lists/5.svg",
   // ];
-   List <String> title = [
-      'HOTELS',
-'LODGES',
-'GUEST HOUSESAND PENSIONS',
-'RESTAURANTS',
-'BARS & NIGHT CLUBS',
-'STAR DESIGNATED HOTELS',
-'HOUSEHOLD AND OFFICE FURNITURE, REQUZITE, BOARDS, APPLIANCES',
-'CATERERS',
-'CAFETERIA',
-'RESTAURANTS WITHOUT LIQUOR LICENCE',
-'INTERNATIONAL RESTAURANTS',
-'CARVAN PARKS AND CAMPING SITES',
-'SOUVENIRS , ARTIFACTS AND ARTIFICIAL JEWELRY',
-'CAFETERIA AND BREAKFAST HOUSES',
-'FABRICATED METALS',
-'CAFE AND BREAKFAST SERVICE',
-'SNACK AND KETTLE COFFEE HOUSES',
-'INDUSTRIAL, AGRICULTURAL AND CONSTRUCTION MACHINERIES AND OTHER RELATED WORKS',
-'MOTEL SERVICE',
-'TRADITIONAL DRINK SERVING HOUSES',
-     ];
+   
      title.sort((a,b)=>a.compareTo(b));
     List <String> categories = List .generate(title.length, (index) => 
     "assets/images/business_lists/7.svg"
@@ -210,7 +212,21 @@ class _Hotel_HomeState extends State<Hotel_Home> {
               children: [
                 
              
-             
+             Padding(
+              padding: const EdgeInsets.only(left: 20.0,right: 20,bottom: 16),
+              child: TextField(
+                onChanged: (value) {
+                  setState(() {
+                    _query = value.toLowerCase();
+                  });
+                },
+                decoration: const InputDecoration(
+                  // labelText: 'Search',
+                  hintText: 'Search Hotel',
+                  prefixIcon: Icon(Icons.search),
+                ),
+              ),
+            ),
              
              
                 //  const Padding(
@@ -221,7 +237,7 @@ class _Hotel_HomeState extends State<Hotel_Home> {
                    child: Padding(
                      padding: const EdgeInsets.only(left: 20.0,right: 20,bottom: 16),
                      child: GridView.builder(
-                             itemCount: categories.length,
+                             itemCount:_filteredItems.length,
                              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                                crossAxisCount: 3, // Number of columns
                                crossAxisSpacing: 20.0, // Spacing between columns
@@ -229,7 +245,7 @@ class _Hotel_HomeState extends State<Hotel_Home> {
                                childAspectRatio: 120/160 // Spacing between rows
                              ),
                              itemBuilder: (context, index) {
-                               final item = categories[index];
+                              //  final item = categories[index];
                                return GestureDetector(
                                  child: Column(
                                    children: [
@@ -245,10 +261,10 @@ class _Hotel_HomeState extends State<Hotel_Home> {
                                       height: 94,
                                       width: 94,
                                        child: Center(
-                                         child:SvgPicture.asset(item)
+                                         child:SvgPicture.asset(categories[index])
                                        ),
                                      ),
-                                     Text(title[index],
+                                     Text(_filteredItems[index],
                                       style: TextStyle(fontSize: 12,),
                                       textAlign: TextAlign.center,
                                      maxLines: 2,
@@ -298,7 +314,9 @@ class _Hotel_HomeState extends State<Hotel_Home> {
     );
     return scaffold;
   }
-
+List<String> get _filteredItems => title
+      .where((item) => item.toLowerCase().contains(_query))
+      .toList();
  Widget buildImage(String urlImage,int index)=>
           Container(
                  margin: EdgeInsets.symmetric(horizontal:5),

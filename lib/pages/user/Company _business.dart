@@ -282,14 +282,19 @@ class _CompanyBusinessState extends State<CompanyBusiness> {
                  ],
                 ),
                  SizedBox(height: 10,),
-                  IconButton(
-            icon: const Icon(Icons.share),
-            onPressed: () async {
-              // Replace with your actual sharing logic
-              final text = 'CompanyBusiness Name: $name\n Phone: $tel\n Email: $email\n Website: $website\n Fax: $fax\n';
-              await Share.share(text);
-            },
-          ),
+                  Row(
+                    children: [
+                      Spacer(),
+                      IconButton(
+                                  icon: const Icon(Icons.share),
+                                  onPressed: () async {
+                                    // Replace with your actual sharing logic
+                                    final text = 'CompanyBusiness Name: $name\n Phone: $tel\n Email: $email\n Website: $website\n Fax: $fax\n';
+                                    await Share.share(text);
+                                  },
+                                ),
+                    ],
+                  ),
        ]), 
         
         //  bottomNavigationBar:const CustomeButtomNavBar(index: 3,),

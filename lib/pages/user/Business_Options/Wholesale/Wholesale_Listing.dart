@@ -356,7 +356,7 @@ class _Wholesale_listingState extends State<Wholesale_listing> {
 'FURNITURE, HOME AND OFFICE FURNISHINGS AND HOUSEHOLD AND OFFICE EQUIPMENT',
 'SPORTING GOODS AND EQUIPMENT',
 'BROKER IN HOUSE RENTING AND SALING',
-'ዶክመንቱ አልተሟላም (ንግድ ፈቃዱ ከጀርባ ያለው መረጃ የለም )',
+'Unknown',
 'CHEMICALS AND CHEMICAL PRODUCTS',
 'SHOES AND LEATHER GOODS',
 

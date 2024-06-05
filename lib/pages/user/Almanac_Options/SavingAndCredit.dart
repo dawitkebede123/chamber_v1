@@ -26,14 +26,14 @@ class SavingAndCredit extends StatelessWidget {
     "assets/images/almanac_lists/micro_finance_logos/2.png"
  ];
 final Name = [
-   "Amigos Saving and Credit Corporate S.C"
+   "Amigos Saving and Credit Cooperative"
  ];
   // const SavingAndCredit({super.key});
   
   final List<Map<String, String>> detail = [
    {
       "sector":"Micro Finance",
-     "name": "Amigos Saving and Credit Corporate S.C",
+     "name": "Amigos Saving and Credit Cooperative",
      "logo": "assets/images/almanac_lists/micro_finance_logos/2.png",
      "adv_image":"assets/images/almanac_lists/adv/16.jpg",
      "adv_video":"",

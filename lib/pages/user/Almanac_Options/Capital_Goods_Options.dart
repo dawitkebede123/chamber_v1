@@ -15,34 +15,34 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class Capital_Goods_Options extends StatelessWidget {
  
- final List<Map<String,dynamic>> data = [
-  {
-        "title": "Addis Capital Goods Finance Business S.C.",
-        "content": "+251-111-262-445 / +251-111-262-411"
-    },
-    {
-        "title": "Debub Capital Goods Finance Business S.C.",
-        "content": "+251-462-125-191; +251-936-475-076"
-    },
-    {
-        "title": "Ethio-Lease Ethiopian Capital Goods Finance Business S.C.",
-        "content": "+251-116-393-397/ +251-116-393-395/ +251-930- 681-819"
-    },
-    {
-        "title": "Kaza Capital Goods Finance Business S.C.",
-        "content": "+251 -342-400-087/+251-344-400-085/ +251-930-469-095"
-    },
-    {
-        "title": "Oromia Capital Goods Finance Business S.C.",
-        "content": "+251-115-571-307/251-115-571-337/251-911-019-828"
-    },
-    {
-        "title": "Waliya Capital Goods Finance Business S.C.",
-        "content": "+251-582-206-780/251-582-206-728/251-930-111-703"
-    }
+//  final List<Map<String,dynamic>> data = [
+//   {
+//         "title": "Addis Capital Goods Finance Business S.C.",
+//         "content": "+251-111-262-445 / +251-111-262-411"
+//     },
+//     {
+//         "title": "Debub Capital Goods Finance Business S.C.",
+//         "content": "+251-462-125-191; +251-936-475-076"
+//     },
+//     {
+//         "title": "Ethio-Lease Ethiopian Capital Goods Finance Business S.C.",
+//         "content": "+251-116-393-397/ +251-116-393-395/ +251-930- 681-819"
+//     },
+//     {
+//         "title": "Kaza Capital Goods Finance Business S.C.",
+//         "content": "+251 -342-400-087/+251-344-400-085/ +251-930-469-095"
+//     },
+//     {
+//         "title": "Oromia Capital Goods Finance Business S.C.",
+//         "content": "+251-115-571-307/251-115-571-337/251-911-019-828"
+//     },
+//     {
+//         "title": "Waliya Capital Goods Finance Business S.C.",
+//         "content": "+251-582-206-780/251-582-206-728/251-930-111-703"
+//     }
   
 
- ];
+//  ];
   final Telecom = [
   
  ];

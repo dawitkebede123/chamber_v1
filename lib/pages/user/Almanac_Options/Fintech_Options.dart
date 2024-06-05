@@ -184,18 +184,31 @@ class Fintech_Options extends StatelessWidget {
   final FinTech = [
     "assets/images/almanac_lists/fintech_logos/fintech.png",
     "assets/images/almanac_lists/fintech_logos/fintech2.png",
+    "assets/images/almanac_lists/telecom_logos/mpesa.png",
       "assets/images/almanac_lists/telecom_logos/telebirr.png",
-    "assets/images/almanac_lists/telecom_logos/mpesa.png"
+    
  ];
 final Name = [
+   "Ethswitch",
     "Kacha Digital Financial Services SC",
-    "Ethswitch",
-   "telebirr",
-    "mpesa"
+    "mpesa/Safaricom",
+   "telebirr/Ethio telecom ",
+  
+
+   
  ];
   // const Fintech_Options({super.key});
    final List<Map<String, String>> detail = [
-   
+    { "sector":"Fintech",
+     "name": "Ethswitch",
+     "logo": "assets/images/almanac_lists/fintech_logos/fintech2.png",
+     "adv_image":"assets/images/almanac_lists/adv/18.jpg",
+     "adv_video":"assets/video/Ethswitch.mp4",
+     "profile": "Ethswitch, established in 2011, is a share company fully owned by all banks in Ethiopia. It is established mainly to provide simple, affordable, secured, and efficient e-payment infrastructure services to retail payment service providers, and through them, to end users in Ethiopia; by deploying state-of-the-art technology along with highly skilled and motivated professionals. The underling mandate of Ethswitch is contributing to the modernization of the national payments system and enhancement of financial inclusion in the country. Since 2016, it has enabled interoperability of ATMs operated by all banks. Currently, it is also rolling out projects to achieve interoperability of POS terminals and other digital payment platforms operated by all financial service providers.",
+     "tel": " +251-115571204",
+     "email": "info@ethswitch.com",
+     "website":"www.ethswitch.com",
+     "fax":" +251-115571115"},
     {
         "sector":"Fintech",
      "name": "Kacha Digital Financial Services SC",
@@ -208,18 +221,22 @@ final Name = [
      "website":"www.kacha.et",
      "fax":""
   },
-  { "sector":"Fintech",
-     "name": "Ethswitch",
-     "logo": "assets/images/almanac_lists/fintech_logos/fintech2.png",
-     "adv_image":"assets/images/almanac_lists/adv/18.jpg",
-     "adv_video":"assets/video/Ethswitch.mp4",
-     "profile": "Ethswitch, established in 2011, is a share company fully owned by all banks in Ethiopia. It is established mainly to provide simple, affordable, secured, and efficient e-payment infrastructure services to retail payment service providers, and through them, to end users in Ethiopia; by deploying state-of-the-art technology along with highly skilled and motivated professionals. The underling mandate of Ethswitch is contributing to the modernization of the national payments system and enhancement of financial inclusion in the country. Since 2016, it has enabled interoperability of ATMs operated by all banks. Currently, it is also rolling out projects to achieve interoperability of POS terminals and other digital payment platforms operated by all financial service providers.",
-     "tel": " +251-115571204",
-     "email": "info@ethswitch.com",
-     "website":"www.ethswitch.com",
-     "fax":" +251-115571115"},
+ 
 
-     
+     {
+ 
+      "sector":"FinTech",
+     "name": "mpesa",
+     "logo": "assets/images/almanac_lists/telecom_logos/mpesa.png",
+     "adv_image":"assets/images/almanac_lists/telecom_logos/mpesa.png",
+     "adv_video":"",
+     "profile": "M-Pesa Ethiopia is a mobile financial service launched in August 2023 by Safaricom Ethiopia, a subsidiary of the Kenyan telecommunications giant Safaricom. It aims to replicate the success of M-Pesa in Kenya by offering Ethiopians a convenient and secure way to manage their money through their mobile phones.",
+     "tel": "733",
+     "email": "",
+     "website":"https://m-pesa.safaricom.et/",
+     "fax":""
+   
+  },
      {
  
       "sector":"FinTech",
@@ -227,27 +244,14 @@ final Name = [
      "logo": "assets/images/almanac_lists/telecom_logos/telebirr.png",
      "adv_image":"assets/images/almanac_lists/telecom_logos/telebirr.png",
      "adv_video":"",
-     "profile": "",
-          "tel": "994",
+     "profile": "Telebirr is a mobile payment service launched in Ethiopia in 2021 by Ethio telecom, the state-owned telecommunication provider. It allows users to conduct cashless transactions using their mobile phones.",
+          "tel": "127",
      "email": "",
-     "website":"",
+     "website":"https://www.ethiotelecom.et/telebirr/",
      "fax":""
    
   },
-  {
- 
-      "sector":"FinTech",
-     "name": "mpesa",
-     "logo": "assets/images/almanac_lists/telecom_logos/mpesa.png",
-     "adv_image":"assets/images/almanac_lists/telecom_logos/mpesa.png",
-     "adv_video":"",
-     "profile": "",
-     "tel": "733",
-     "email": "",
-     "website":"",
-     "fax":""
-   
-  }
+  
   ]; 
   
   @override
@@ -306,7 +310,7 @@ final Name = [
              child: Column(
                children: [
                  SizedBox(
-                  height: 400,
+                  height: 600,
                    child: ListView.builder(
                      itemCount: FinTech.length,
                      itemBuilder: (context, index) {
@@ -318,10 +322,13 @@ final Name = [
                            Container(
                              child: GestureDetector(
                                onTap: () {
+                                if(index<4){
                                  Navigator.push(
                                    context,
                                    MaterialPageRoute(builder: (context) => Company(detail: detail[index])),
                                  );
+                                }
+                                
                                },
                                child: Padding(
                                  padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 5.0),

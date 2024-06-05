@@ -19,36 +19,67 @@ class BankOptions extends StatelessWidget {
  
 
   final Banks = [
-    "assets/images/almanac_lists/bank_logos/1.png",
-     "assets/images/almanac_lists/bank_logos/2.png",
+    "assets/images/almanac_lists/bank_logos/2.png",
+     "assets/images/almanac_lists/bank_logos/13.png",
+     "assets/images/almanac_lists/bank_logos/1.png",
      "assets/images/almanac_lists/bank_logos/3.png",
+
      "assets/images/almanac_lists/bank_logos/4.png",
      "assets/images/almanac_lists/bank_logos/5.png",
      "assets/images/almanac_lists/bank_logos/6.png",
      "assets/images/almanac_lists/bank_logos/7.png",
      "assets/images/almanac_lists/bank_logos/8.png",
-     "assets/images/almanac_lists/bank_logos/9.png",
-     "assets/images/almanac_lists/bank_logos/10.png",
      "assets/images/almanac_lists/bank_logos/11.png",
-     "assets/images/almanac_lists/bank_logos/12.png",
-     "assets/images/almanac_lists/bank_logos/13.png",
-      "assets/images/almanac_lists/bank_logos/14.jpg",
+     "assets/images/almanac_lists/bank_logos/9.png",
+
+     "assets/images/almanac_lists/bank_logos/14.jpg",
+     "assets/images/almanac_lists/bank_logos/10.png",
+      "assets/images/almanac_lists/bank_logos/12.png",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+       "",
+   "",
+   "",
+   ""
+   
  ];
  final Name = [
+  "Addis Int. Bank S.C",
+  "Amhara Bank ",
     "Awash Bank S.C.",
-    "Addis Int. Bank S.C",
     "Berhan Bank S.C.",
     "Commercial Bank of Ethiopia",
     "Dashen Bank S.C.",
      "Development Bank of Ethiopia",
      "Enat Bank S.C.",
      "Hibret Bank S.C.",
-     "Siket Bank S.C",
-     "Wegagen Bank S.C.",
      "Oromia Bank S.C.",
-     "ZamZam Bank",
-     "Amhara Bank ",
-     "Tsedey Bank"
+     "Siket Bank S.C",
+      "Tsedey Bank",
+     "Wegagen Bank S.C.", 
+     "ZamZam Bank",  
+      'Abay Bank S.C.', 
+      'Bank of Abyssinia', 
+      'Bunna Bank S.C', 
+      'Cooperative Bank of Oromia',
+       'Global Bank S.C', 
+       'Goh Betoch Bank S.C.', 
+       'Hijra Bank S.C.', 
+       'Lion Int. Bank S.C.', 
+       'Nib Int. Bank S.C.',
+        'Sidama Bank S.C.',
+         'Siinqee Bank S.C.',
+          'Tsehay Bank S.C.',
+           'Zemen Bank S.C.'
+
+    
  ];
 
   // const BankOptions({super.key});
@@ -84,18 +115,6 @@ class BankOptions extends StatelessWidget {
  final List<Map<String, String>> detail = [
    {
       "sector":"Bank",
-     "name": "Awash Bank S.C.",
-     "logo": "assets/images/almanac_lists/bank_logos/1.png",
-     "adv_image":"assets/images/almanac_lists/adv/1.jpg",
-     "adv_video":"assets/video/Awash.mp4",
-     "profile":"Awash Bank, was established on November 10, 1994 after the downfall of the socialist regime. The Bank was established by 486 founding shareholders with a paid-up capital of Birr 24.2 million and started banking operations on Feb. 13, 1995.",
-     "tel": "8980/ +251-115571254",
-     "email": "contactcenter@awashbank.com",
-     "website":"www.awashbank.com",
-     "fax":" +251-115570136"
-   },
-   {
-      "sector":"Bank",
      "name": "Addis Int. Bank S.C",
      "logo": "assets/images/almanac_lists/bank_logos/2.png",
      "adv_image":"assets/images/almanac_lists/adv/2.jpg",
@@ -106,6 +125,31 @@ class BankOptions extends StatelessWidget {
      "website":"www.addisbanksc.com",
      "fax":"  +251-115570530"
    },
+    {
+      "sector":"Bank",
+     "name": "Amhara Bank ",
+     "logo": "assets/images/almanac_lists/bank_logos/13.jpg",
+     "adv_image":"assets/images/almanac_lists/adv/22.jpg",
+     "adv_video":"",
+     "profile": "The throng of shareholders makes Amhara Bank the most powerful and prominent bank in Ethiopia as it was established by more than 138 thousand subscribers with 4.8 billion ETB paid-up and 6.5 billion ETB subscribed capital. Currently, the bank’s paid-up capital has reached 6.5 billion ETB.",
+     "tel": "+251-115-584785",
+     "email": "info@amharabank.com.et",
+     "website":"www.https://www.amharabank.com.et",
+     "fax":""
+   },  
+   {
+      "sector":"Bank",
+     "name": "Awash Bank S.C.",
+     "logo": "assets/images/almanac_lists/bank_logos/1.png",
+     "adv_image":"assets/images/almanac_lists/adv/1.jpg",
+     "adv_video":"assets/video/Awash.mp4",
+     "profile":"Awash Bank, was established on November 10, 1994 after the downfall of the socialist regime. The Bank was established by 486 founding shareholders with a paid-up capital of Birr 24.2 million and started banking operations on Feb. 13, 1995.",
+     "tel": "8980/ +251-115571254",
+     "email": "contactcenter@awashbank.com",
+     "website":"www.awashbank.com",
+     "fax":" +251-115570136"
+   },
+  
    {
       "sector":"Bank",
      "name": "Berhan Bank S.C.",
@@ -178,6 +222,18 @@ class BankOptions extends StatelessWidget {
      "website":"www.hibretbank.com",
      "fax":" +251-114655243"
    },
+    {
+      "sector":"Bank",
+     "name": "Oromia Bank S.C.",
+     "logo": "assets/images/almanac_lists/bank_logos/11.png",
+     "adv_image":"assets/images/almanac_lists/adv/20.jpg",
+     "adv_video":"assets/video/Oromia.mp4",
+     "profile": "Oromia Bank S.C. (OB) was established on September 18, 2008 in accordance with the pertinent laws, regulations and the 1960 Commercial Code of Ethiopia, by the Monetary and Banking Proclamation No. 83/1994 and by the Licensing and Supervision of Banking Proclamation No. 592/2008. Through the years, our presence has grown tremendously. After opening the first Bole branch on October 25, 2008 in Addis Ababa – Africa avenue, we continued to expand by establishing over 500 branches across the nation. But growth, as a company, is more than just brick-and-mortar. It’s a reflection of our performance and our ability to earn the public’s trust. Today, we continue to be recognized as a top performing bank with paid up capital to Birr 5.4 Billion.",
+     "tel": " +251-115572113/2002",
+     "email": "oib@ethionet.et",
+     "website":"www.oromiabank.com",
+     "fax":" +251-115572110"
+   },
    {
       "sector":"Bank",
      "name": "Siket Bank S.C",
@@ -192,55 +248,6 @@ class BankOptions extends StatelessWidget {
    },
    {
       "sector":"Bank",
-     "name": "Wegagen Bank S.C.",
-     "logo": "assets/images/almanac_lists/bank_logos/10.png",
-     "adv_image":"assets/images/almanac_lists/adv/10.jpg",
-     "adv_video":"",
-     "profile": "Wegagen Bank SC was established on the 11th of June 1997 It came to life as a result of the entrepreneurial wit of sixteen 16 founding members who recognized the critical role that financial institutions would play towards creating a sustained economic development and were able to put in an initial paid-in capital of Birr thirty million (Birr 30 Million).Established under the banking proclamation of Licensing and Supervision, Proclamation No. 84/1994, the Bank was registered with the National Bank of Ethiopia on April 30, 1997. The Memorandum and Articles of Association of the Bank were signed on April 15th, 1997 and registered with the Addis Ababa Bureau of Trade, Industry and Tourism on April 15, 1997, Registration Number 1/34/4/89.The Bank, as it started back then, operated through its Head Office located in Gofa Sefer, Addis Ababa. In October 2017, Wegagen moved to its 23 Storey Headquarters Building in front of Addis Ababa Stadium, Ras Mekonnen Street.",
-     "tel": "866/ +251-115523800",
-     "email": "info@wegagen.com",
-     "website":"www.wegagen.com",
-     "fax":" +251-115523520/21"
-   },
-   {
-      "sector":"Bank",
-     "name": "Oromia Bank S.C.",
-     "logo": "assets/images/almanac_lists/bank_logos/11.png",
-     "adv_image":"assets/images/almanac_lists/adv/20.jpg",
-     "adv_video":"assets/video/Oromia.mp4",
-     "profile": "Oromia Bank S.C. (OB) was established on September 18, 2008 in accordance with the pertinent laws, regulations and the 1960 Commercial Code of Ethiopia, by the Monetary and Banking Proclamation No. 83/1994 and by the Licensing and Supervision of Banking Proclamation No. 592/2008. Through the years, our presence has grown tremendously. After opening the first Bole branch on October 25, 2008 in Addis Ababa – Africa avenue, we continued to expand by establishing over 500 branches across the nation. But growth, as a company, is more than just brick-and-mortar. It’s a reflection of our performance and our ability to earn the public’s trust. Today, we continue to be recognized as a top performing bank with paid up capital to Birr 5.4 Billion.",
-     "tel": " +251-115572113/2002",
-     "email": "oib@ethionet.et",
-     "website":"www.oromiabank.com",
-     "fax":" +251-115572110"
-   },
-    {
-      "sector":"Bank",
-     "name": "ZamZam Bank ",
-     "logo": "assets/images/almanac_lists/bank_logos/12.jpg",
-     "adv_image":"assets/images/almanac_lists/adv/21.jpg",
-     "adv_video":"",
-     "profile": "ZamZam bank S.C is the first bank to get a license from the National bank of Ethiopia to operate as a full-fledged Interest Free Bank in the country. The bank is established to enhance the financial inclusion with a special focus on the part of society that are alienated from the financial system due to their religious beliefs or other factors. At the time of its formation, ZamZam Bank managed to mobilize a subscribed capital of Birr 1.683 billion and a paid up capital of Birr 872 million from 11,200 shareholders.",
-     "tel": "+251-115582308/967",
-     "email": "",
-     "website":"http://www.zamzambank.com",
-     "fax":""
-   },
-      
-       {
-      "sector":"Bank",
-     "name": "Amhara Bank ",
-     "logo": "assets/images/almanac_lists/bank_logos/13.jpg",
-     "adv_image":"assets/images/almanac_lists/adv/22.jpg",
-     "adv_video":"",
-     "profile": "The throng of shareholders makes Amhara Bank the most powerful and prominent bank in Ethiopia as it was established by more than 138 thousand subscribers with 4.8 billion ETB paid-up and 6.5 billion ETB subscribed capital. Currently, the bank’s paid-up capital has reached 6.5 billion ETB.",
-     "tel": "+251-115-584785",
-     "email": "info@amharabank.com.et",
-     "website":"www.https://www.amharabank.com.et",
-     "fax":""
-   },  
- {
-      "sector":"Bank",
      "name": "Tsedey Bank ",
      "logo": "assets/images/almanac_lists/bank_logos/14.jpg",
      "adv_image":"assets/images/almanac_lists/adv/23.jpg",
@@ -251,6 +258,33 @@ class BankOptions extends StatelessWidget {
      "website":"www.https://tsedeybank-sc.com",
      "fax":""
    },  
+   {
+      "sector":"Bank",
+     "name": "Wegagen Bank S.C.",
+     "logo": "assets/images/almanac_lists/bank_logos/10.png",
+     "adv_image":"assets/images/almanac_lists/adv/10.jpg",
+     "adv_video":"",
+     "profile": "Wegagen Bank SC was established on the 11th of June 1997 It came to life as a result of the entrepreneurial wit of sixteen 16 founding members who recognized the critical role that financial institutions would play towards creating a sustained economic development and were able to put in an initial paid-in capital of Birr thirty million (Birr 30 Million).Established under the banking proclamation of Licensing and Supervision, Proclamation No. 84/1994, the Bank was registered with the National Bank of Ethiopia on April 30, 1997. The Memorandum and Articles of Association of the Bank were signed on April 15th, 1997 and registered with the Addis Ababa Bureau of Trade, Industry and Tourism on April 15, 1997, Registration Number 1/34/4/89.The Bank, as it started back then, operated through its Head Office located in Gofa Sefer, Addis Ababa. In October 2017, Wegagen moved to its 23 Storey Headquarters Building in front of Addis Ababa Stadium, Ras Mekonnen Street.",
+     "tel": "866/ +251-115523800",
+     "email": "info@wegagen.com",
+     "website":"www.wegagen.com",
+     "fax":" +251-115523520/21"
+   },
+  
+    {
+      "sector":"Bank",
+     "name": "ZamZam Bank ",
+     "logo": "assets/images/almanac_lists/bank_logos/12.png",
+     "adv_image":"assets/images/almanac_lists/adv/21.jpg",
+     "adv_video":"",
+     "profile": "ZamZam bank S.C is the first bank to get a license from the National bank of Ethiopia to operate as a full-fledged Interest Free Bank in the country. The bank is established to enhance the financial inclusion with a special focus on the part of society that are alienated from the financial system due to their religious beliefs or other factors. At the time of its formation, ZamZam Bank managed to mobilize a subscribed capital of Birr 1.683 billion and a paid up capital of Birr 872 million from 11,200 shareholders.",
+     "tel": "+251-115582308/967",
+     "email": "",
+     "website":"http://www.zamzambank.com",
+     "fax":""
+   },
+    
+ 
   //   {
   //     "sector":"Bank",
   //    "name": "Tsedey Bank ",
@@ -275,6 +309,10 @@ class BankOptions extends StatelessWidget {
   //    "website":"www.https://tsedeybank-sc.com",
   //    "fax":""
   //  },  
+ ];
+//  detail = 
+ final List<String> additional = [
+  'Abay Bank S.C.', 'Bank of Abyssinia', 'Bunna Bank S.C', 'Cooperative Bank of Oromia', 'Global Bank S.C', 'Goh Betoch Bank S.C.', 'Hijra Bank S.C.', 'Lion Int. Bank S.C.', 'Nib Int. Bank S.C.', 'Sidama Bank S.C.', 'Siinqee Bank S.C.', 'Tsehay Bank S.C.', 'Zemen Bank S.C.'
  ];
   @override
   Widget build(BuildContext context) {
@@ -329,7 +367,7 @@ class BankOptions extends StatelessWidget {
       body:
            Padding(
              padding:  EdgeInsets.only(left: 20.0,right: 20,top: 4),
-             child: Column(
+             child: ListView(
                children: [
                  SizedBox(
                   height: 600,
@@ -344,10 +382,13 @@ class BankOptions extends StatelessWidget {
                            Container(
                              child: GestureDetector(
                                onTap: () {
-                                 Navigator.push(
+                                if(index<14){
+                                     Navigator.push(
                                    context,
                                    MaterialPageRoute(builder: (context) => Company(detail: detail[index])),
                                  );
+                                }
+                                
                                },
                                child: Padding(
                                  padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 5.0),
@@ -390,6 +431,20 @@ class BankOptions extends StatelessWidget {
                      },
                    ),
                  ),
+                //  SizedBox(
+                //   height: 400,
+                //    child: ListView.builder(
+                //     itemCount: additional.length,
+                    
+                //     itemBuilder:  (context, index) {
+                   
+                //       return Column(
+                //         children: [
+                //           Text(additional[index])
+                //         ],
+                //       );
+                //     }),
+                //  )
                 //  const Padding(
                 //    padding: EdgeInsets.only(left: 20.0,right: 20,),
                 //    child: Row(

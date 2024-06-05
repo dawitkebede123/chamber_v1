@@ -277,7 +277,10 @@ class UsefullAddress extends StatelessWidget {
       ),
       
       body: 
-        Expanded(child: ExpandedPanel(data: data))
+        Padding(
+          padding: const EdgeInsets.only(left: 20.0,right: 20),
+          child: ExpandedPanel(data: data),
+        )
         
          
          

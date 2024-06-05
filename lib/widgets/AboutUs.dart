@@ -2,6 +2,7 @@ import 'package:chamber_of_commerce/pages/user/Home.dart';
 import 'package:chamber_of_commerce/widgets/CustomBottomNavBar.dart';
 import 'package:chamber_of_commerce/widgets/FAQ.dart';
 import 'package:chamber_of_commerce/widgets/GridScreen.dart';
+import 'package:chamber_of_commerce/widgets/Message.dart';
 import 'package:chamber_of_commerce/widgets/expandedPanel.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -13,14 +14,14 @@ class About extends StatelessWidget {
   Widget build(BuildContext context) {
     final List<Map<String,dynamic>> contact =[
        {
-      "title":"about business inquiry",
+      "title":"For Business Related Enquiry",
     "content": "0115519817 \n 0911376543 \n addischamber@gmail.com"
 
 
      },
    
     {
-      "title":"about almanac inquiry",
+      "title":"For Financial Almanac Related Enquiry",
     "content": "   +251 11 515 5221 \n +251 91 196 4500 \n  +251 93 155 9829 \n flijalem@yahoo.com \n lemlem.aaccsa@gmail.com"
     },
     
@@ -98,8 +99,26 @@ class About extends StatelessWidget {
               ///place holder for slider 
               child: SvgPicture.asset('assets/images/chamber_logo_about_page.svg')
            ),
+          
             Text(textAlign: TextAlign.justify, "Established in 1947, AACCSA is a voluntary, non-governmental, business membership organization with more than 17,000 member companies. The chamber serves as a credible voice of business and advocates for the creation of a conducive business environment. It also promotes trade and industry, disseminating business information, consulting government and members on economic development and business issues, establishing friendly relationship with similar chambers in other countries, and exchanging information as well as engaging in arbitration in times of disputes among businesses."),
-            
+             TextButton(onPressed: ()=>{
+          Navigator.push(
+                context,
+                 TransparentRoute(
+               
+                page:  Message(message: "message", image: "")
+              ),
+              ),
+            }, child: Text("Message From SG")),
+           TextButton(onPressed: ()=>{
+          Navigator.push(
+                context,
+                 TransparentRoute(
+               
+                page:  Message(message: "message", image: "")
+              ),
+              ),
+            }, child: Text("Message From President")),
             Column(
               children: [
                 Padding(

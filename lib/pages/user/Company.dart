@@ -37,6 +37,7 @@ class _CompanyState extends State<Company> {
     String video = widget.detail["adv_video"].toString();
     String tel = widget.detail["tel"].toString();
     String email = widget.detail["email"].toString();
+    
     String website = widget.detail["website"].toString();
     String fax = widget.detail["fax"].toString();
     var scaffold = Scaffold(
@@ -84,7 +85,7 @@ class _CompanyState extends State<Company> {
               ),
             ),
             },
-             if(sector == 'Fintech'){
+             if(sector == 'FinTech'){
               Navigator.push(
               context,
               TransparentRoute(
@@ -298,7 +299,7 @@ class _CompanyState extends State<Company> {
                          children: [
                           InkWell( // Wrap the content in an InkWell
                              onTap: () {
-                               launch(website); // Launch the URL in a web browser
+                               launch("www.google.com"); // Launch the URL in a web browser
                                             },
                            child:Row(
                            children: [

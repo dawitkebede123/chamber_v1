@@ -13,25 +13,35 @@ class FAQ extends StatelessWidget {
   Widget build(BuildContext context) {
     final List<Map<String,dynamic>> contact =[
     {
-      "title":"When was AACCSA established?",
-    "content": "AACCSA Established in 1947"
+      "title":"What is a business directory?",
+    "content": "A business directory is an online platform where businesses can list their information, such as name, address, contact details, and services, to help customers find and connect with them easily."
     },
      {
-      "title":"What is  Addis Ababa Chamber of Commerce(AACCSA)?",
-    "content": "AACCSA  is a non-profit organization that promotes the interests of businesses in Addis Ababa, Ethiopia. It serves as a bridge between businesses and the government, advocating for policies that support economic growth and development."
-     },
+      "title":"How can I add my business to the directory?",
+    "content": "To add your business, you have to be member of the Addis Ababa Chamber of Commerce and Sectoral Associations. We provide trade directory to only our members. If you want to advertise, there is a reasonable price with different packages. You can contact us at +251 115 518055 ext 222."     },
       {
-      "title":"What are the benefits of joining the AACCSA?",
-    "content": "AAUCC membership offers several benefits to businesses, including:Networking opportunities: Connect with other businesses, potential partners, and investors.Advocacy: The AAUCC lobbies for policies that benefit businesses and helps address challenges faced by the private sector.Information and resources: Access valuable business information, training programs, and trade missions.Discounts and benefits: AAUCC members may be eligible for discounts on services and events."
+      "title":"How long does it take to get my business listed?",
+    "content": " After submitting your business information, our team will review it within 48 -72 hours. You will receive a confirmation email once your listing is approved and live on our site."         },
+      {
+      "title":"How do I verify my business?",
+    "content": "Verification can be done by providing valid documents such as a business license or payment slip for bank deposit showing your business name and address. Verification helps increase your business's credibility and visibility in our directory."
+             },
+      {
+      "title":"How can I update my business information?",
+    "content": "You can contact us at +251 115 518055 ext 222"
          },
-      {
-      "title":"Who can join  AACCSA?",
-    "content": "Any business operating in Addis Ababa can apply for membership, regardless of size or industry. The AAUCC offers different membership categories to cater to various business needs."
+         {
+      "title":"Can I remove my business from the directory?",
+    "content": "Yes, if you wish to remove your business, please contact us at +251 115 518055 ext 222."
          },
-      {
-      "title":"Does AACCSA offer any training or workshops for businesses?",
-    "content": "The AAUCC might hold workshops, seminars, or training programs on topics relevant to businesses, such as:Export procedures and import regulationsAccessing financeMarketing and business developmentLegal compliance"
-     }
+         {
+      "title":"What are the benefits of being listed in the directory?",
+    "content": "Being listed in our directory increases your online visibility, helps potential customers find your business easily."
+         },
+         {
+      "title":"Why is my business not appearing in search results?",
+    "content": "Ensure that your business listing is complete and accurate. It may take some time for new listings to appear in search results. If your listing is still not visible, you can contact us at +251 115 518055 ext 222."
+         }
 
   ];
      var scaffold = Scaffold(

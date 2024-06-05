@@ -33,7 +33,7 @@ class Almanac extends StatelessWidget {
    "FinTech",
   //  "Telecom",
    "Saving And Credit",
-   "Capital Goods Finance"
+  //  "Capital Goods Finance"
   ];
   final slideImages = [
    "assets/images/almanac_lists/adv_logo/ethio.jpg",
@@ -67,17 +67,19 @@ class Almanac extends StatelessWidget {
      "index":4,
        "title":""
     },
-    // {
+   
+    {
+       "image":"assets/images/finance.svg",
+     "index":6,
+            "title":""
+    },
+    //  {
     //    "image":"assets/images/finance.svg",
     //  "index":5,
     //    "title":""
 
     // },
-    {
-       "image":"assets/images/finance.svg",
-     "index":6,
-            "title":""
-    }];
+    ];
   
 
   final List<String> _items = [
@@ -85,8 +87,9 @@ class Almanac extends StatelessWidget {
      "assets/images/almanac_lists/2.svg",
      "assets/images/almanac_lists/3.svg", 
      "assets/images/almanac_lists/4.svg",
-      // "assets/images/almanac_lists/5.svg",
       "assets/images/almanac_lists/6.svg",
+      // "assets/images/almanac_lists/5.svg",
+
       
 
    
@@ -103,7 +106,7 @@ class Almanac extends StatelessWidget {
       
        floatingActionButton:  Container(
                    height: 70.0,  // Adjust height as needed
-           width: 90.0,  // Adjust width as needed
+           width: 80.0,  // Adjust width as needed
          child: FloatingActionButton(onPressed: ()=>{
             Navigator.push(
                   context,
@@ -117,7 +120,7 @@ class Almanac extends StatelessWidget {
          backgroundColor: Color.fromARGB(255, 255, 241, 209),
            child: Padding(
              padding: const EdgeInsets.all(10.0),
-             child: const Text("usefull Address"),
+             child: const Text("Usefull Address"),
            ),
                ),
        ),
@@ -217,19 +220,24 @@ class Almanac extends StatelessWidget {
                  Text("About Financial Almanac", style: TextStyle(fontWeight: FontWeight.bold),),
               
                Text("The financial landscape in Ethiopia is witnessing a significant transformation"),
-               TextButton(
-      onPressed: () {
-         Navigator.push(
-                context,
-                 TransparentRoute(
-               
-                page:  AboutAlmanac(),
-              ),
-              );
-        // Add functionality for button press
-                 },
-      child: Text('Read more'),
-    ),
+               Row(
+                 children: [
+                  Spacer(),
+                   TextButton(
+                         onPressed: () {
+                            Navigator.push(
+                    context,
+                     TransparentRoute(
+                   
+                    page:  AboutAlmanac(),
+                                 ),
+                                 );
+                           // Add functionality for button press
+                     },
+                         child: Text('Read more'),
+                       ),
+                 ],
+               ),
               // ]
               
               // ),

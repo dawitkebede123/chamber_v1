@@ -29,6 +29,82 @@ class Community_Home extends StatefulWidget {
 }
 
 class _Community_HomeState extends State<Community_Home> {
+  String _query = '';
+   List <String> title = [
+  'ACTIVITIES OF PROFESSIONAL ORGANIZATIONS',
+  'ACTIVITIES OF SPORTS,BODY ENRICHMENT SPORTS AND OTHER ENTERTAINTMENT AND RELATED ACTIVITIES',
+  'ARTS FESTIVAL( MUSIC,FILM, THEATRE,GALLERY AND OTHER)',
+  'ARTS STUDIO',
+  'BEAUTY TREATMENT/BATH AND MASSAGE',
+  'BOOKS AND STATIONARY MATERIALS',
+  'BROAD CAST EQUIPMENTS TELEVISION AND RADIO RECEIVERS, SOUND OR VIDEO RECORDING OR REPRODUCING APPARATUS AND ASSOCIATED GOODS',
+  'BUSINESS AND MANAGEMENT CONSULTANCY ACTIVITIES',
+  'CHILD DAY CARE SERVICE',
+  'CHILDREN CLOTHING',
+  'CINEMA HALL',
+  'CLINICS AND RELATED HEALTH CARE SERVICES',
+  'COMMISSION/BROKERS BUSINESS ACTIVITIES',
+  'CONSULTANCY ACTIVITY ON ADVERTISING',
+  'CONSULTANCY SERVICE FOR ECONOMIC DEVELOPMENT',
+  'CUSTOMS CLEARANCE',
+  'DECORATING ACTIVITIES',
+  'DIFFERENT EVENTS DECORATING ACTIVITIES',
+  'DIAGNOSTIC LABORATORY',
+  'DRIVING EDUCATION',
+  'DRIVING EDUCATION BOTH IN REGULAR AND BY SPECIAL MACHINERIES',
+  'EDUCATION BY TECHNICAL COLLEGES AND TECHNICAL INSTITUTIONS',
+  'EDUCATION BY TECHNIQUES AND TRANING',
+  'EDUCATION RELATED SERVICES',
+  'FILM PRODUCTION',
+  'FILM PRODUCTION, CINEMA HAL, FILM STUDIO AND FILM CAPTURING',
+  'FUNERAL AND RELATED ACTIVITIES',
+  'GENERAL HOSPITAL',
+  'GRAIN MILL SERVICE',
+  'HISTORIC CITES AND BUILDINGS FOR RECREATION AND CARE SERVICES',
+  'INTERNET CAFÉ',
+  'LABORATORY TESTING SERVICE',
+  'LADIES HAIR DRESSING SERVICE',
+  'LAUNDRY SERVICE',
+  'LOAD AND UNLOAD SERVICE',
+  'MANAGEMENT CONSULTANCY SERVICES',
+  'MEDIA CONSULTANCY SERVICE',
+  'MEDIA ENTERTAINMENT PRODUCTION AND DISTRIBUTION',
+  'MEDIA PROGRAM PREPARATION BY AIR TIME RENT',
+  'Men hairdressing service',
+  'MENS AND LADIES HAIRDRESSING',
+  'MOTION PICTURE, THEATRE AND VIDEO PRODUCTION AND DISTRIBUTION',
+  'MUSIC AND BAND ACTIVITIES',
+  'NEWS AGENCY ACTIVITIES',
+  'NEWSPAPERS, JOURNALS AND PERIODICALS DISTRIBUTER',
+  'NURSING SERVICES',
+  'OTHER MEDICAL AND HEALTH SERVICES',
+  'PARKING SERVICE',
+  'PICTURE, SCULPTURE,GALLERY/ STUDIO SERVICE',
+  'PLAY OF MUSICAL INSTRUMENTS (DJ)',
+  'PRINTING',
+  'PRINTING AND RELATED ACTIVITIES',
+  'QUALITY MANAGEMENT SYSTEM CONSULTANCY',
+  'RESTAURANTS',
+  'RETAIL TRADE OF FOOT WEAR, LEATHER AND RELATED PRODUCTS',
+  'SANITARYWARE AND COSMETICS',
+  'SECURITY AND CLEANING SERVICE',
+  'SEWAGE AND REFUSE DISPOSAL SANITATION AND SIMILAR ACTIVITIES',
+  'SERVICE OF PRIMARY AND SECONDARY EDUCATION',
+  'SERVICE OF PRE-PRIMARY EDUCATION AND AFTER SCHOOL',
+  'SERVICE OF REGULAR HIGHER EDUCATION',
+  'SHORT TERM TCHNICAL EDUCATION AND TRAINING',
+  'SPINNING, WEAVING AND FINISHING OF TEXTILES',
+  'SPORTING AND RECREATIONAL ACTIVITIES',
+  'SPRAYING OF PESTICIDES FOR HOUSHOLD PURPOSES',
+  'STUDIO RECORDING SERVICE',
+  'SUPPLEMENTARY HEALTH SERVICES OR PARAMEDICAL STAFF',
+  'TAILORING',
+  'TOPOGRAPHIC BEAUTY',
+  'TRANSLATION & SECRETARIAL SERVICES',
+  'TRAINING SERVICE INFORMATION AND COMMUNICATION TECHNOLOGY',
+  'TRADITIONAL MEDICAL SERVICE',
+  'Unknown',]; // Untranslated string remains unchanged
+  // '' // Empty string remains unchanged
  final slideImages = [
    "assets/images/business_lists/adv_logo/1.jpg",
    "assets/images/business_lists/adv_logo/2.jpg",
@@ -106,82 +182,8 @@ class _Community_HomeState extends State<Community_Home> {
   //    [
   //      "assets/images/business_lists/5.svg",
   // ];
-   List <String> title = [
-  'ACTIVITIES OF PROFESSIONAL ORGANIZATIONS',
-  'ACTIVITIES OF SPORTS,BODY ENRICHMENT SPORTS AND OTHER ENTERTAINTMENT AND RELATED ACTIVITIES',
-  'ARTS FESTIVAL( MUSIC,FILM, THEATRE,GALLERY AND OTHER)',
-  'ARTS STUDIO',
-  'BEAUTY TREATMENT/BATH AND MASSAGE',
-  'BOOKS AND STATIONARY MATERIALS',
-  'BROAD CAST EQUIPMENTS TELEVISION AND RADIO RECEIVERS, SOUND OR VIDEO RECORDING OR REPRODUCING APPARATUS AND ASSOCIATED GOODS',
-  'BUSINESS AND MANAGEMENT CONSULTANCY ACTIVITIES',
-  'CHILD DAY CARE SERVICE',
-  'CHILDREN CLOTHING',
-  'CINEMA HALL',
-  'CLINICS AND RELATED HEALTH CARE SERVICES',
-  'COMMISSION/BROKERS BUSINESS ACTIVITIES',
-  'CONSULTANCY ACTIVITY ON ADVERTISING',
-  'CONSULTANCY SERVICE FOR ECONOMIC DEVELOPMENT',
-  'CUSTOMS CLEARANCE',
-  'DECORATING ACTIVITIES',
-  'DIFFERENT EVENTS DECORATING ACTIVITIES',
-  'DIAGNOSTIC LABORATORY',
-  'DRIVING EDUCATION',
-  'DRIVING EDUCATION BOTH IN REGULAR AND BY SPECIAL MACHINERIES',
-  'EDUCATION BY TECHNICAL COLLEGES AND TECHNICAL INSTITUTIONS',
-  'EDUCATION BY TECHNIQUES AND TRANING',
-  'EDUCATION RELATED SERVICES',
-  'FILM PRODUCTION',
-  'FILM PRODUCTION, CINEMA HAL, FILM STUDIO AND FILM CAPTURING',
-  'FUNERAL AND RELATED ACTIVITIES',
-  'GENERAL HOSPITAL',
-  'GRAIN MILL SERVICE',
-  'HISTORIC CITES AND BUILDINGS FOR RECREATION AND CARE SERVICES',
-  'INTERNET CAFÉ',
-  'LABORATORY TESTING SERVICE',
-  'LADIES HAIR DRESSING SERVICE',
-  'LAUNDRY SERVICE',
-  'LOAD AND UNLOAD SERVICE',
-  'MANAGEMENT CONSULTANCY SERVICES',
-  'MEDIA CONSULTANCY SERVICE',
-  'MEDIA ENTERTAINMENT PRODUCTION AND DISTRIBUTION',
-  'MEDIA PROGRAM PREPARATION BY AIR TIME RENT',
-  'Men hairdressing service',
-  'MENS AND LADIES HAIRDRESSING',
-  'MOTION PICTURE, THEATRE AND VIDEO PRODUCTION AND DISTRIBUTION',
-  'MUSIC AND BAND ACTIVITIES',
-  'NEWS AGENCY ACTIVITIES',
-  'NEWSPAPERS, JOURNALS AND PERIODICALS DISTRIBUTER',
-  'NURSING SERVICES',
-  'OTHER MEDICAL AND HEALTH SERVICES',
-  'PARKING SERVICE',
-  'PICTURE, SCULPTURE,GALLERY/ STUDIO SERVICE',
-  'PLAY OF MUSICAL INSTRUMENTS (DJ)',
-  'PRINTING',
-  'PRINTING AND RELATED ACTIVITIES',
-  'QUALITY MANAGEMENT SYSTEM CONSULTANCY',
-  'RESTAURANTS',
-  'RETAIL TRADE OF FOOT WEAR, LEATHER AND RELATED PRODUCTS',
-  'SANITARYWARE AND COSMETICS',
-  'SECURITY AND CLEANING SERVICE',
-  'SEWAGE AND REFUSE DISPOSAL SANITATION AND SIMILAR ACTIVITIES',
-  'SERVICE OF PRIMARY AND SECONDARY EDUCATION',
-  'SERVICE OF PRE-PRIMARY EDUCATION AND AFTER SCHOOL',
-  'SERVICE OF REGULAR HIGHER EDUCATION',
-  'SHORT TERM TCHNICAL EDUCATION AND TRAINING',
-  'SPINNING, WEAVING AND FINISHING OF TEXTILES',
-  'SPORTING AND RECREATIONAL ACTIVITIES',
-  'SPRAYING OF PESTICIDES FOR HOUSHOLD PURPOSES',
-  'STUDIO RECORDING SERVICE',
-  'SUPPLEMENTARY HEALTH SERVICES OR PARAMEDICAL STAFF',
-  'TAILORING',
-  'TOPOGRAPHIC BEAUTY',
-  'TRANSLATION & SECRETARIAL SERVICES',
-  'TRAINING SERVICE INFORMATION AND COMMUNICATION TECHNOLOGY',
-  'TRADITIONAL MEDICAL SERVICE',
-  'ዶክመንቱ አልተሟላም (ንግድ ፈቃዱ ከጀርባ ያለው መረጃ የለም )', // Untranslated string remains unchanged
-  // '' // Empty string remains unchanged
-];
+  
+
         title.sort((a,b)=>a.compareTo(b));
     List <String> categories = List .generate(title.length, (index) => 
     "assets/images/business_lists/3.svg"
@@ -265,7 +267,21 @@ class _Community_HomeState extends State<Community_Home> {
                 
              
              
-             
+             Padding(
+              padding: const EdgeInsets.only(left: 20.0,right: 20,bottom: 16),
+              child: TextField(
+                onChanged: (value) {
+                  setState(() {
+                    _query = value.toLowerCase();
+                  });
+                },
+                decoration: const InputDecoration(
+                  // labelText: 'Search',
+                  hintText: 'Search Community',
+                  prefixIcon: Icon(Icons.search),
+                ),
+              ),
+            ),
              
                 //  const Padding(
                 //         padding: EdgeInsets.only(left: 20.0,right: 20,bottom: 16),
@@ -275,7 +291,7 @@ class _Community_HomeState extends State<Community_Home> {
                    child: Padding(
                      padding: const EdgeInsets.only(left: 20.0,right: 20,bottom: 16),
                      child: GridView.builder(
-                             itemCount: categories.length,
+                             itemCount: _filteredItems.length,
                              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                                crossAxisCount: 3, // Number of columns
                                crossAxisSpacing: 20.0, // Spacing between columns
@@ -283,7 +299,7 @@ class _Community_HomeState extends State<Community_Home> {
                                childAspectRatio: 120/160 // Spacing between rows
                              ),
                              itemBuilder: (context, index) {
-                               final item = categories[index];
+                              //  final item = _filteredItems[index];
                                return GestureDetector(
                                  child: Column(
                                    children: [
@@ -299,10 +315,10 @@ class _Community_HomeState extends State<Community_Home> {
                                       height: 94,
                                       width: 94,
                                        child: Center(
-                                         child:SvgPicture.asset(item)
+                                         child:SvgPicture.asset(categories[index])
                                        ),
                                      ),
-                                     Text(title[index],
+                                     Text(_filteredItems[index],
                                       style: TextStyle(fontSize: 12,),
                                       textAlign: TextAlign.center,
                                      maxLines: 2,
@@ -352,7 +368,9 @@ class _Community_HomeState extends State<Community_Home> {
     );
     return scaffold;
   }
-
+List<String> get _filteredItems => title
+      .where((item) => item.toLowerCase().contains(_query))
+      .toList();
  Widget buildImage(String urlImage,int index)=>
           Container(
                  margin: EdgeInsets.symmetric(horizontal:5),

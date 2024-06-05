@@ -29,6 +29,44 @@ class Construction_Home extends StatefulWidget {
 }
 
 class _Construction_HomeState extends State<Construction_Home> {
+  String _query = '';
+  List <String> title = [
+  'BUILDING COMPLETION',
+  'BUILDING COMPLETING/FINISHING CONTRACTOR',
+  'BUILDING FINISHING SERVICE',
+  'BUILDING OF COMPLETE CONSTRUCTIONS AND CIVIL ENGINEERING',
+  'BUILDING WORKS CONTRACTOR',
+  'BUILDING AND ROAD CONSTRUCTION CONTRACTOR',
+  'BUILDINGS CONTRACTOR',
+  'CONSTRUCTION COMPLETING/FINISHING CONTRACTOR', // Duplicate of BUILDING COMPLETING/FINISHING CONTRACTOR
+  'CONSTRUCTION MATERIALS',
+  'CONSTRUCTION MATERIALS HARDWARE, PLUMBING AND HEATING EQUIPMENT AND SUPPLIES',
+  'CONSTRUCTION OF BUILDINGS',
+  'CONSTRUCTION OF WATER WORKS',
+  'CONSTRUCTION SITE PREPARATION CONTRACTOR',
+  'CONSTRUCTION AND RELATED SPECIALIZED CONSULTANCY SERVICES',
+  'CONSULTANCY SERVICE ON CONSTRUCTION SERVICE',
+  'DECORATING ACTIVITIES',
+  'DEVELOPING REAL ESTATE, SUBDIVIDING REAL ESTATE INTO LOTS AND RESIDENTIAL DEVELOPMENT',
+  'ELECTRICAL CONTRACTING',
+  'ELECTRICAL CONTRACTING & ELECTROMECHANICAL WORK CONTRACTOR', // Duplicate of ELECTROMECHANICAL WORK
+  'ELECTROMECHANICAL WORK',
+  'GENERAL CONTRACTOR',
+  'GENERAL CONTRACTOR EXCEPT WATER ELECTRIC AND ELECTRO MECHANICAL WORK',
+  'HOUSEHOLD APPLIANCE',
+  'IMPORT TRADE IN MATERIAL METAL AND NON METAL SCRAPS',
+  'INDUSTRIAL MACHINERY , EQUIPMENT AND ITS SPARE PARTS',
+  'LAND EXCAVATING & BEAUTIFICATION',
+  'PILE FOUNDATION WORK CONTRACTOR',
+  'PLUMBING',
+  'PROPERTY OWNING AND LETTING',
+  'RENTING OF CONSTRUCTION AND CIVIL ENGINEERING MACHINERY AND EQUIPMENT',
+  'ROAD WORKS CONTRACTOR',
+  'SOLI TESTING WORK',
+  'Unknown', // Untranslated string remains unchanged
+  'Construction of civil engineering structures',
+  // '' // Empty string remains unchanged
+];
  final slideImages = [
    "assets/images/business_lists/adv_logo/1.jpg",
    "assets/images/business_lists/adv_logo/2.jpg",
@@ -106,43 +144,7 @@ class _Construction_HomeState extends State<Construction_Home> {
   //    [
   //      "assets/images/business_lists/5.svg",
   // ];
-   List <String> title = [
-  'BUILDING COMPLETION',
-  'BUILDING COMPLETING/FINISHING CONTRACTOR',
-  'BUILDING FINISHING SERVICE',
-  'BUILDING OF COMPLETE CONSTRUCTIONS AND CIVIL ENGINEERING',
-  'BUILDING WORKS CONTRACTOR',
-  'BUILDING AND ROAD CONSTRUCTION CONTRACTOR',
-  'BUILDINGS CONTRACTOR',
-  'CONSTRUCTION COMPLETING/FINISHING CONTRACTOR', // Duplicate of BUILDING COMPLETING/FINISHING CONTRACTOR
-  'CONSTRUCTION MATERIALS',
-  'CONSTRUCTION MATERIALS HARDWARE, PLUMBING AND HEATING EQUIPMENT AND SUPPLIES',
-  'CONSTRUCTION OF BUILDINGS',
-  'CONSTRUCTION OF WATER WORKS',
-  'CONSTRUCTION SITE PREPARATION CONTRACTOR',
-  'CONSTRUCTION AND RELATED SPECIALIZED CONSULTANCY SERVICES',
-  'CONSULTANCY SERVICE ON CONSTRUCTION SERVICE',
-  'DECORATING ACTIVITIES',
-  'DEVELOPING REAL ESTATE, SUBDIVIDING REAL ESTATE INTO LOTS AND RESIDENTIAL DEVELOPMENT',
-  'ELECTRICAL CONTRACTING',
-  'ELECTRICAL CONTRACTING & ELECTROMECHANICAL WORK CONTRACTOR', // Duplicate of ELECTROMECHANICAL WORK
-  'ELECTROMECHANICAL WORK',
-  'GENERAL CONTRACTOR',
-  'GENERAL CONTRACTOR EXCEPT WATER ELECTRIC AND ELECTRO MECHANICAL WORK',
-  'HOUSEHOLD APPLIANCE',
-  'IMPORT TRADE IN MATERIAL METAL AND NON METAL SCRAPS',
-  'INDUSTRIAL MACHINERY , EQUIPMENT AND ITS SPARE PARTS',
-  'LAND EXCAVATING & BEAUTIFICATION',
-  'PILE FOUNDATION WORK CONTRACTOR',
-  'PLUMBING',
-  'PROPERTY OWNING AND LETTING',
-  'RENTING OF CONSTRUCTION AND CIVIL ENGINEERING MACHINERY AND EQUIPMENT',
-  'ROAD WORKS CONTRACTOR',
-  'SOLI TESTING WORK',
-  'ዶክመንቱ አልተሟላም (ንግድ ፈቃዱ ከጀርባ ያለው መረጃ የለም )', // Untranslated string remains unchanged
-  'Construction of civil engineering structures',
-  // '' // Empty string remains unchanged
-];
+   
     List <String> categories = List .generate(title.length, (index) => 
     "assets/images/business_lists/6.svg"
     );
@@ -225,7 +227,21 @@ class _Construction_HomeState extends State<Construction_Home> {
                 
              
              
-             
+             Padding(
+              padding: const EdgeInsets.only(left: 20.0,right: 20,bottom: 16),
+              child: TextField(
+                onChanged: (value) {
+                  setState(() {
+                    _query = value.toLowerCase();
+                  });
+                },
+                decoration: const InputDecoration(
+                  // labelText: 'Search',
+                  hintText: 'Search Construction',
+                  prefixIcon: Icon(Icons.search),
+                ),
+              ),
+            ),
              
                 //  const Padding(
                 //         padding: EdgeInsets.only(left: 20.0,right: 20,bottom: 16),
@@ -235,7 +251,7 @@ class _Construction_HomeState extends State<Construction_Home> {
                    child: Padding(
                      padding: const EdgeInsets.only(left: 20.0,right: 20,bottom: 16),
                      child: GridView.builder(
-                             itemCount: categories.length,
+                             itemCount: _filteredItems.length,
                              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                                crossAxisCount: 3, // Number of columns
                                crossAxisSpacing: 20.0, // Spacing between columns
@@ -243,7 +259,7 @@ class _Construction_HomeState extends State<Construction_Home> {
                                childAspectRatio: 120/160 // Spacing between rows
                              ),
                              itemBuilder: (context, index) {
-                               final item = categories[index];
+                              //  final item = categories[index];
                                return GestureDetector(
                                  child: Column(
                                    children: [
@@ -259,10 +275,10 @@ class _Construction_HomeState extends State<Construction_Home> {
                                       height: 94,
                                       width: 94,
                                        child: Center(
-                                         child:SvgPicture.asset(item)
+                                         child:SvgPicture.asset(categories[index])
                                        ),
                                      ),
-                                     Text(title[index],
+                                     Text(_filteredItems[index],
                                       style: TextStyle(fontSize: 12,),
                                       textAlign: TextAlign.center,
                                      maxLines: 2,
@@ -312,7 +328,9 @@ class _Construction_HomeState extends State<Construction_Home> {
     );
     return scaffold;
   }
-
+List<String> get _filteredItems => title
+      .where((item) => item.toLowerCase().contains(_query))
+      .toList();
  Widget buildImage(String urlImage,int index)=>
           Container(
                  margin: EdgeInsets.symmetric(horizontal:5),

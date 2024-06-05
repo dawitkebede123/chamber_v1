@@ -21,10 +21,14 @@ class MicroFinance_Options extends StatelessWidget {
 
   final micro_finances = [
     "assets/images/almanac_lists/micro_finance_logos/1.png",
+    "",
+    ""
     //  "assets/images/almanac_lists/micro_finance_logos/2.png",
  ];
 final Name = [
     "Elsabi Microfinance Institution S.C.",
+    "Metemamen  Microfinancing Institution S.C.",
+"Nisir Microfinance Institution S.C.",
     // "Amigos Saving and Credit Cooporate S.C",
  ];
   // const MicroFinance_Options({super.key});
@@ -123,10 +127,13 @@ final Name = [
                            Container(
                              child: GestureDetector(
                                onTap: () {
-                                 Navigator.push(
+                                if(index==0){
+   Navigator.push(
                                    context,
                                    MaterialPageRoute(builder: (context) => Company(detail: detail[index])),
                                  );
+                                }
+                              
                                },
                                child: Padding(
                                  padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 5.0),

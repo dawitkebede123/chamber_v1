@@ -23,8 +23,19 @@ class Insurance_Options extends StatelessWidget {
      "assets/images/almanac_lists/insurance_logos/3.png",
      "assets/images/almanac_lists/insurance_logos/4.png",
      "assets/images/almanac_lists/insurance_logos/5.png",
+    "assets/images/almanac_lists/insurance_logos/7.png",
     "assets/images/almanac_lists/insurance_logos/6.png",
-    "assets/images/almanac_lists/insurance_logos/7.png"
+      "",
+      "",
+      "",
+      "",
+      "",
+       "",
+      "",
+      "",
+      "",
+      "",
+
  ];
 final Name = [
     "Abay Insurance S.C.",
@@ -32,8 +43,20 @@ final Name = [
     "Awash Insurance S.C.",
     "Berhan Insurance S.C.",
     "Ethio-Life & General Insurance S.C.",
-    "Nib Insurance Company S.C.",
     "Lucy Insurance S.C.",
+    "Nib Insurance Company S.C.",
+     "Bunna Insurance S.C.",
+"Ethiopian Insurance Corporation",
+"Global Insurance Company S.C.",
+"Lion Insurance Company S.C.",
+"National Insurance Company of Ethiopia S.C.",
+"Nile Insurance Company S.C.",
+"Nyala Insurance S.C.",
+"Oromia Insurance S.C.",
+"Tsehay Insurance S.C.",
+"United Insurance Company S.C.",
+
+
  ];
   // const Insurance_Options({super.key});
   
@@ -98,6 +121,18 @@ final Name = [
      "website":"www.eliginsurance.com",
      "fax":"Fax: +251-115549653"
    },
+    {
+      "sector":"Insurance",
+     "name": "Lucy Insurance S.C.",
+     "logo": "assets/images/almanac_lists/insurance_logos/7.png",
+     "adv_image":"assets/images/almanac_lists/adv/25.jpg",
+     "adv_video":"",
+     "profile": "Lucy Insurance S.C. was established in 2012 with 39 Visionary Shareholders who are renowned business people involved in various businesses in the country. The company was established with a paid up capital of birr 8,035,000.The company has grown its Paid up Capital to Birr 75,000,000.00 as per the Directive of the National Bank of Ethiopia that requires Insurance companies to raise their minimum paid up capital to 60,000,000.00 and 75,000,000.00 for General Insurance & General & Life Insurance respectively. As of today, the number of the company’s shareholders reached 508. In its annual meeting of shareholders it was decided that the company’s paid up capital has to be raised to Birr 200,000,000.00.",
+     "tel": " +251-114671784/704410/703361",
+     "email": "Lucyinsurance@ethionet.et",
+     "website":"www.lucyinsuranceet.com",
+     "fax":"Fax: +251-114671896"
+   },
    {
       "sector":"Insurance",
      "name": "Nib Insurance Company S.C.",
@@ -110,18 +145,7 @@ final Name = [
      "website":"www.nibinsurancethiopia.com",
      "fax":"Fax: +251-115528193"
    },
-   {
-      "sector":"Insurance",
-     "name": "Lucy Insurance S.C.",
-     "logo": "assets/images/almanac_lists/insurance_logos/7.png",
-     "adv_image":"assets/images/almanac_lists/adv/25.jpg",
-     "adv_video":"",
-     "profile": "Lucy Insurance S.C. was established in 2012 with 39 Visionary Shareholders who are renowned business people involved in various businesses in the country. The company was established with a paid up capital of birr 8,035,000.The company has grown its Paid up Capital to Birr 75,000,000.00 as per the Directive of the National Bank of Ethiopia that requires Insurance companies to raise their minimum paid up capital to 60,000,000.00 and 75,000,000.00 for General Insurance & General & Life Insurance respectively. As of today, the number of the company’s shareholders reached 508. In its annual meeting of shareholders it was decided that the company’s paid up capital has to be raised to Birr 200,000,000.00.",
-     "tel": " +251-114671784/704410/703361",
-     "email": "Lucyinsurance@ethionet.et",
-     "website":"www.lucyinsuranceet.com",
-     "fax":"Fax: +251-114671896"
-   },
+  
   ]; 
 
   final List<Map<String,dynamic>> data = [
@@ -202,10 +226,13 @@ final Name = [
                            Container(
                              child: GestureDetector(
                                onTap: () {
-                                 Navigator.push(
+                                if(index<7){
+                                   Navigator.push(
                                    context,
                                    MaterialPageRoute(builder: (context) => Company(detail: detail[index])),
                                  );
+                                }
+                                
                                },
                                child: Padding(
                                  padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 5.0),

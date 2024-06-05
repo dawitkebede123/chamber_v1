@@ -28,6 +28,33 @@ class Agriculture_Home extends StatefulWidget {
 }
 
 class _Agriculture_HomeState extends State<Agriculture_Home> {
+  String _query = '';
+
+     List <String> title =[
+  'AGRICULTURAL SUPPORT SERVICE',
+  'BEE KEEPING',
+  'CATTLE AND PACK ANIMALS HUSBANDARY',
+  'CEREALS/PULSES FARMING',
+  'COFFEE FARMING',
+  'COTTON FARMING',
+  'DIFFERENT SEEDLINGS FARMING',
+  'DAIRY FARMING',
+  'FISH HATCHERIES AND FISH FARMS',
+  'FLORICULTURE',
+  'FLOURICULTURE',
+  'FRUIT FARMING',
+  'GROWING OF ANIMALS FEED',
+  'GROWING OF CEREALS',
+  'GROWING OF HERBS AND OTHERS',
+  'GROWING OF PLANT SEEDS',
+  'OIL SEEDS FARMING',
+  'PEST CONTROL',
+  'PICTURE, SCULPTURE,GALLERY/ STUDIO SERVICE',
+  'POULTRY',
+  'TEA AND BEVERAGE ,SPICE CROPS, MEDICINAL AND AROMATIC CROPS FARMING',
+  'VEGETABLE,FRUIT,PLANT AND PLANT SEED PRODUCTION',
+  'VEGETABLES FARMING'
+];
  final slideImages = [
    "assets/images/business_lists/adv_logo/1.jpg",
    "assets/images/business_lists/adv_logo/2.jpg",
@@ -105,31 +132,7 @@ class _Agriculture_HomeState extends State<Agriculture_Home> {
   //    [
   //      "assets/images/business_lists/5.svg",
   // ];
-   List <String> title =[
-  'AGRICULTURAL SUPPORT SERVICE',
-  'BEE KEEPING',
-  'CATTLE AND PACK ANIMALS HUSBANDARY',
-  'CEREALS/PULSES FARMING',
-  'COFFEE FARMING',
-  'COTTON FARMING',
-  'DIFFERENT SEEDLINGS FARMING',
-  'DAIRY FARMING',
-  'FISH HATCHERIES AND FISH FARMS',
-  'FLORICULTURE',
-  'FLOURICULTURE',
-  'FRUIT FARMING',
-  'GROWING OF ANIMALS FEED',
-  'GROWING OF CEREALS',
-  'GROWING OF HERBS AND OTHERS',
-  'GROWING OF PLANT SEEDS',
-  'OIL SEEDS FARMING',
-  'PEST CONTROL',
-  'PICTURE, SCULPTURE,GALLERY/ STUDIO SERVICE',
-  'POULTRY',
-  'TEA AND BEVERAGE ,SPICE CROPS, MEDICINAL AND AROMATIC CROPS FARMING',
-  'VEGETABLE,FRUIT,PLANT AND PLANT SEED PRODUCTION',
-  'VEGETABLES FARMING'
-];
+
 title.sort((a,b)=>a.compareTo(b));
     List <String> categories = List .generate(title.length, (index) => 
     "assets/images/business_lists/1.svg"
@@ -196,6 +199,7 @@ title.sort((a,b)=>a.compareTo(b));
     
             // SvgPicture.asset('assets/images/Adv_slider.svg'),
             // Slider(value: value, onChanged: onChanged),
+            
            NestedScrollView(
              headerSliverBuilder:(context, innerChildOverscrollIndicator)=> [
            const SliverAppBar(
@@ -211,7 +215,22 @@ title.sort((a,b)=>a.compareTo(b));
              body: Column(
               children: [
                 
-             
+              Padding(
+                      padding: EdgeInsets.only(left: 20.0,right: 20,bottom: 16),
+                      child: TextField(
+                onChanged: (value) {
+                  setState(() {
+                    _query = value.toLowerCase();
+                  });
+                },
+                decoration: const InputDecoration(
+                  // labelText: 'Search',
+                  hintText: 'Search Agriculture',
+                  prefixIcon: Icon(Icons.search),
+                ),
+              ),
+              
+                    ),
              
              
              
@@ -223,7 +242,7 @@ title.sort((a,b)=>a.compareTo(b));
                    child: Padding(
                      padding: const EdgeInsets.only(left: 20.0,right: 20,bottom: 16),
                      child: GridView.builder(
-                             itemCount: categories.length,
+                             itemCount: _filteredItems.length,
                              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                                crossAxisCount: 3, // Number of columns
                                crossAxisSpacing: 20.0, // Spacing between columns
@@ -231,7 +250,7 @@ title.sort((a,b)=>a.compareTo(b));
                                childAspectRatio: 120/160 // Spacing between rows
                              ),
                              itemBuilder: (context, index) {
-                               final item = categories[index];
+                              //  final item = _filteredItems[index];
                                return GestureDetector(
                                  child: Column(
                                    children: [
@@ -247,10 +266,10 @@ title.sort((a,b)=>a.compareTo(b));
                                       height: 94,
                                       width: 94,
                                        child: Center(
-                                         child:SvgPicture.asset(item)
+                                         child:SvgPicture.asset(categories[index])
                                        ),
                                      ),
-                                     Text(title[index],
+                                     Text(_filteredItems[index],
                                       style: TextStyle(fontSize: 12,),
                                       textAlign: TextAlign.center,
                                      maxLines: 2,
@@ -299,8 +318,11 @@ title.sort((a,b)=>a.compareTo(b));
      
     );
     return scaffold;
+    
   }
-
+ List<String> get _filteredItems => title
+      .where((item) => item.toLowerCase().contains(_query))
+      .toList();
  Widget buildImage(String urlImage,int index)=>
           Container(
                  margin: EdgeInsets.symmetric(horizontal:5),

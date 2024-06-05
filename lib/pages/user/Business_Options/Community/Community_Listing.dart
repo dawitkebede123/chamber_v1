@@ -292,7 +292,7 @@ class _Community_listingState extends State<Community_listing> {
   'TRANSLATION & SECRETARIAL SERVICES',
   'TRAINING SERVICE INFORMATION AND COMMUNICATION TECHNOLOGY',
   'TRADITIONAL MEDICAL SERVICE',
-  '  ዶክመንቱ አልተሟላም (ንግድ ፈቃዱ ከጀርባ ያለው መረጃ የለም )', // Untranslated string remains unchanged
+  'Unknown', // Untranslated string remains unchanged
   // '' // Empty string remains unchanged
 ];
 // print(items);
@@ -307,7 +307,7 @@ for (var i = 0; i < items.length; i++) {
       final company = element['SIT+A1:I15802C Description']?.toString() ?? '';
       return company.startsWith("${currentItem}") ? [element] : [];
     }).toList();
-  print(i);
+  // print(i);
   }
 
 }

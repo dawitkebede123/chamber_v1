@@ -29,6 +29,57 @@ class Transport_Home extends StatefulWidget {
 }
 
 class _Transport_HomeState extends State<Transport_Home> {
+  String _query = '';
+   List <String> title = [
+       'TAXIS',
+'TOUR OPERATORS',
+'CUSTOMS CLEARANCE',
+'OTHER FREIGHT TRANSPORT BY ROAD',
+'FREIGHT FORWARDERS',
+'STORAGE AND WAREHOUSING',
+'TRAVEL AGENCY REPRESENTATION AND ONLINE TRAVEL AGENCY ACTIVITY',
+'FREIGHT FORWARDERS AND HARBOUR WORKS',
+'URBAN, SUB URBAN AND INTER-URBAN BUS AND COACH PASSENGER LINES',
+'OTHER POSTAL AND RELATED COURIER ACTIVITIES',
+'TELECOMMUNICATION',
+'SHIP AGENTS',
+'COURIER ACTIVITIES OTHER THAN NATIONAL POSTAL ACTIVITIES',
+'TRANSPORT OF FUEL',
+'CROSS-COUNTRY PUBLIC TRANSPORT',
+'GROUND HANDLING',
+'RETAIL TRADE OF VEHICLES',
+'ACTIVITIES OF AIR TRANSPORT',
+'EVENT ORGANIZERS',
+'TOURISM PROMOTION',
+'LAND TRANSPORT AND RELATED SERVICES',
+'TRANSPORT SERVICE BY ROAD AND DRY FREIGHT',
+'Other passenger transport, including the renting of passenger motor vehicles with drivers .',
+'TRANSPORT AGENCIES',
+'LOCAL LABOR RECRUTMENT AND LINKAGE ACTIVITIES',
+'SECURITY AND CLEANING SERVICE',
+'Trade Promotion Service',
+'TRAVEL AGENT',
+'TRANSPORT OF CONSTRUCTION MATERIALS',
+'FREIGHT TRANSPORT BY CONTAINER',
+'Parking garages and parking lots',
+'BROKER IN VEHICLES RENTING AND SAILING',
+'CONSTRUCTION MATERIALS, HARDWARE, PLUMBING',
+'HOUSHOLDS INCLUDING MATTRESSES,CUSHIONS,BLANKETS ETC',
+'ዶክመንቱ አልተሟላም (ንግድ ፈቃዱ ከጀርባ ያለው መረጃ የለም )',
+'RENTING OF LAND TRANSPORT ( CAR) EQUIPMENT',
+'SALVAGING OF DISTRESSED VESSELS AND CARGOS',
+'Operation of roads and toll roads',
+'TELECOMMUNICATION VALUE ADDED SERVICE',
+'INTER-URBAN RAILWAY TRANSPORT',
+'TRANSPORT OF CARGO TRUCKS',
+'COMMISSION/BROKERS BUSINESS ACTIVITIES',
+'SPECIAL EVENT ORAGANIZTION ACTIVITIES',
+'TELECOMMUNICATION VALUE ADDED SERVICES',
+'ABROAD RECRUITMENT AND LINKAGE ACTIVITIES',
+'LIQUID FREIGHT TRANSPORT SERVICE',
+'TELECOMMUNICATION TERMINAL EQUIPMENTS MAINTENANCE',
+'TRANSPORT OF DIFFERENT CAR BY CRANES OR PULLING OR LOADING',
+     ];
  final slideImages = [
    "assets/images/business_lists/adv_logo/1.jpg",
    "assets/images/business_lists/adv_logo/2.jpg",
@@ -106,56 +157,7 @@ class _Transport_HomeState extends State<Transport_Home> {
   //    [
   //      "assets/images/business_lists/5.svg",
   // ];
-   List <String> title = [
-       'TAXIS',
-'TOUR OPERATORS',
-'CUSTOMS CLEARANCE',
-'OTHER FREIGHT TRANSPORT BY ROAD',
-'FREIGHT FORWARDERS',
-'STORAGE AND WAREHOUSING',
-'TRAVEL AGENCY REPRESENTATION AND ONLINE TRAVEL AGENCY ACTIVITY',
-'FREIGHT FORWARDERS AND HARBOUR WORKS',
-'URBAN, SUB URBAN AND INTER-URBAN BUS AND COACH PASSENGER LINES',
-'OTHER POSTAL AND RELATED COURIER ACTIVITIES',
-'TELECOMMUNICATION',
-'SHIP AGENTS',
-'COURIER ACTIVITIES OTHER THAN NATIONAL POSTAL ACTIVITIES',
-'TRANSPORT OF FUEL',
-'CROSS-COUNTRY PUBLIC TRANSPORT',
-'GROUND HANDLING',
-'RETAIL TRADE OF VEHICLES',
-'ACTIVITIES OF AIR TRANSPORT',
-'EVENT ORGANIZERS',
-'TOURISM PROMOTION',
-'LAND TRANSPORT AND RELATED SERVICES',
-'TRANSPORT SERVICE BY ROAD AND DRY FREIGHT',
-'Other passenger transport, including the renting of passenger motor vehicles with drivers .',
-'TRANSPORT AGENCIES',
-'LOCAL LABOR RECRUTMENT AND LINKAGE ACTIVITIES',
-'SECURITY AND CLEANING SERVICE',
-'Trade Promotion Service',
-'TRAVEL AGENT',
-'TRANSPORT OF CONSTRUCTION MATERIALS',
-'FREIGHT TRANSPORT BY CONTAINER',
-'Parking garages and parking lots',
-'BROKER IN VEHICLES RENTING AND SAILING',
-'CONSTRUCTION MATERIALS, HARDWARE, PLUMBING',
-'HOUSHOLDS INCLUDING MATTRESSES,CUSHIONS,BLANKETS ETC',
-'ዶክመንቱ አልተሟላም (ንግድ ፈቃዱ ከጀርባ ያለው መረጃ የለም )',
-'RENTING OF LAND TRANSPORT ( CAR) EQUIPMENT',
-'SALVAGING OF DISTRESSED VESSELS AND CARGOS',
-'Operation of roads and toll roads',
-'TELECOMMUNICATION VALUE ADDED SERVICE',
-'INTER-URBAN RAILWAY TRANSPORT',
-'TRANSPORT OF CARGO TRUCKS',
-'COMMISSION/BROKERS BUSINESS ACTIVITIES',
-'SPECIAL EVENT ORAGANIZTION ACTIVITIES',
-'TELECOMMUNICATION VALUE ADDED SERVICES',
-'ABROAD RECRUITMENT AND LINKAGE ACTIVITIES',
-'LIQUID FREIGHT TRANSPORT SERVICE',
-'TELECOMMUNICATION TERMINAL EQUIPMENTS MAINTENANCE',
-'TRANSPORT OF DIFFERENT CAR BY CRANES OR PULLING OR LOADING',
-     ];
+  
      title.sort((a,b)=>a.compareTo(b));
     List <String> categories = List .generate(title.length, (index) => 
     "assets/images/business_lists/13.svg"
@@ -237,7 +239,21 @@ class _Transport_HomeState extends State<Transport_Home> {
              body: Column(
               children: [
                 
-             
+             Padding(
+              padding: const EdgeInsets.only(left: 20.0,right: 20,bottom: 16),
+              child: TextField(
+                onChanged: (value) {
+                  setState(() {
+                    _query = value.toLowerCase();
+                  });
+                },
+                decoration: const InputDecoration(
+                  // labelText: 'Search',
+                  hintText: 'Search Transport',
+                  prefixIcon: Icon(Icons.search),
+                ),
+              ),
+            ),
              
              
              
@@ -249,7 +265,7 @@ class _Transport_HomeState extends State<Transport_Home> {
                    child: Padding(
                      padding: const EdgeInsets.only(left: 20.0,right: 20,bottom: 16),
                      child: GridView.builder(
-                             itemCount: categories.length,
+                             itemCount: _filteredItems.length,
                              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                                crossAxisCount: 3, // Number of columns
                                crossAxisSpacing: 20.0, // Spacing between columns
@@ -276,7 +292,7 @@ class _Transport_HomeState extends State<Transport_Home> {
                                          child:SvgPicture.asset(item)
                                        ),
                                      ),
-                                     Text(title[index],
+                                     Text(_filteredItems[index],
                                       style: TextStyle(fontSize: 12,),
                                       textAlign: TextAlign.center,
                                      maxLines: 2,
@@ -326,7 +342,9 @@ class _Transport_HomeState extends State<Transport_Home> {
     );
     return scaffold;
   }
-
+List<String> get _filteredItems => title
+      .where((item) => item.toLowerCase().contains(_query))
+      .toList();
  Widget buildImage(String urlImage,int index)=>
           Container(
                  margin: EdgeInsets.symmetric(horizontal:5),

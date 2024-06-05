@@ -29,6 +29,14 @@ class Electricity_Home extends StatefulWidget {
 }
 
 class _Electricity_HomeState extends State<Electricity_Home> {
+  String _query = '';
+   List <String> title =[
+  'DISTRIBUTION AND SALES OF ELECTRICITY',
+  'DRY WASTE REMOVING',
+  'ELECTRICITY,GAS,STEAM AND HOT WATER SUPPLY',
+  'GENERATION OF ELECTRIC ENERGY FROM RENEWABLE SOURCES',
+  'INSTALLATION OF ELECTRIC LINE'
+];
  final slideImages = [
    "assets/images/business_lists/adv_logo/1.jpg",
    "assets/images/business_lists/adv_logo/2.jpg",
@@ -106,13 +114,7 @@ class _Electricity_HomeState extends State<Electricity_Home> {
   //    [
   //      "assets/images/business_lists/5.svg",
   // ];
-   List <String> title =[
-  'DISTRIBUTION AND SALES OF ELECTRICITY',
-  'DRY WASTE REMOVING',
-  'ELECTRICITY,GAS,STEAM AND HOT WATER SUPPLY',
-  'GENERATION OF ELECTRIC ENERGY FROM RENEWABLE SOURCES',
-  'INSTALLATION OF ELECTRIC LINE'
-];
+  
 title.sort((a,b)=>a.compareTo(b));
     List <String> categories = List .generate(title.length, (index) => 
     "assets/images/business_lists/4.svg"
@@ -195,7 +197,21 @@ title.sort((a,b)=>a.compareTo(b));
               children: [
                 
              
-             
+             Padding(
+              padding: const EdgeInsets.only(left: 20.0,right: 20,bottom: 16),
+              child: TextField(
+                onChanged: (value) {
+                  setState(() {
+                    _query = value.toLowerCase();
+                  });
+                },
+                decoration: const InputDecoration(
+                  // labelText: 'Search',
+                  hintText: 'Search Electricity',
+                  prefixIcon: Icon(Icons.search),
+                ),
+              ),
+            ),
              
              
                 //  const Padding(
@@ -206,7 +222,7 @@ title.sort((a,b)=>a.compareTo(b));
                    child: Padding(
                      padding: const EdgeInsets.only(left: 20.0,right: 20,bottom: 16),
                      child: GridView.builder(
-                             itemCount: categories.length,
+                             itemCount: _filteredItems.length,
                              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                                crossAxisCount: 3, // Number of columns
                                crossAxisSpacing: 20.0, // Spacing between columns
@@ -214,7 +230,7 @@ title.sort((a,b)=>a.compareTo(b));
                                childAspectRatio: 120/160 // Spacing between rows
                              ),
                              itemBuilder: (context, index) {
-                               final item = categories[index];
+                              //  final item = categories[index];
                                return GestureDetector(
                                  child: Column(
                                    children: [
@@ -230,10 +246,10 @@ title.sort((a,b)=>a.compareTo(b));
                                       height: 94,
                                       width: 94,
                                        child: Center(
-                                         child:SvgPicture.asset(item)
+                                         child:SvgPicture.asset(categories[index])
                                        ),
                                      ),
-                                     Text(title[index],
+                                     Text(_filteredItems[index],
                                       style: TextStyle(fontSize: 12,),
                                       textAlign: TextAlign.center,
                                      maxLines: 2,
@@ -283,7 +299,9 @@ title.sort((a,b)=>a.compareTo(b));
     );
     return scaffold;
   }
-
+List<String> get _filteredItems => title
+      .where((item) => item.toLowerCase().contains(_query))
+      .toList();
  Widget buildImage(String urlImage,int index)=>
           Container(
                  margin: EdgeInsets.symmetric(horizontal:5),

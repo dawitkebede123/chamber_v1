@@ -29,6 +29,18 @@ class Mining_Home extends StatefulWidget {
 }
 
 class _Agriculture_HomeState extends State<Mining_Home> {
+  String _query = '';
+  List <String> title = [
+      'DIMENSION STONE (GRANITE, MARBLE, SLATE, AND WONDER STONE)',
+'EXPLORATION',
+'REFINING OF PRECIOUS METALS',
+'FERTILIZERS AND NITROGEN COMPOUNDS',
+'MINING SUPPORTIVE ACTIVITIES',
+'RENTING SERVICE OF MACHINERIES AND EQUIPMENTS',
+'STONE CARVINGS,CLAY SAND AND SIMILAR MINING AND QUARRYING',
+'CONSULTANCY SERVICE ON CHEMICAL ENGINEERING',
+'QUARRYING OF MINERALS',
+     ];
  final slideImages = [
    "assets/images/business_lists/adv_logo/1.jpg",
    "assets/images/business_lists/adv_logo/2.jpg",
@@ -106,17 +118,7 @@ class _Agriculture_HomeState extends State<Mining_Home> {
   //    [
   //      "assets/images/business_lists/5.svg",
   // ];
-   List <String> title = [
-      'DIMENSION STONE (GRANITE, MARBLE, SLATE, AND WONDER STONE)',
-'EXPLORATION',
-'REFINING OF PRECIOUS METALS',
-'FERTILIZERS AND NITROGEN COMPOUNDS',
-'MINING SUPPORTIVE ACTIVITIES',
-'RENTING SERVICE OF MACHINERIES AND EQUIPMENTS',
-'STONE CARVINGS,CLAY SAND AND SIMILAR MINING AND QUARRYING',
-'CONSULTANCY SERVICE ON CHEMICAL ENGINEERING',
-'QUARRYING OF MINERALS',
-     ];
+   
      title.sort((a,b)=>a.compareTo(b));
     List <String> categories = List .generate(title.length, (index) => 
     "assets/images/business_lists/12.svg"
@@ -199,7 +201,21 @@ class _Agriculture_HomeState extends State<Mining_Home> {
               children: [
                 
              
-             
+             Padding(
+              padding: const EdgeInsets.only(left: 20.0,right: 20,bottom: 16),
+              child: TextField(
+                onChanged: (value) {
+                  setState(() {
+                    _query = value.toLowerCase();
+                  });
+                },
+                decoration: const InputDecoration(
+                  // labelText: 'Search',
+                  hintText: 'Search Mining',
+                  prefixIcon: Icon(Icons.search),
+                ),
+              ),
+            ),
              
              
                 //  const Padding(
@@ -210,7 +226,7 @@ class _Agriculture_HomeState extends State<Mining_Home> {
                    child: Padding(
                      padding: const EdgeInsets.only(left: 20.0,right: 20,bottom: 16),
                      child: GridView.builder(
-                             itemCount: categories.length,
+                             itemCount: _filteredItems.length,
                              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                                crossAxisCount: 3, // Number of columns
                                crossAxisSpacing: 20.0, // Spacing between columns
@@ -237,7 +253,7 @@ class _Agriculture_HomeState extends State<Mining_Home> {
                                          child:SvgPicture.asset(item)
                                        ),
                                      ),
-                                     Text(title[index],
+                                     Text(_filteredItems[index],
                                       style: TextStyle(fontSize: 12,),
                                       textAlign: TextAlign.center,
                                      maxLines: 2,
@@ -287,7 +303,9 @@ class _Agriculture_HomeState extends State<Mining_Home> {
     );
     return scaffold;
   }
-
+List<String> get _filteredItems => title
+      .where((item) => item.toLowerCase().contains(_query))
+      .toList();
  Widget buildImage(String urlImage,int index)=>
           Container(
                  margin: EdgeInsets.symmetric(horizontal:5),
