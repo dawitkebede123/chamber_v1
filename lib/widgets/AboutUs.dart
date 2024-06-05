@@ -14,7 +14,8 @@ class About extends StatelessWidget {
     final List<Map<String,dynamic>> contact =[
        {
       "title":"about business inquiry",
-    "content": "+251 115 518 055"
+    "content": "0115519817 \n 0911376543 \n addischamber@gmail.com"
+
 
      },
    

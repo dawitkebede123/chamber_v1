@@ -269,7 +269,7 @@ void showModalDialog(BuildContext context) {
     context: context,
     builder: (context) => AlertDialog(
       title: Text('Contact'),
-      content: Text(' +251 11 515 5221'),
+      content: Text(' Office Tel:    +251 11 515 5221 \n Mobile:    +251 91 196 4500  +251 93 155 9829 \n Email:     flijalem@yahoo.com lemlem.aaccsa@gmail.com'),
       actions: [
         TextButton(
           onPressed: () => Navigator.pop(context),
