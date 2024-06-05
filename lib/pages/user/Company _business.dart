@@ -11,6 +11,7 @@ import 'package:chamber_of_commerce/pages/user/Business.dart';
 import 'package:chamber_of_commerce/pages/user/Home.dart';
 import 'package:chamber_of_commerce/widgets/BottomNavBar.dart';
 import 'package:chamber_of_commerce/widgets/CustomBottomNavBar.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
@@ -28,6 +29,13 @@ class CompanyBusiness extends StatefulWidget {
 }
 
 class _CompanyBusinessState extends State<CompanyBusiness> {
+
+  // a uploadFile()=>{
+  // final storage  = FirebaseStorage.instance.ref('Query7');
+  //      final images = storage.child('images');
+  //      final imageRef = images.child("file name");
+  //      final networkImageUrl = await imageRef.getDownloadURL();
+  // };
   @override
   Widget build(BuildContext context) {
     String sector = widget.detail["sector"].toString();
@@ -40,12 +48,15 @@ class _CompanyBusinessState extends State<CompanyBusiness> {
     String email = widget.detail["email"].toString();
     String website = widget.detail["website"].toString();
     String fax = widget.detail["fax"].toString();
+
+     Future<String> imageUrlFuture = storeImageInFirebase(image);
+
+  
     var scaffold = Scaffold(
       //  drawer:const BackButton(
       //   //  backgroundColor: Colors.white,
       //  ),
       
-       
 
 
 
@@ -114,9 +125,27 @@ class _CompanyBusinessState extends State<CompanyBusiness> {
                        child: Column(
                          children: [
                           if(logo!="")
-                             Image.asset(logo,
-                                      width:MediaQuery.of(context).size.width * 0.20,
-                                      ),
+                           Container(
+             width:MediaQuery.of(context).size.width * 0.20,
+           child: FutureBuilder<String>(
+    future: imageUrlFuture,
+    builder: (context, snapshot) {
+      if (snapshot.hasData) {
+        return Image.network(snapshot.data!); // Use the downloaded URL
+      } else if (snapshot.hasError) {
+        return Text('Error: ${snapshot.error}'); // Handle errors
+      }
+
+      // Display a loading indicator while waiting
+      return CircularProgressIndicator();
+    },
+  ),
+
+          ),
+                             
+                            //  Image.asset(logo,
+                            //           width:MediaQuery.of(context).size.width * 0.20,
+                            //           ),
                            Text(name,
               style: const TextStyle(
                     fontSize: 16, // Increase font size for heading-like appearance
@@ -145,7 +174,21 @@ class _CompanyBusinessState extends State<CompanyBusiness> {
         Padding(
           padding: const EdgeInsets.only(left: 20,right: 20,bottom: 16),
           child: Container(
-           child:Image.asset(image),
+           
+           child: FutureBuilder<String>(
+    future: imageUrlFuture,
+    builder: (context, snapshot) {
+      if (snapshot.hasData) {
+        return Image.network(snapshot.data!); // Use the downloaded URL
+      } else if (snapshot.hasError) {
+        return Text('Error: ${snapshot.error}'); // Handle errors
+      }
+
+      // Display a loading indicator while waiting
+      return CircularProgressIndicator();
+    },
+  ),
+
           ),
         ),
         if(profile!="")
@@ -258,4 +301,24 @@ class _CompanyBusinessState extends State<CompanyBusiness> {
      
     return scaffold;
   }
+
+  Future<String> storeImageInFirebase(String fileName) async {
+  try {
+    final storage  = FirebaseStorage.instance.ref();
+       final images = storage.child('media');
+       final imageRef = images.child(fileName);
+       	
+
+
+
+       final networkImageUrl = await imageRef.getDownloadURL();
+       print(networkImageUrl);
+    return networkImageUrl;
+  } on FirebaseException catch (e) {
+    // Handle potential errors
+    print('Error storing image: ${e.code} - ${e.message}');
+    return ''; // Or throw an exception for further handling
+  }
+}
+
 }

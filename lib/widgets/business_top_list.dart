@@ -1,5 +1,6 @@
 import 'package:chamber_of_commerce/pages/user/Company%20_business.dart';
 import 'package:chamber_of_commerce/pages/user/Company.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -15,9 +16,8 @@ class Business_Top_List extends StatefulWidget {
 class _Business_Top_ListState extends State<Business_Top_List> {
   @override
   Widget build(BuildContext context) {
-
      
-   final List<Map<String, String>> businessCompanyProfile = [
+   List<Map<String, String>> businessCompanyProfile = [
    {
       "sector":"Manufacturing",
      "name": "AARTI STEEL PLC",
@@ -33,8 +33,8 @@ class _Business_Top_ListState extends State<Business_Top_List> {
    {
      "sector":"EXPORT",
      "name": "ABBAHWA TRADING P.L.C",
-     "logo": "assets/images/business_lists/adv_logo/1.jpg",
-     "adv_image":"assets/images/business_lists/adv_logo/1.jpg",
+     "logo": "1.jpg",
+     "adv_image":"1.jpg",
      "adv_video":"assets/video/business/2.mp4",
      "profile": "",
      "tel": "0114199629",
@@ -45,8 +45,8 @@ class _Business_Top_ListState extends State<Business_Top_List> {
     {
      "sector":"EXPORT",
      "name": "ABAT IMPORT AND EXPORT PLC",
-     "logo": "assets/images/business_lists/adv_logo/2.jpg",
-     "adv_image":"assets/images/business_lists/adv_logo/2.jpg",
+     "logo": "2.jpg",
+     "adv_image":"2.jpg",
      "adv_video":"assets/video/business/3.mp4",
      "profile": "",
      "tel": "0116392232",
@@ -55,22 +55,515 @@ class _Business_Top_ListState extends State<Business_Top_List> {
      "fax":""
    },
    {
-     "sector":"MANUFACTURING",
-     "name": "ABRHAM TESFAYE WOLDESENBET",
-     "logo": "assets/images/business_lists/adv_logo/3.jpg",
-     "adv_image":"assets/images/business_lists/adv_logo/3.jpg",
-     "adv_video":"assets/video/business/4.mp4",
+     "sector":"MINING",
+     "name": "ABRHAM GOLD MINING MACHINERY",
+     "logo": "",
+     "adv_image":"Abraham Gold Mining Machinery copy.png",
+     "adv_video":"",
      "profile": "",
      "tel": "",
      "email": "",
      "website":"",
      "fax":""
    },
+    {
+     "sector":"Community, Social And Personal Services",
+     "name": "ADDIS HIWOT HOSPITAL",
+     "logo": "",
+     "adv_image":"Addis hiwot copy.png",
+     "adv_video":"",
+     "profile": "",
+     "tel": "",
+     "email": "",
+     "website":"",
+     "fax":""
+   },
+    {
+     "sector":"IMPORT",
+     "name": "AGRAPH TRADING",
+     "logo": "",
+     "adv_image":"Agraph Trading copy.png",
+     "adv_video":"",
+     "profile": "",
+     "tel": "",
+     "email": "",
+     "website":"",
+     "fax":""
+   },
+    {
+     "sector":"IMPORT",
+     "name": "AGRO-VET PLC",
+     "logo": "",
+     "adv_image":"Agro-Vet PLC B copy 2.png",
+     "adv_video":"",
+     "profile": "",
+     "tel": "0114169327",
+     "email": "agrovetplc1997@gmail.com",
+     "website":"",
+     "fax":""
+   },
+    {
+     "sector":"Manufacturing",
+     "name": "AHADU MARBLE & GRANITE",
+     "logo": "",
+     "adv_image":"Ahadu Marble & Granite copy.png",
+     "adv_video":"",
+     "profile": "",
+     "tel": "",
+     "email": "",
+     "website":"",
+     "fax":""
+   },
+    {
+     "sector":"Manufacturing",
+     "name": "AKLESS PAPER PRODUCTS PLC",
+     "logo": "",
+     "adv_image":"Akless Paper Products PLC copy.png",
+     "adv_video":"",
+     "profile": "",
+     "tel": "",
+     "email": "",
+     "website":"",
+     "fax":""
+   },
+    {
+     "sector":"Manufacturing",
+     "name": "ALAMI INDUSTRIAL ENGINEERING",
+     "logo": "",
+     "adv_image":"Alami Industrial Engineering copy.png",
+     "adv_video":"",
+     "profile": "",
+     "tel": "",
+     "email": "",
+     "website":"",
+     "fax":""
+   },
+    {
+     "sector":"IMPORT",
+     "name": "Alta COMPUTER",
+     "logo": "",
+     "adv_image":"Alta half page1 copy.png",
+     "adv_video":"",
+     "profile": "",
+     "tel": "",
+     "email": "",
+     "website":"",
+     "fax":""
+   },
+    {
+     "sector":"IMPORT",
+     "name": "AWEKE ASRADE IMPORT & EXPORT",
+     "logo": "",
+     "adv_image":"Aweke Asrade Import & Export copy.png",
+     "adv_video":"",
+     "profile": "",
+     "tel": "",
+     "email": "",
+     "website":"",
+     "fax":""
+   },
+     {
+     "sector":"IMPORT",
+     "name": "BENVENUITI BROTHERS PVT.LTD.CO",
+     "logo": "",
+     "adv_image":"BENVENUITI BROTHERS PVT.LTD.CO B copy.png",
+     "adv_video":"",
+     "profile": "",
+     "tel": "",
+     "email": "",
+     "website":"",
+     "fax":""
+   },
+    {
+     "sector":"Manufacturing",
+     "name": "BELAYAB CABLE",
+     "logo": "",
+     "adv_image":"Belayab Cable B copy.png",
+     "adv_video":"",
+     "profile": "",
+     "tel": "",
+     "email": "",
+     "website":"",
+     "fax":""
+   },
+    {
+     "sector":"Manufacturing",
+     "name": "BETA AND DULAS ENGINEERING",
+     "logo": "",
+     "adv_image":"Beta and dulas Engineering Advertisement 17 x 26 cm (2) copy.png",
+     "adv_video":"",
+     "profile": "",
+     "tel": "",
+     "email": "",
+     "website":"",
+     "fax":""
+   },
+    {
+     "sector":"IMPORT",
+     "name": "BIOVET IMPORT",
+     "logo": "",
+     "adv_image":"Bethel copy.png",
+     "adv_video":"",
+     "profile": "",
+     "tel": "",
+     "email": "",
+     "website":"",
+     "fax":""
+   },
+    {
+     "sector":"Manufacturing",
+     "name": "BETHEL ENGINEERING",
+     "logo": "",
+     "adv_image":"Bethel_1 copy.png",
+     "adv_video":"",
+     "profile": "",
+     "tel": "",
+     "email": "",
+     "website":"",
+     "fax":""
+   },
+    {
+     "sector":"Manufacturing",
+     "name": "CGF-DY ROOFING TILE PLC",
+     "logo": "",
+     "adv_image":"CGF-DY ROOFING TILE PLC copy.png",
+     "adv_video":"",
+     "profile": "",
+     "tel": "",
+     "email": "",
+     "website":"",
+     "fax":""
+   },
+    {
+     "sector":"EXPORT",
+     "name": "OROMIA AGRICULTURAL COOPERATIVES FEDERATION",
+     "logo": "",
+     "adv_image":"COOP copy.png",
+     "adv_video":"",
+     "profile": "",
+     "tel": "",
+     "email": "",
+     "website":"",
+     "fax":""
+   },
+    {
+     "sector":"Real Estate And Business Service",
+     "name": "Commercial Nominees ",
+     "logo": "",
+     "adv_image":"Commercial Nominees (2) copy.png",
+     "adv_video":"",
+     "profile": "",
+     "tel": "",
+     "email": "",
+     "website":"",
+     "fax":""
+   },
+    {
+     "sector":"IMPORT",
+     "name": "DEJEN G/MESKEL IMPORT AND EXPORT",
+     "logo": "",
+     "adv_image":"Dejen GMeskel Import and Export copy.png",
+     "adv_video":"",
+     "profile": "",
+     "tel": "",
+     "email": "",
+     "website":"",
+     "fax":""
+   },
+    {
+     "sector":"Manufacturing",
+     "name": "EDISON ELECTRICAL SOLUTION",
+     "logo": "",
+     "adv_image":"Edison copy.png",
+     "adv_video":"",
+     "profile": "",
+     "tel": "",
+     "email": "",
+     "website":"",
+     "fax":""
+   },
+    {
+     "sector":"Real Estate And Business Service",
+     "name": "EDOMIAS INTERNATIONAL",
+     "logo": "",
+     "adv_image":"Edomias copy.png",
+     "adv_video":"",
+     "profile": "",
+     "tel": "",
+     "email": "",
+     "website":"",
+     "fax":""
+   },
+    {
+     "sector":"IMPORT",
+     "name": "ELAY TRADING PLC",
+     "logo": "",
+     "adv_image":"Elay Trading PLC copy.png",
+     "adv_video":"",
+     "profile": "",
+     "tel": "",
+     "email": "",
+     "website":"",
+     "fax":""
+   },
+    {
+     "sector":"IMPORT",
+     "name": "ADAMANT INVESTMENT PLC",
+     "logo": "",
+     "adv_image":"adamant  quarter copy.png",
+     "adv_video":"",
+     "profile": "",
+     "tel": "",
+     "email": "",
+     "website":"",
+     "fax":""
+   },
+    {
+     "sector":"IMPORT",
+     "name": "ETHOF",
+     "logo": "",
+     "adv_image":"addis fana copy.png",
+     "adv_video":"",
+     "profile": "",
+     "tel": "",
+     "email": "",
+     "website":"",
+     "fax":""
+   },
+    {
+     "sector":"Real Estate And Business Service",
+     "name": "AFRICOM TECHNOLOGIES PLC",
+     "logo": "",
+     "adv_image":"africom copy.png",
+     "adv_video":"",
+     "profile": "",
+     "tel": "",
+     "email": "",
+     "website":"",
+     "fax":""
+   },
+    {
+     "sector":"IMPORT",
+     "name": "AHADU PLC",
+     "logo": "",
+     "adv_image":"ahadu copy.png",
+     "adv_video":"",
+     "profile": "",
+     "tel": "",
+     "email": "",
+     "website":"",
+     "fax":""
+   },
+    {
+     "sector":"",
+     "name": "ALMAW BEKALU IMPORT EXPORT",
+     "logo": "",
+     "adv_image":"almaw and ABAC copy.png",
+     "adv_video":"",
+     "profile": "",
+     "tel": "",
+     "email": "",
+     "website":"",
+     "fax":""
+   },
+    {
+     "sector":"Community, Social And Personal Services",
+     "name": "ARSHO MEDICAL LABORATORIES PLC",
+     "logo": "",
+     "adv_image":"arsho copy.png",
+     "adv_video":"",
+     "profile": "",
+     "tel": "",
+     "email": "",
+     "website":"",
+     "fax":""
+   },
+    {
+     "sector":"IMPORT",
+     "name": "MORE AUTO RECAMBI",
+     "logo": "",
+     "adv_image":"auto recamb copy.png",
+     "adv_video":"",
+     "profile": "",
+     "tel": "",
+     "email": "",
+     "website":"",
+     "fax":""
+   },
+    {
+     "sector":"Manufacturing",
+     "name": "BEKAS CHEMICALS P.L.C",
+     "logo": "",
+     "adv_image":"bekas full copy.png",
+     "adv_video":"",
+     "profile": "",
+     "tel": "",
+     "email": "",
+     "website":"",
+     "fax":""
+   },
+    {
+     "sector":"Manufacturing",
+     "name": "BELAYAB FOODS PRODUCTION PLC",
+     "logo": "",
+     "adv_image":"belayab foods copy.png",
+     "adv_video":"",
+     "profile": "",
+     "tel": "",
+     "email": "",
+     "website":"",
+     "fax":""
+   },
+    {
+     "sector":"EXPORT",
+     "name": "BESHANFER TRADING PLC",
+     "logo": "",
+     "adv_image":"beshenfer copy.png",
+     "adv_video":"",
+     "profile": "",
+     "tel": "",
+     "email": "",
+     "website":"",
+     "fax":""
+   },
+    {
+     "sector":"IMPORT",
+     "name": "BISELEX ETHIOPIA LTD",
+     "logo": "",
+     "adv_image":"biselex half copy.png",
+     "adv_video":"",
+     "profile": "",
+     "tel": "",
+     "email": "",
+     "website":"",
+     "fax":""
+   },
+    {
+     "sector":"Manufacturing",
+     "name": "BULALA DINKITI AGRICULTUR TRADE & INDUSTRY PLC",
+     "logo": "",
+     "adv_image":"bullala final copy.png",
+     "adv_video":"",
+     "profile": "",
+     "tel": "",
+     "email": "",
+     "website":"",
+     "fax":""
+   },
+    {
+     "sector":"Manufacturing",
+     "name": "BURAYU DEVELOPMENT PLC",
+     "logo": "",
+     "adv_image":"burayu packaging copy.png",
+     "adv_video":"",
+     "profile": "",
+     "tel": "",
+     "email": "",
+     "website":"",
+     "fax":""
+   },
+   {
+     "sector":"EXPORT",
+     "name": "CHALBEX TRADING PLC",
+     "logo": "",
+     "adv_image":"chalbex trading plc copy.png",
+     "adv_video":"",
+     "profile": "",
+     "tel": "",
+     "email": "",
+     "website":"",
+     "fax":""
+   },
+   {
+     "sector":"IMPORT",
+     "name": "DA IMPORT",
+     "logo": "",
+     "adv_image":"da IMPORT copy.png",
+     "adv_video":"",
+     "profile": "",
+     "tel": "",
+     "email": "",
+     "website":"",
+     "fax":""
+   },
+   {
+     "sector":"Wholesale And Retail",
+     "name": "DAKY TRADING P L C",
+     "logo": "",
+     "adv_image":"daky trading plc one eight copy.png",
+     "adv_video":"",
+     "profile": "",
+     "tel": "",
+     "email": "",
+     "website":"",
+     "fax":""
+   },
+   {
+     "sector":"Real Estate And Business Service",
+     "name": "DALLOL PROPERTIES",
+     "logo": "",
+     "adv_image":"dallo full copy.png",
+     "adv_video":"",
+     "profile": "",
+     "tel": "",
+     "email": "",
+     "website":"",
+     "fax":""
+   },
+   {
+     "sector":"IMPORT",
+     "name": "DEMISS BUILDING MATERIAL",
+     "logo": "",
+     "adv_image":"demisse final copy.png",
+     "adv_video":"",
+     "profile": "",
+     "tel": "",
+     "email": "",
+     "website":"",
+     "fax":""
+   },
+     {
+     "sector":"IMPORT",
+     "name": "DEMISS BUILDING MATERIAL",
+     "logo": "",
+     "adv_image":"demisse final copy.png",
+     "adv_video":"",
+     "profile": "",
+     "tel": "",
+     "email": "",
+     "website":"",
+     "fax":""
+   },
+     {
+     "sector":"Real Estate And Business Service",
+     "name": "DIRIBA DEFERSHA GENERAL CONTRACTOR",
+     "logo": "",
+     "adv_image":"diriba defersha general contractor copy.png",
+     "adv_video":"",
+     "profile": "",
+     "tel": "",
+     "email": "",
+     "website":"",
+     "fax":""
+   },
+     {
+     "sector":"IMPORT",
+     "name": "DOBA INDUSTRIAL TRADING ",
+     "logo": "",
+     "adv_image":"doba one eight copy.png",
+     "adv_video":"",
+     "profile": "",
+     "tel": "",
+     "email": "",
+     "website":"",
+     "fax":""
+   },
+
   {
      "sector":"MANUFACTURING",
      "name": "ALEMU SUPLIMENTARY FOOD PROCESING AND SALES PRIVATE ENTERPRISE",
-     "logo": "assets/images/business_lists/adv_logo/7.jpg",
-     "adv_image":"assets/images/business_lists/adv_logo/7.jpg",
+     "logo": "7.jpg",
+     "adv_image":"7.jpg",
      "adv_video":"assets/video/business/4.mp4",
      "profile": "",
      "tel": "0938650746",
@@ -81,8 +574,8 @@ class _Business_Top_ListState extends State<Business_Top_List> {
     {
      "sector":"IMPORT",
      "name": "B & C ALMUNIUM P.L.C",
-     "logo": "assets/images/business_lists/adv_logo/9.jpg",
-     "adv_image":"assets/images/business_lists/adv_logo/9.jpg",
+     "logo": "9.jpg",
+     "adv_image":"9.jpg",
      "adv_video":"assets/video/business/4.mp4",
      "profile": "",
      "tel": "0116627900",
@@ -93,8 +586,8 @@ class _Business_Top_ListState extends State<Business_Top_List> {
     {
      "sector":"MANUFACTURING",
      "name": "ELTEX TEXTILE AND GARMENT FACTORY/ELIAS TESFAYE H/MARIAM/ ",
-     "logo": "assets/images/business_lists/adv_logo/19.jpg",
-     "adv_image":"assets/images/business_lists/adv_logo/19.jpg",
+     "logo": "19.jpg",
+     "adv_image":"19.jpg",
      "adv_video":"assets/video/business/18.mp4",
      "profile": "",
      "tel": "0114390444",
@@ -105,8 +598,8 @@ class _Business_Top_ListState extends State<Business_Top_List> {
     {
      "sector":"EXPORT",
      "name": "OROMIA COFFEE FARMERS COOPERATIVE SOLICTIES UNION one.Koo coffee",
-     "logo": "assets/images/business_lists/adv_logo/33.jpg",
-     "adv_image":"assets/images/business_lists/adv_logo/33.jpg",
+     "logo": "33.jpg",
+     "adv_image":"33.jpg",
      "adv_video":"assets/video/business/32.mp4",
      "profile": "",
      "tel": "0114450488",
@@ -117,8 +610,8 @@ class _Business_Top_ListState extends State<Business_Top_List> {
     {
      "sector":"IMPORT",
      "name": "HAST ENTERPRISE HORN OF AFRICA STEEL",
-     "logo": "assets/images/business_lists/adv_logo/24.jpg",
-     "adv_image":"assets/images/business_lists/adv_logo/24.jpg",
+     "logo": "24.jpg",
+     "adv_image":"24.jpg",
      "adv_video":"",
      "profile": "",
      "tel": "0112758275",
@@ -129,8 +622,8 @@ class _Business_Top_ListState extends State<Business_Top_List> {
    {
      "sector":"CONSTRUCTION",
      "name": "T L TRADING PLC",
-     "logo": "assets/images/business_lists/adv_logo/41.jpg",
-     "adv_image":"assets/images/business_lists/adv_logo/41.jpg",
+     "logo": "41.jpg",
+     "adv_image":"41.jpg",
      "adv_video":"",
      "profile": "",
      "tel": "0911923714",
@@ -141,8 +634,8 @@ class _Business_Top_ListState extends State<Business_Top_List> {
     {
      "sector":"IMPORT",
      "name": "AHADU GIL CONSTRUCTION PLC",
-     "logo": "assets/images/business_lists/adv_logo/5.jpg",
-     "adv_image":"assets/images/business_lists/adv_logo/5.jpg",
+     "logo": "5.jpg",
+     "adv_image":"5.jpg",
      "adv_video":"",
      "profile": "",
      "tel": "0931304747",
@@ -153,8 +646,8 @@ class _Business_Top_ListState extends State<Business_Top_List> {
     {
      "sector":"CONSTRUCTION ",
      "name": "Esdros construction, Trade and industry s.c ",
-     "logo": "assets/images/business_lists/adv_logo/21.jpg",
-     "adv_image":"assets/images/business_lists/adv_logo/21.jpg",
+     "logo": "21.jpg",
+     "adv_image":"21.jpg",
      "adv_video":"",
      "profile": "",
      "tel": "0111 57 98 63",
@@ -165,8 +658,8 @@ class _Business_Top_ListState extends State<Business_Top_List> {
    {
      "sector":"Transport",
      "name": "Africa global logistics(AGL) ",
-     "logo": "assets/images/business_lists/adv_logo/4.jpg",
-     "adv_image":"assets/images/business_lists/adv_logo/4.jpg",
+     "logo": "4.jpg",
+     "adv_image":"4.jpg",
      "adv_video":"",
      "profile": "",
      "tel": "0115570600",
@@ -177,8 +670,8 @@ class _Business_Top_ListState extends State<Business_Top_List> {
    {
      "sector":"manufacturing",
      "name": "buluko textile",
-     "logo": "assets/images/business_lists/adv_logo/15.jpg",
-     "adv_image":"assets/images/business_lists/adv_logo/15.jpg",
+     "logo": "15.jpg",
+     "adv_image":"bulko last and final copy.png",
      "adv_video":"assets/video/business/11.mp4",
      "profile": "",
      "tel": "0113668108",
@@ -191,7 +684,7 @@ class _Business_Top_ListState extends State<Business_Top_List> {
      "name": "oromia industrial park",
      "logo": "",
      "adv_image":"",
-     "adv_video":"assets/video/business/6.mp4",
+     "adv_video":"assets/video/business/33.mp4",
      "profile": "",
      "tel": "01111575495",
      "email": "opidc.marketing@gmail.com",
@@ -201,8 +694,8 @@ class _Business_Top_ListState extends State<Business_Top_List> {
     {
      "sector":"IMPORT",
      "name": "riffo",
-     "logo": "assets/images/business_lists/adv_logo/36.jpg",
-     "adv_image":"assets/images/business_lists/adv_logo/36.jpg",
+     "logo": "36.jpg",
+     "adv_image":"36.jpg",
      "adv_video":"",
      "profile": "",
      "tel": "'0901669900",
@@ -245,8 +738,8 @@ class _Business_Top_ListState extends State<Business_Top_List> {
    {
      "sector":"MANUFACTURING",
      "name": "AMAGA PLC",
-     "logo": "assets/images/business_lists/adv_logo/8.jpg",
-     "adv_image":"assets/images/business_lists/adv_logo/8.jpg",
+     "logo": "8.jpg",
+     "adv_image":"8.jpg",
      "adv_video":"assets/video/business/7.mp4",
      "profile": "",
      "tel": "0911201334",
@@ -257,8 +750,8 @@ class _Business_Top_ListState extends State<Business_Top_List> {
    {
      "sector":"REAL ESTATE AND BUSINESS SERVICE",
      "name": "B D O CONSULTING PLC",
-     "logo": "assets/images/business_lists/adv_logo/10.jpg",
-     "adv_image":"assets/images/business_lists/adv_logo/10.jpg",
+     "logo": "10.jpg",
+     "adv_image":"10.jpg",
      "adv_video":"assets/video/business/8.mp4",
      "profile": "",
      "tel": "0116631196/0116631210",
@@ -269,8 +762,8 @@ class _Business_Top_ListState extends State<Business_Top_List> {
    {
      "sector":"CONSTRUCTION",
      "name": "BEACON CONSULTING ARCHTECT AND ENGINEERING PLC",
-     "logo": "assets/images/business_lists/adv_logo/11.jpg",
-     "adv_image":"assets/images/business_lists/adv_logo/11.jpg",
+     "logo": "11.jpg",
+     "adv_image":"beacon trading copy.png",
      "adv_video":"assets/video/business/9.mp4",
      "profile": "",
      "tel": "0118787561",
@@ -281,8 +774,8 @@ class _Business_Top_ListState extends State<Business_Top_List> {
     {
      "sector":"EXPORT",
      "name": "BEKI TRADING PLC",
-     "logo": "assets/images/business_lists/adv_logo/12.jpg",
-     "adv_image":"assets/images/business_lists/adv_logo/12.jpg",
+     "logo": "12.jpg",
+     "adv_image":"12.jpg",
      "adv_video":"assets/video/business/10.mp4",
      "profile": "",
      "tel": "0911240959",
@@ -293,8 +786,8 @@ class _Business_Top_ListState extends State<Business_Top_List> {
      {
      "sector":"EXPORT",
      "name": "BELAYNEH KINDE IMPORT AND EXPORT",
-     "logo": "assets/images/business_lists/adv_logo/13.jpg",
-     "adv_image":"assets/images/business_lists/adv_logo/13.jpg",
+     "logo": "13.jpg",
+     "adv_image":"13.jpg",
      "adv_video":"assets/video/business/11_1.mp4",
      "profile": "",
      "tel": "0111118740/0111556026",
@@ -305,8 +798,8 @@ class _Business_Top_ListState extends State<Business_Top_List> {
    {
      "sector":"IMPORT",
      "name": "BULE ELECTRICAL MATERIALS",
-     "logo": "assets/images/business_lists/adv_logo/14.jpg",
-     "adv_image":"assets/images/business_lists/adv_logo/14.jpg",
+     "logo": "14.jpg",
+     "adv_image":"14.jpg",
      "adv_video":"",
      "profile": "",
      "tel": "0111559755/0111559889/0111559055",
@@ -330,8 +823,8 @@ class _Business_Top_ListState extends State<Business_Top_List> {
      {
      "sector":"MANUFACTURING",
      "name": "DERBA MIDROC CEMENT PLC",
-     "logo": "assets/images/business_lists/adv_logo/16.jpg",
-     "adv_image":"assets/images/business_lists/adv_logo/16.jpg",
+     "logo": "16.jpg",
+     "adv_image":"16.jpg",
      "adv_video":"assets/video/business/13.mp4",
      "profile": "",
      "tel": "0115549888/0115549810",
@@ -342,8 +835,8 @@ class _Business_Top_ListState extends State<Business_Top_List> {
    {
      "sector":"MANUFACTURING",
      "name": "D.H GEDA TRADE & INDUSTRY PLC",
-     "logo": "assets/images/business_lists/adv_logo/17.jpg",
-     "adv_image":"assets/images/business_lists/adv_logo/17.jpg",
+     "logo": "17.jpg",
+     "adv_image":"DH geda copy.png",
      "adv_video":"assets/video/business/14.mp4",
      "profile": "",
      "tel": "0116638154/58/59/60",
@@ -354,8 +847,8 @@ class _Business_Top_ListState extends State<Business_Top_List> {
     {
      "sector":"MANUFACTURING",
      "name": "EL AUTO ENGINEERING AND TRADING PLC",
-     "logo": "assets/images/business_lists/adv_logo/18.jpg",
-     "adv_image":"assets/images/business_lists/adv_logo/18.jpg",
+     "logo": "18.jpg",
+     "adv_image":"18.jpg",
      "adv_video":"assets/video/business/15.mp4",
      "profile": "",
      "tel": "0116676086",
@@ -379,8 +872,8 @@ class _Business_Top_ListState extends State<Business_Top_List> {
     {
      "sector":"REAL ESTATE AND BUSINESS SERVICE",
      "name": "ERMIAS ADVERTISING AND PRINTING PLC",
-     "logo": "assets/images/business_lists/adv_logo/20.jpg",
-     "adv_image":"assets/images/business_lists/adv_logo/20.jpg",
+     "logo": "20.jpg",
+     "adv_image":"20.jpg",
      "adv_video":"assets/video/business/17.mp4",
      "profile": "",
      "tel": "0911218383/0911240200",
@@ -391,8 +884,8 @@ class _Business_Top_ListState extends State<Business_Top_List> {
    {
      "sector":"TRANSPORT, STORAGE AND COMMUNICATION",
      "name": "ETHIOPIAN AIRLINES ENTERPRISE",
-     "logo": "assets/images/business_lists/adv_logo/22.jpg",
-     "adv_image":"assets/images/business_lists/adv_logo/22.jpg",
+     "logo": "22.jpg",
+     "adv_image":"22.jpg",
      "adv_video":"assets/video/business/22.mp4",
      "profile": "",
      "tel": "0116652222/0116656666",
@@ -403,8 +896,8 @@ class _Business_Top_ListState extends State<Business_Top_List> {
     {
      "sector":"REAL ESTATE AND BUSINESS SERVICE",
      "name": "GIFT REAL ESTATE P.L.C",
-     "logo": "assets/images/business_lists/adv_logo/23.jpg",
-     "adv_image":"assets/images/business_lists/adv_logo/23.jpg",
+     "logo": "23.jpg",
+     "adv_image":"23.jpg",
      "adv_video":"assets/video/business/23.mp4",
      "profile": "",
      "tel": "0114655580",
@@ -427,8 +920,8 @@ class _Business_Top_ListState extends State<Business_Top_List> {
    {
      "sector":"CONSTRUCTION",
      "name": "HAVERIM CONSTRUCTION",
-     "logo": "assets/images/business_lists/adv_logo/25.jpg",
-     "adv_image":"assets/images/business_lists/adv_logo/25.jpg",
+     "logo": "25.jpg",
+     "adv_image":"25.jpg",
      "adv_video":"assets/video/business/23.mp4",
      "profile": "",
      "tel": "0116614536",
@@ -440,8 +933,8 @@ class _Business_Top_ListState extends State<Business_Top_List> {
     {
      "sector":"EXPORT",
      "name": "IMPRESSION GENERAL TRADING PLC",
-     "logo": "assets/images/business_lists/adv_logo/27.jpg",
-     "adv_image":"assets/images/business_lists/adv_logo/27.jpg",
+     "logo": "27.jpg",
+     "adv_image":"27.jpg",
      "adv_video":"assets/video/business/25.mp4",
      "profile": "",
      "tel": "0116678279/80/81",
@@ -452,8 +945,8 @@ class _Business_Top_ListState extends State<Business_Top_List> {
      {
      "sector":"IMPORT",
      "name": "JIGRA INTERNATIONAL BUSINESS PLC",
-     "logo": "assets/images/business_lists/adv_logo/28.jpg",
-     "adv_image":"assets/images/business_lists/adv_logo/28.jpg",
+     "logo": "28.jpg",
+     "adv_image":"28.jpg",
      "adv_video":"assets/video/business/26.mp4",
      "profile": "",
      "tel": "0116628166",
@@ -467,8 +960,8 @@ class _Business_Top_ListState extends State<Business_Top_List> {
    {
      "sector":"MANUFACTURING",
      "name": "KEBROM FOAM AND PLASTIC MANUFACTURING AND DISTRIBU",
-     "logo": "assets/images/business_lists/adv_logo/30.jpg",
-     "adv_image":"assets/images/business_lists/adv_logo/30.jpg",
+     "logo": "30.jpg",
+     "adv_image":"30.jpg",
      "adv_video":"assets/video/business/28.mp4",
      "profile": "",
      "tel": "0118694169",
@@ -480,8 +973,8 @@ class _Business_Top_ListState extends State<Business_Top_List> {
     {
      "sector":"TRANSPORT, STORAGE AND COMMUNICATION",
      "name": "MEKODI LOGISTICS PLC",
-     "logo": "assets/images/business_lists/adv_logo/31.jpg",
-     "adv_image":"assets/images/business_lists/adv_logo/31.jpg",
+     "logo": "31.jpg",
+     "adv_image":"31.jpg",
      "adv_video":"assets/video/business/29.mp4",
      "profile": "",
      "tel": "0118490204",
@@ -516,11 +1009,12 @@ class _Business_Top_ListState extends State<Business_Top_List> {
    },
   //   one.Koo coffee
   //  oromia industrial park
+
    {
      "sector":"TRANSPORT, STORAGE AND COMMUNICATION",
      "name": "REFLECT LOGESTICS AND TRANSPORT PLC",
-     "logo": "assets/images/business_lists/adv_logo/35.jpg",
-     "adv_image":"assets/images/business_lists/adv_logo/35.jpg",
+     "logo": "35.jpg",
+     "adv_image":"35.jpg",
      "adv_video":"assets/video/business/34.mp4",
      "profile": "",
      "tel": "0114707870/0114708484",
@@ -531,8 +1025,8 @@ class _Business_Top_ListState extends State<Business_Top_List> {
    {
      "sector":"IMPORT",
      "name": "SIM PLASTICS",
-     "logo": "assets/images/business_lists/adv_logo/34.jpg",
-     "adv_image":"assets/images/business_lists/adv_logo/34.jpg",
+     "logo": "39.jpg",
+     "adv_image":"39.jpg",
      "adv_video":"assets/video/business/39.mp4",
      "profile": "",
      "tel": "0116290606",
@@ -544,8 +1038,8 @@ class _Business_Top_ListState extends State<Business_Top_List> {
     {
      "sector":"REAL ESTATE AND BUSINESS SERVICE",
      "name": "RSM CONSULTING PLC",
-     "logo": "assets/images/business_lists/adv_logo/37.jpg",
-     "adv_image":"assets/images/business_lists/adv_logo/37.jpg",
+     "logo": "37.jpg",
+     "adv_image":"37.jpg",
      "adv_video":"",
      "profile": "",
      "tel": "0116393139",
@@ -556,8 +1050,8 @@ class _Business_Top_ListState extends State<Business_Top_List> {
    {
      "sector":"TRANSPORT, STORAGE AND COMMUNICATION",
      "name": "RUHAMA GENERAL FRAME AND GLASS WORK",
-     "logo": "assets/images/business_lists/adv_logo/38.jpg",
-     "adv_image":"assets/images/business_lists/adv_logo/38.jpg",
+     "logo": "38.jpg",
+     "adv_image":"38.jpg",
      "adv_video":"",
      "profile": "",
      "tel": "0115576895",
@@ -568,8 +1062,8 @@ class _Business_Top_ListState extends State<Business_Top_List> {
     {
      "sector":"EXPORT",
      "name": "SOAL IMPORT AND EXPORT",
-     "logo": "assets/images/business_lists/adv_logo/40.jpg",
-     "adv_image":"assets/images/business_lists/adv_logo/40.jpg",
+     "logo": "40.jpg",
+     "adv_image":"40.jpg",
      "adv_video":"",
      "profile": "",
      "tel": "",
@@ -580,8 +1074,8 @@ class _Business_Top_ListState extends State<Business_Top_List> {
     {
      "sector":"MANUFACTURING",
      "name": "UNIVERSAL PLASTIC FACTORY PLC",
-     "logo": "assets/images/business_lists/adv_logo/42.jpg",
-     "adv_image":"assets/images/business_lists/adv_logo/42.jpg",
+     "logo": "42.jpg",
+     "adv_image":"42.jpg",
      "adv_video":"assets/video/business/37.mp4",
      "profile": "",
      "tel": "0116296856/57/0116293416",
@@ -592,8 +1086,8 @@ class _Business_Top_ListState extends State<Business_Top_List> {
    {
      "sector":"EXPORT",
      "name": "ZIAD MOHAMED IMPORT AND EXPORT",
-     "logo": "assets/images/business_lists/adv_logo/43.jpg",
-     "adv_image":"assets/images/business_lists/adv_logo/43.jpg",
+     "logo": "43.jpg",
+     "adv_image":"43.jpg",
      "adv_video":"",
      "profile": "",
      "tel": "0114701226",
@@ -601,7 +1095,92 @@ class _Business_Top_ListState extends State<Business_Top_List> {
      "website":"",
      "fax":""
    },
+   {
+     "sector":"MANUFACTURING",
+     "name": "MUGHER CEMENT FACTORY AT CHEMICAL INDUSTRY CORPORATION",
+     "logo": "",
+     "adv_image":"mugher_cement.png",
+     "adv_video":"",
+     "profile": "",
+     "tel": "0111553648",
+     "email": "info.mughercement@gmail.com",
+     "website":"www.mughercement.com.et",
+     "fax":""
+   },
+   {
+    "sector":"MANUFACTURING",
+     "name": "AARTI STEEL PLC",
+     "logo": "",
+     "adv_image":"AARTI Steel copy.png",
+     "adv_video":"",
+     "profile": "",
+     "tel": "0116612050",
+     "email": "aartiethiopia@gmail.com",
+     "website":"www.mughercement.com.et",
+     "fax":""
+   },
+    {
+    "sector":"IMPORT",
+     "name": "ACME ENGINEERING AND TRADING P.L.C",
+     "logo": "",
+     "adv_image":"ACME Engineering & Trading PLC C copy.png",
+     "adv_video":"",
+     "profile": "",
+     "tel": "0111556638",
+     "email": "acmeet2003@yahoo.com",
+     "website":"http://www.acme-et.com",
+     "fax":""
+   },
+    {
+    "sector":"IMPORT",
+     "name": "A.G.T.A . P.L.C",
+     "logo": "",
+     "adv_image":"AGTA PLC C copy.png",
+     "adv_video":"",
+     "profile": "",
+     "tel": "0115581296",
+     "email": "commercial@myagta.com",
+     "website":"",
+     "fax":""
+   },
+    {
+    "sector":"MANUFACTURING",
+     "name": "ALE DES INDUSTRY AND TRADE PLC",
+     "logo": "",
+     "adv_image":"ALE DES copy.png",
+     "adv_video":"",
+     "profile": "",
+     "tel": "",
+     "email": "",
+     "website":"",
+     "fax":""
+   },
+    {
+    "sector":"MANUFACTURING",
+     "name": "ALE DES INDUSTRY AND TRADE PLC",
+     "logo": "",
+     "adv_image":"ALE DES copy.png",
+     "adv_video":"",
+     "profile": "",
+     "tel": "",
+     "email": "",
+     "website":"",
+     "fax":""
+   },
+    {
+    "sector":"Community, Social And Personal Services",
+     "name": "Ik-Ram Automotive SHOW",
+     "logo": "",
+     "adv_image":"",
+     "adv_video":"assets/video/business/ik.mp4",
+     "profile": "",
+     "tel": "",
+     "email": "",
+     "website":"",
+     "fax":""
+   },
    ];
+
    final data = businessCompanyProfile as List<dynamic>;
    List<dynamic> filteredBusinesses= data;
      if(widget.index == 0){
@@ -612,7 +1191,7 @@ class _Business_Top_ListState extends State<Business_Top_List> {
     return companyName.startsWith("export") ? [element] : [];
   })
   .toList();
-  print(filteredBusinesses);
+  // print(filteredBusinesses);
 
   }
   if(widget.index == 5){
@@ -728,6 +1307,8 @@ class _Business_Top_ListState extends State<Business_Top_List> {
   itemCount: filteredBusinesses.length,
   itemBuilder: (context, index) {
     final String icon = filteredBusinesses[index]["logo"].toString();
+ Future<String> imageUrlFuture = storeImageInFirebase(filteredBusinesses[index]["logo"].toString());
+
     // final Map<String,String> list = data[index]; 
     final String name =filteredBusinesses[index]["name"].toString();// Assuming Name has data for each bank
 
@@ -754,7 +1335,23 @@ class _Business_Top_ListState extends State<Business_Top_List> {
                   ),
                   borderRadius: BorderRadius.circular(10.0),
                 ),
-                child: Image.asset(icon),
+                child:  Container(
+             width:MediaQuery.of(context).size.width * 0.20,
+           child: FutureBuilder<String>(
+    future: imageUrlFuture,
+    builder: (context, snapshot) {
+      if (snapshot.hasData) {
+        return Image.network(snapshot.data!); // Use the downloaded URL
+      } else if (snapshot.hasError) {
+        return Text('Error: ${snapshot.error}'); // Handle errors
+      }
+
+      // Display a loading indicator while waiting
+      return CircularProgressIndicator();
+    },
+  ),
+
+          ),
               ),
               SizedBox(width: 20.0),
               Expanded(
@@ -782,4 +1379,23 @@ class _Business_Top_ListState extends State<Business_Top_List> {
 
                 );
   }
+   Future<String> storeImageInFirebase(String fileName) async {
+  try {
+    final storage  = FirebaseStorage.instance.ref();
+       final images = storage.child('media');
+       final imageRef = images.child(fileName);
+       	
+
+
+
+       final networkImageUrl = await imageRef.getDownloadURL();
+       print(networkImageUrl);
+    return networkImageUrl;
+  } on FirebaseException catch (e) {
+    // Handle potential errors
+    print('Error storing image: ${e.code} - ${e.message}');
+    return ''; // Or throw an exception for further handling
+  }
+}
+
 }

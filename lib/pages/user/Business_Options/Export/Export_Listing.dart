@@ -401,19 +401,8 @@ for (var i = 0; i < items.length; i++) {
       // physics: NeverScrollableScrollPhysics(),
      
      
-       NestedScrollView(
-        headerSliverBuilder:(context, innerChildOverscrollIndicator)=> [
-           const SliverAppBar(
-            automaticallyImplyLeading: false,
-            collapsedHeight: 500,
-            expandedHeight: 500,
-            flexibleSpace: Padding(
-              padding: EdgeInsets.only(left: 20.0,right: 20,bottom: 16),
-              child: Business_Top_List(index: 1),
-            ),
-          )
-      ],
-         body: ListView.builder(
+      
+          ListView.builder(
          itemCount: filteredBusinesses.length,
          itemBuilder: (context, index) {
            final businessData = filteredBusinesses[index];
@@ -637,8 +626,8 @@ for (var i = 0; i < items.length; i++) {
              // },
            // );
          },
-           ),
-       );
+           );
+       
   
 }
 }
